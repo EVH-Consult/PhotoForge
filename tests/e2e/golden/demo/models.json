@@ -2,132 +2,132 @@
   "contextual_grouping": {
     "groups": [
       {
-        "group_id": "0443bb567192afd27f32fb64324d4fd57bf143ca2eeec683d22f61616f05fbdf",
+        "group_id": "13c248b8b066fd392f5c15a50c323d9213d2a41fbb59fed99f6ed0fbba943fcd",
         "member_refs": [
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0176.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0177.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0178.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0179.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0180.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0181.jpg"
+          "<INPUT_ROOT>/IMAG0189.jpg",
+          "<INPUT_ROOT>/IMAG0190.jpg",
+          "<INPUT_ROOT>/IMAG0191.jpg"
         ]
       },
       {
-        "group_id": "139056517086cb54ffcdf2f18fe3a8488c5e132a57fbb4c51730069ff51f8680",
+        "group_id": "1fba2b539c1230c1eeb08e79626a5a9951e253d0aa12569def73a12fc0c1ae4a",
         "member_refs": [
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0184.jpg"
+          "<INPUT_ROOT>/IMAG0182.jpg",
+          "<INPUT_ROOT>/IMAG0183.jpg"
         ]
       },
       {
-        "group_id": "21e64ce7d4038ab0964fbcfdce9a4eb07713cdd8a38252ea0b21a6cb06c6be4d",
+        "group_id": "23abbf7109147a636a03d1f42b9ecd06d86f861b0ce5507c9cdf87a4ac3db2a7",
         "member_refs": [
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0201.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0202.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0202_1.jpg"
+          "<INPUT_ROOT>/IMAG0193.jpg"
         ]
       },
       {
-        "group_id": "2fc998eaf624cc65f61f34052b09a10cb01f591a858313b86f9c47114cca528f",
+        "group_id": "247532bca3a14b66fe072ea58b25fb227a8f53a79cec6c9586a293dfbeafaf0e",
         "member_refs": [
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0200.jpg"
+          "<INPUT_ROOT>/IMAG0203.jpg"
         ]
       },
       {
-        "group_id": "5134bc9aab21a98e9ff78d4113ca7b93ec2d912b39e8ddb39e68ec69b2c495a7",
+        "group_id": "3deb7a7299044220788426758afba91e03d6945288fbc88c2f066a67d9a89ac5",
         "member_refs": [
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0199.jpg"
+          "<INPUT_ROOT>/IMAG0184.jpg"
         ]
       },
       {
-        "group_id": "52a748fdee07b0e3bff7d3ed34a0359f00b8f19caf0a50d25a4649836ae69092",
+        "group_id": "3e6a838cb492b12e80dae08cb4567b89769b63b5c7d1f62b3eee3b0c82c093fe",
         "member_refs": [
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0189.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0190.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0191.jpg"
+          "<INPUT_ROOT>/IMAG0166.jpg",
+          "<INPUT_ROOT>/IMAG0167.jpg",
+          "<INPUT_ROOT>/IMAG0168.jpg",
+          "<INPUT_ROOT>/IMAG0169.jpg",
+          "<INPUT_ROOT>/IMAG0170.jpg",
+          "<INPUT_ROOT>/duplicates/IMAG0166.jpg",
+          "<INPUT_ROOT>/duplicates/IMAG0167.jpg",
+          "<INPUT_ROOT>/duplicates/IMAG0168.jpg",
+          "<INPUT_ROOT>/nested/level1/IMAG0169.jpg",
+          "<INPUT_ROOT>/nested/level1/IMAG0170.jpg"
         ]
       },
       {
-        "group_id": "5f27275a91c64511d65d0811d36569beebb46dc27eac7d88df6f5521999b28eb",
+        "group_id": "57e5ba576190817678cade183b47d9b08dcf0d556766f1297d2a45e51d9f3ab6",
         "member_refs": [
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0193.jpg"
+          "<INPUT_ROOT>/IMAG0176.jpg",
+          "<INPUT_ROOT>/IMAG0177.jpg",
+          "<INPUT_ROOT>/IMAG0178.jpg",
+          "<INPUT_ROOT>/IMAG0179.jpg",
+          "<INPUT_ROOT>/IMAG0180.jpg",
+          "<INPUT_ROOT>/IMAG0181.jpg"
         ]
       },
       {
-        "group_id": "61b6958fcc7eb7b6fe367903f0bdfae0af810959c8eafaf2c020c2d89652a477",
+        "group_id": "7a5333eadf0f189338ab2505e309ffcc32bf81ab26971fb2972d3b609434e805",
         "member_refs": [
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0187.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0188.jpg"
+          "<INPUT_ROOT>/IMAG0185.jpg",
+          "<INPUT_ROOT>/IMAG0186.jpg"
         ]
       },
       {
-        "group_id": "8736d0c10b31d4d7bee30bea540d64c18f8c0c820f79ce71ee2499cad8fb71b2",
+        "group_id": "9bc9cb6cb430f3ba1e4a249f062a7a6f07840dca0426c40839a570b87e32c313",
         "member_refs": [
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0204.jpg"
+          "<INPUT_ROOT>/IMAG0204.jpg"
         ]
       },
       {
-        "group_id": "8fa520dbf189bffb4eb59329ef990c19ed9bbf8310f59b0e02e9e6d54b0894a2",
+        "group_id": "9ca83bb387e9f21f3b602c35b8167ca08d9dcc620af3e5dd010f48c5ba8852d6",
         "member_refs": [
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0166.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0167.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0168.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0169.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0170.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//duplicates//IMAG0166.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//duplicates//IMAG0167.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//duplicates//IMAG0168.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//nested//level1//IMAG0169.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//nested//level1//IMAG0170.jpg"
+          "<INPUT_ROOT>/IMAG0194.jpg",
+          "<INPUT_ROOT>/IMAG0195.jpg",
+          "<INPUT_ROOT>/IMAG0196.jpg",
+          "<INPUT_ROOT>/IMAG0197.jpg",
+          "<INPUT_ROOT>/IMAG0198.jpg"
         ]
       },
       {
-        "group_id": "9103f82aa9c72a5502a83bc71cce0a3f8d3d7abd504cb2ad8485509b40003a62",
+        "group_id": "b6bc64da0478fc546eaf210fe0edfc8c241fd7b5084a4b6b351c11394400414d",
         "member_refs": [
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0182.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0183.jpg"
+          "<INPUT_ROOT>/IMAG0171.jpg",
+          "<INPUT_ROOT>/IMAG0172.jpg",
+          "<INPUT_ROOT>/IMAG0173.jpg",
+          "<INPUT_ROOT>/IMAG0174.jpg",
+          "<INPUT_ROOT>/nested/level1/IMAG0171.jpg"
         ]
       },
       {
-        "group_id": "adea8e1b6d455e34d9d50b3db08bd003be9a09e0308f8881c1e6ca11db101ede",
+        "group_id": "c37f6e825e6bd743849274279c72c64cafa56af9b786b1f909ab9fc24a40cc1a",
         "member_refs": [
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180316_195505_111704202.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180318_134422_1026864567.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180318_143915_1770235956.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180319_123935_715986013.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//corrupt.jpg"
+          "<INPUT_ROOT>/JPEG_20180316_195505_111704202.jpg",
+          "<INPUT_ROOT>/JPEG_20180318_134422_1026864567.jpg",
+          "<INPUT_ROOT>/JPEG_20180318_143915_1770235956.jpg",
+          "<INPUT_ROOT>/JPEG_20180319_123935_715986013.jpg",
+          "<INPUT_ROOT>/corrupt.jpg"
         ]
       },
       {
-        "group_id": "be7e57412bf7a0b6a3f4509f9d0430f2220b0a38b9716b4e109cfdc62f4ec237",
+        "group_id": "ccc469b596bd2fe719ae3235bbfa2841e546b1a40af7878480d0de433dc98c13",
         "member_refs": [
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0194.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0195.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0196.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0197.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0198.jpg"
+          "<INPUT_ROOT>/IMAG0199.jpg"
         ]
       },
       {
-        "group_id": "c0c386157ef1851848d56db3ca73f3cab0af5b4a2a6ec91afb8dba31b670dd0a",
+        "group_id": "d7b7d1bb777b9475c4b76c0e23443c1ef911051375125fb70e92d083b3570cd0",
         "member_refs": [
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0203.jpg"
+          "<INPUT_ROOT>/IMAG0201.jpg",
+          "<INPUT_ROOT>/IMAG0202.jpg",
+          "<INPUT_ROOT>/IMAG0202_1.jpg"
         ]
       },
       {
-        "group_id": "d0ecdd05b0996ccad5afcf8450aaf8b1dcf648c5e01262d4ed70199caa24fa5d",
+        "group_id": "e0e369a60a972cc510bcbcf96faaf1e1654a12b0a095294fd2ce601f434d68bc",
         "member_refs": [
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0185.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0186.jpg"
+          "<INPUT_ROOT>/IMAG0187.jpg",
+          "<INPUT_ROOT>/IMAG0188.jpg"
         ]
       },
       {
-        "group_id": "e95006ab3e8ce0c35b7660c6384f394819f32e642630e35bdf4026069cfcaf44",
+        "group_id": "f4bb4f7a34478931afd9be337cd359db715a36fb3cdefe6dab3cc27675c9a00c",
         "member_refs": [
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0171.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0172.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0173.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0174.jpg",
-          "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//nested//level1//IMAG0171.jpg"
+          "<INPUT_ROOT>/IMAG0200.jpg"
         ]
       }
     ]
@@ -182,7 +182,7 @@
       {
         "action": "rename",
         "source_path": "<INPUT_ROOT>/JPEG_20180316_195505_111704202.jpg",
-        "target_path": "<INPUT_ROOT>/2026-04-15_194802_313e84f4.jpg"
+        "target_path": "<INPUT_ROOT>/2026-04-16_143201_313e84f4.jpg"
       },
       {
         "action": "rename",
@@ -197,7 +197,7 @@
       {
         "action": "rename",
         "source_path": "<INPUT_ROOT>/JPEG_20180318_134422_1026864567.jpg",
-        "target_path": "<INPUT_ROOT>/2026-04-15_194802_343b5799.jpg"
+        "target_path": "<INPUT_ROOT>/2026-04-16_143201_343b5799.jpg"
       },
       {
         "action": "rename",
@@ -222,7 +222,7 @@
       {
         "action": "rename",
         "source_path": "<INPUT_ROOT>/JPEG_20180319_123935_715986013.jpg",
-        "target_path": "<INPUT_ROOT>/2026-04-15_194802_5f1bd781.jpg"
+        "target_path": "<INPUT_ROOT>/2026-04-16_143201_5f1bd781.jpg"
       },
       {
         "action": "rename",
@@ -252,7 +252,7 @@
       {
         "action": "rename",
         "source_path": "<INPUT_ROOT>/corrupt.jpg",
-        "target_path": "<INPUT_ROOT>/2026-04-15_194802_8a2d495a.jpg"
+        "target_path": "<INPUT_ROOT>/2026-04-16_143201_8a2d495a.jpg"
       },
       {
         "action": "rename",
@@ -267,7 +267,7 @@
       {
         "action": "rename",
         "source_path": "<INPUT_ROOT>/JPEG_20180318_143915_1770235956.jpg",
-        "target_path": "<INPUT_ROOT>/2026-04-15_194802_b553b864.jpg"
+        "target_path": "<INPUT_ROOT>/2026-04-16_143201_b553b864.jpg"
       },
       {
         "action": "rename",
@@ -498,15 +498,15 @@
       {
         "action_status": "rename",
         "canonical": true,
-        "canonical_filename": "2026-04-15_194802_313e84f4.jpg",
+        "canonical_filename": "2026-04-16_143201_313e84f4.jpg",
         "duplicate_group_id": "313e84f4bcee36c009862555a406dc2ca3314d66a35b25cc53ca934452fe842b",
         "duplicate_group_size": 1,
         "path": "<INPUT_ROOT>/JPEG_20180316_195505_111704202.jpg",
         "sha256": "313e84f4bcee36c009862555a406dc2ca3314d66a35b25cc53ca934452fe842b",
         "short_hash": "313e84f4",
-        "target_path": "<INPUT_ROOT>/2026-04-15_194802_313e84f4.jpg",
-        "timestamp": "2026-04-15 19:48:02",
-        "timestamp_source": "mtime"
+        "target_path": "<INPUT_ROOT>/2026-04-16_143201_313e84f4.jpg",
+        "timestamp": "2026-04-16 14:32:01",
+        "timestamp_source": "filesystem_mtime"
       },
       {
         "action_status": "rename",
@@ -537,15 +537,15 @@
       {
         "action_status": "rename",
         "canonical": true,
-        "canonical_filename": "2026-04-15_194802_343b5799.jpg",
+        "canonical_filename": "2026-04-16_143201_343b5799.jpg",
         "duplicate_group_id": "343b5799d5a209cd67dabf47c8111c19e7339e3aa77257688f72c8efdf5ffa5e",
         "duplicate_group_size": 1,
         "path": "<INPUT_ROOT>/JPEG_20180318_134422_1026864567.jpg",
         "sha256": "343b5799d5a209cd67dabf47c8111c19e7339e3aa77257688f72c8efdf5ffa5e",
         "short_hash": "343b5799",
-        "target_path": "<INPUT_ROOT>/2026-04-15_194802_343b5799.jpg",
-        "timestamp": "2026-04-15 19:48:02",
-        "timestamp_source": "mtime"
+        "target_path": "<INPUT_ROOT>/2026-04-16_143201_343b5799.jpg",
+        "timestamp": "2026-04-16 14:32:01",
+        "timestamp_source": "filesystem_mtime"
       },
       {
         "action_status": "rename",
@@ -615,15 +615,15 @@
       {
         "action_status": "rename",
         "canonical": true,
-        "canonical_filename": "2026-04-15_194802_5f1bd781.jpg",
+        "canonical_filename": "2026-04-16_143201_5f1bd781.jpg",
         "duplicate_group_id": "5f1bd781209f4256db04bcebba5055fcac16ff05b1a2542691b363e2044f69b9",
         "duplicate_group_size": 1,
         "path": "<INPUT_ROOT>/JPEG_20180319_123935_715986013.jpg",
         "sha256": "5f1bd781209f4256db04bcebba5055fcac16ff05b1a2542691b363e2044f69b9",
         "short_hash": "5f1bd781",
-        "target_path": "<INPUT_ROOT>/2026-04-15_194802_5f1bd781.jpg",
-        "timestamp": "2026-04-15 19:48:02",
-        "timestamp_source": "mtime"
+        "target_path": "<INPUT_ROOT>/2026-04-16_143201_5f1bd781.jpg",
+        "timestamp": "2026-04-16 14:32:01",
+        "timestamp_source": "filesystem_mtime"
       },
       {
         "action_status": "rename",
@@ -719,15 +719,15 @@
       {
         "action_status": "rename",
         "canonical": true,
-        "canonical_filename": "2026-04-15_194802_8a2d495a.jpg",
+        "canonical_filename": "2026-04-16_143201_8a2d495a.jpg",
         "duplicate_group_id": "8a2d495aa48dbe79131474fb0d86495fe90f4b658823ca9e470342a7846ebf3c",
         "duplicate_group_size": 1,
         "path": "<INPUT_ROOT>/corrupt.jpg",
         "sha256": "8a2d495aa48dbe79131474fb0d86495fe90f4b658823ca9e470342a7846ebf3c",
         "short_hash": "8a2d495a",
-        "target_path": "<INPUT_ROOT>/2026-04-15_194802_8a2d495a.jpg",
-        "timestamp": "2026-04-15 19:48:02",
-        "timestamp_source": "mtime"
+        "target_path": "<INPUT_ROOT>/2026-04-16_143201_8a2d495a.jpg",
+        "timestamp": "2026-04-16 14:32:01",
+        "timestamp_source": "filesystem_mtime"
       },
       {
         "action_status": "rename",
@@ -771,15 +771,15 @@
       {
         "action_status": "rename",
         "canonical": true,
-        "canonical_filename": "2026-04-15_194802_b553b864.jpg",
+        "canonical_filename": "2026-04-16_143201_b553b864.jpg",
         "duplicate_group_id": "b553b864eb11d0348d7bc93f631324018a2aafda9a93536aa94c4df5292448bb",
         "duplicate_group_size": 1,
         "path": "<INPUT_ROOT>/JPEG_20180318_143915_1770235956.jpg",
         "sha256": "b553b864eb11d0348d7bc93f631324018a2aafda9a93536aa94c4df5292448bb",
         "short_hash": "b553b864",
-        "target_path": "<INPUT_ROOT>/2026-04-15_194802_b553b864.jpg",
-        "timestamp": "2026-04-15 19:48:02",
-        "timestamp_source": "mtime"
+        "target_path": "<INPUT_ROOT>/2026-04-16_143201_b553b864.jpg",
+        "timestamp": "2026-04-16 14:32:01",
+        "timestamp_source": "filesystem_mtime"
       },
       {
         "action_status": "rename",
@@ -993,6 +993,1926 @@
   },
   "scan_result": {
     "issues": [],
+    "metadata_diagnostics": [
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:23",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:23",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:23",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:23",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0166.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:27",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:27",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:27",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:27",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0167.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:30",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:30",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:30",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:30",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0168.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:59",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:59",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:59",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:59",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0169.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:14:01",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:14:01",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:14:01",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:14:01",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0170.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 12:02:16",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 12:02:16",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 12:02:16",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 12:02:16",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0171.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 12:03:10",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 12:03:10",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 12:03:10",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 12:03:10",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0172.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 12:03:54",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 12:03:54",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 12:03:54",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 12:03:54",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0173.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 12:03:58",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 12:03:58",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 12:03:58",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 12:03:58",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0174.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:35:07",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:35:07",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:35:07",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:35:07",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0176.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:35:30",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:35:30",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:35:30",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:35:30",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0177.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:36:23",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:36:23",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:36:23",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:36:23",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0178.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:36:26",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:36:26",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:36:26",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:36:26",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0179.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:36:28",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:36:28",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:36:28",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:36:28",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0180.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:38:13",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:38:13",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:38:13",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 13:38:13",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0181.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 18:54:49",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 18:54:49",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 18:54:49",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 18:54:49",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0182.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 18:55:04",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 18:55:04",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 18:55:04",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 18:55:04",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0183.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 19:50:27",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 19:50:27",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 19:50:27",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 19:50:27",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0184.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 20:28:40",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 20:28:40",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 20:28:40",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 20:28:40",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0185.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 20:29:19",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 20:29:19",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 20:29:19",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 20:29:19",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0186.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 21:04:04",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 21:04:04",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 21:04:04",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 21:04:04",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0187.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 21:06:17",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 21:06:17",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 21:06:17",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 21:06:17",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0188.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 21:45:34",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 21:45:34",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 21:45:34",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 21:45:34",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0189.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 21:45:39",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 21:45:39",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 21:45:39",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 21:45:39",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0190.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 21:46:08",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 21:46:08",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 21:46:08",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 21:46:08",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0191.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 12:44:45",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 12:44:45",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 12:44:45",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 12:44:45",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0193.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 21:52:48",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 21:52:48",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 21:52:48",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 21:52:48",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0194.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 21:53:02",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 21:53:02",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 21:53:02",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 21:53:02",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0195.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 21:53:10",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 21:53:10",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 21:53:10",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 21:53:10",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0196.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 21:53:57",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 21:53:57",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 21:53:57",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 21:53:57",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0197.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 21:54:04",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 21:54:04",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 21:54:04",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-17 21:54:04",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0198.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-18 13:44:18",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-18 13:44:18",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-18 13:44:18",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-18 13:44:18",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0199.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-18 14:39:10",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-18 14:39:10",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-18 14:39:10",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-18 14:39:10",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0200.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-18 14:55:40",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-18 14:55:40",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-18 14:55:40",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-18 14:55:40",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0201.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-18 14:55:42",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-18 14:55:42",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-18 14:55:42",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-18 14:55:42",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0202.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-18 14:55:42",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-18 14:55:42",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-18 14:55:42",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-18 14:55:42",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0202_1.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-19 12:25:45",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-19 12:25:45",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-19 12:25:45",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-19 12:25:45",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0203.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-19 12:39:00",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-19 12:39:00",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-19 12:39:00",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-19 12:39:00",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/IMAG0204.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [],
+          "extraction_diagnostics": [
+            {
+              "diagnostic_type": "missing",
+              "field_name": null,
+              "source_kind": "exif"
+            }
+          ],
+          "inconsistent_pairs": []
+        },
+        "path": "<INPUT_ROOT>/JPEG_20180316_195505_111704202.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [],
+          "extraction_diagnostics": [
+            {
+              "diagnostic_type": "missing",
+              "field_name": null,
+              "source_kind": "exif"
+            }
+          ],
+          "inconsistent_pairs": []
+        },
+        "path": "<INPUT_ROOT>/JPEG_20180318_134422_1026864567.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [],
+          "extraction_diagnostics": [
+            {
+              "diagnostic_type": "missing",
+              "field_name": null,
+              "source_kind": "exif"
+            }
+          ],
+          "inconsistent_pairs": []
+        },
+        "path": "<INPUT_ROOT>/JPEG_20180318_143915_1770235956.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [],
+          "extraction_diagnostics": [
+            {
+              "diagnostic_type": "missing",
+              "field_name": null,
+              "source_kind": "exif"
+            }
+          ],
+          "inconsistent_pairs": []
+        },
+        "path": "<INPUT_ROOT>/JPEG_20180319_123935_715986013.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [],
+          "extraction_diagnostics": [
+            {
+              "diagnostic_type": "unreadable",
+              "field_name": null,
+              "source_kind": "exif"
+            }
+          ],
+          "inconsistent_pairs": []
+        },
+        "path": "<INPUT_ROOT>/corrupt.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:23",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:23",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:23",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:23",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/duplicates/IMAG0166.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:27",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:27",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:27",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:27",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/duplicates/IMAG0167.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:30",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:30",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:30",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:30",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/duplicates/IMAG0168.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:59",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:59",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:59",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:13:59",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/nested/level1/IMAG0169.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:14:01",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:14:01",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:14:01",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 01:14:01",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/nested/level1/IMAG0170.jpg"
+      },
+      {
+        "metadata_diagnostics": {
+          "comparisons": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 12:02:16",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 12:02:16",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ],
+          "extraction_diagnostics": [],
+          "inconsistent_pairs": [
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 12:02:16",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            },
+            {
+              "equal": false,
+              "left_source": "exif_datetime",
+              "left_value": "2018-03-16 12:02:16",
+              "representation": "naive",
+              "right_source": "filesystem_mtime",
+              "right_value": "2026-04-16 14:32:01"
+            }
+          ]
+        },
+        "path": "<INPUT_ROOT>/nested/level1/IMAG0171.jpg"
+      }
+    ],
     "records": [
       {
         "path": "<INPUT_ROOT>/IMAG0166.jpg",
@@ -1303,40 +3223,40 @@
         "sha256": "313e84f4bcee36c009862555a406dc2ca3314d66a35b25cc53ca934452fe842b",
         "short_hash": "313e84f4",
         "size": 204142,
-        "timestamp": "2026-04-15 19:48:02",
-        "timestamp_source": "mtime"
+        "timestamp": "2026-04-16 14:32:01",
+        "timestamp_source": "filesystem_mtime"
       },
       {
         "path": "<INPUT_ROOT>/JPEG_20180318_134422_1026864567.jpg",
         "sha256": "343b5799d5a209cd67dabf47c8111c19e7339e3aa77257688f72c8efdf5ffa5e",
         "short_hash": "343b5799",
         "size": 340981,
-        "timestamp": "2026-04-15 19:48:02",
-        "timestamp_source": "mtime"
+        "timestamp": "2026-04-16 14:32:01",
+        "timestamp_source": "filesystem_mtime"
       },
       {
         "path": "<INPUT_ROOT>/JPEG_20180318_143915_1770235956.jpg",
         "sha256": "b553b864eb11d0348d7bc93f631324018a2aafda9a93536aa94c4df5292448bb",
         "short_hash": "b553b864",
         "size": 281727,
-        "timestamp": "2026-04-15 19:48:02",
-        "timestamp_source": "mtime"
+        "timestamp": "2026-04-16 14:32:01",
+        "timestamp_source": "filesystem_mtime"
       },
       {
         "path": "<INPUT_ROOT>/JPEG_20180319_123935_715986013.jpg",
         "sha256": "5f1bd781209f4256db04bcebba5055fcac16ff05b1a2542691b363e2044f69b9",
         "short_hash": "5f1bd781",
         "size": 299381,
-        "timestamp": "2026-04-15 19:48:02",
-        "timestamp_source": "mtime"
+        "timestamp": "2026-04-16 14:32:01",
+        "timestamp_source": "filesystem_mtime"
       },
       {
         "path": "<INPUT_ROOT>/corrupt.jpg",
         "sha256": "8a2d495aa48dbe79131474fb0d86495fe90f4b658823ca9e470342a7846ebf3c",
         "short_hash": "8a2d495a",
         "size": 15,
-        "timestamp": "2026-04-15 19:48:02",
-        "timestamp_source": "mtime"
+        "timestamp": "2026-04-16 14:32:01",
+        "timestamp_source": "filesystem_mtime"
       },
       {
         "path": "<INPUT_ROOT>/duplicates/IMAG0166.jpg",

@@ -9,6 +9,7 @@
   },
   "scan_result": {
     "issues": [],
+    "metadata_diagnostics": [],
     "records": [],
     "skipped": [],
     "supported_files_processed": 0,

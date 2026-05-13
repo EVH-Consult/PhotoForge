@@ -44,7 +44,7 @@ def test_normalize_metadata_with_timezone_uses_utc_timestamp() -> None:
     )
 
 
-def test_normalize_metadata_rejects_date_precision() -> None:
+def test_normalize_metadata_accepts_date_precision() -> None:
     candidate = TimestampCandidate(
         source_kind="filename",
         source_detail="filename_yyyymmdd",
@@ -53,24 +53,34 @@ def test_normalize_metadata_rejects_date_precision() -> None:
         timezone_offset=None,
     )
 
-    with pytest.raises(ValueError, match='primary_candidate.precision must be "datetime"'):
-        normalize_metadata(candidate)
+    result = normalize_metadata(candidate)
 
-
-def test_normalize_metadata_rejects_aware_naive_timestamp() -> None:
-    candidate = TimestampCandidate(
-        source_kind="exif",
-        source_detail="exif_datetimeoriginal",
-        naive_timestamp=datetime(2024, 1, 2, 3, 4, 5, tzinfo=timezone.utc),
-        precision="datetime",
-        timezone_offset=None,
+    assert result == NormalizedMetadata(
+        timestamp=datetime(2024, 1, 2, 0, 0, 0),
+        timestamp_source="filename_yyyymmdd",
     )
 
-    with pytest.raises(TypeError, match="naive_timestamp must be naive"):
-        normalize_metadata(candidate)
+
+def test_timestamp_candidate_rejects_aware_naive_timestamp() -> None:
+    with pytest.raises(ValueError, match="naive_timestamp must be naive"):
+        TimestampCandidate(
+            source_kind="exif",
+            source_detail="exif_datetimeoriginal",
+            naive_timestamp=datetime(
+                2024,
+                1,
+                2,
+                3,
+                4,
+                5,
+                tzinfo=timezone.utc,
+            ),
+            precision="datetime",
+            timezone_offset=None,
+        )
 
 
-def test_normalize_metadata_rejects_invalid_timezone_offset() -> None:
+def test_normalize_metadata_propagates_invalid_timezone_offset() -> None:
     candidate = TimestampCandidate(
         source_kind="exif",
         source_detail="exif_datetimeoriginal",
@@ -79,5 +89,5 @@ def test_normalize_metadata_rejects_invalid_timezone_offset() -> None:
         timezone_offset=timedelta(hours=30),
     )
 
-    with pytest.raises(ValueError, match="timezone_offset is invalid"):
+    with pytest.raises(ValueError, match="offset must be a timedelta"):
         normalize_metadata(candidate)

@@ -19,7 +19,6 @@ def extract_filesystem_timestamp_candidates(
     candidates: list[TimestampCandidate] = []
 
     candidates.extend(_candidate_from_timestamp("filesystem_mtime", stat_result.st_mtime))
-    candidates.extend(_candidate_from_timestamp("filesystem_ctime", stat_result.st_ctime))
 
     birthtime_value = getattr(stat_result, "st_birthtime", None)
     if birthtime_value is not None:

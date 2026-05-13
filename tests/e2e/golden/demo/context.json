@@ -2,348 +2,348 @@
   "actions": [
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0167.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_011327_0304747a.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0167.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_011327_0304747a.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0183.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_185504_042d6fed.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0183.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_185504_042d6fed.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0195.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-17_215302_047df52f.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0195.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-17_215302_047df52f.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0168.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_011330_051d7291.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0168.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_011330_051d7291.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0187.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_210404_0ea0bf68.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0187.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_210404_0ea0bf68.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0204.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-19_123900_19da1107.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0204.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-19_123900_19da1107.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0189.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_214534_1e475f94.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0189.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_214534_1e475f94.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0173.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_120354_1f0e0bd9.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0173.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_120354_1f0e0bd9.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0178.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_133623_2567b371.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0178.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_133623_2567b371.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180316_195505_111704202.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-04-15_194802_313e84f4.jpg"
+      "source_path": "<INPUT_ROOT>/JPEG_20180316_195505_111704202.jpg",
+      "target_path": "<INPUT_ROOT>/2026-04-16_143201_313e84f4.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0194.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-17_215248_33aedb8c.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0194.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-17_215248_33aedb8c.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0174.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_120358_33d453f8.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0174.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_120358_33d453f8.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180318_134422_1026864567.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-04-15_194802_343b5799.jpg"
+      "source_path": "<INPUT_ROOT>/JPEG_20180318_134422_1026864567.jpg",
+      "target_path": "<INPUT_ROOT>/2026-04-16_143201_343b5799.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0170.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_011401_3a50275f.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0170.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_011401_3a50275f.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0199.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-18_134418_4d68605d.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0199.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-18_134418_4d68605d.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0200.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-18_143910_51660b37.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0200.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-18_143910_51660b37.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0190.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_214539_59adf158.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0190.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_214539_59adf158.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180319_123935_715986013.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-04-15_194802_5f1bd781.jpg"
+      "source_path": "<INPUT_ROOT>/JPEG_20180319_123935_715986013.jpg",
+      "target_path": "<INPUT_ROOT>/2026-04-16_143201_5f1bd781.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0182.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_185449_69029a98.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0182.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_185449_69029a98.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0202.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-18_145542_71a7b2cc.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0202.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-18_145542_71a7b2cc.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0198.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-17_215404_7e826e45.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0198.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-17_215404_7e826e45.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0169.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_011359_83ed713e.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0169.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_011359_83ed713e.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0166.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_011323_86dd78e0.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0166.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_011323_86dd78e0.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//corrupt.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-04-15_194802_8a2d495a.jpg"
+      "source_path": "<INPUT_ROOT>/corrupt.jpg",
+      "target_path": "<INPUT_ROOT>/2026-04-16_143201_8a2d495a.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0176.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_133507_952d36c3.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0176.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_133507_952d36c3.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0171.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_120216_98cb50b5.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0171.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_120216_98cb50b5.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180318_143915_1770235956.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-04-15_194802_b553b864.jpg"
+      "source_path": "<INPUT_ROOT>/JPEG_20180318_143915_1770235956.jpg",
+      "target_path": "<INPUT_ROOT>/2026-04-16_143201_b553b864.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0179.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_133626_b5b42107.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0179.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_133626_b5b42107.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0184.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_195027_cabafb63.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0184.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_195027_cabafb63.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0177.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_133530_d46c1e65.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0177.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_133530_d46c1e65.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0181.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_133813_d4ab324b.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0181.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_133813_d4ab324b.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0196.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-17_215310_d50a1a94.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0196.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-17_215310_d50a1a94.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0197.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-17_215357_dde36ca8.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0197.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-17_215357_dde36ca8.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0185.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_202840_df1302c5.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0185.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_202840_df1302c5.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0203.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-19_122545_e5e2b418.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0203.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-19_122545_e5e2b418.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0180.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_133628_e62ba046.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0180.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_133628_e62ba046.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0193.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-17_124445_e7bc75e8.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0193.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-17_124445_e7bc75e8.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0188.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_210617_f239c36f.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0188.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_210617_f239c36f.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0202_1.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-18_145542_f5b8fdef.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0202_1.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-18_145542_f5b8fdef.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0186.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_202919_f5d2e46a.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0186.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_202919_f5d2e46a.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0172.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_120310_fbee0810.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0172.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_120310_fbee0810.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0201.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-18_145540_fc3846b8.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0201.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-18_145540_fc3846b8.jpg"
     },
     {
       "action": "rename",
-      "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0191.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_214608_ff241e14.jpg"
+      "source_path": "<INPUT_ROOT>/IMAG0191.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_214608_ff241e14.jpg"
     }
   ],
   "contextual_groups": [
     {
-      "group_id": "0443bb567192afd27f32fb64324d4fd57bf143ca2eeec683d22f61616f05fbdf",
+      "group_id": "13c248b8b066fd392f5c15a50c323d9213d2a41fbb59fed99f6ed0fbba943fcd",
       "member_refs": [
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0176.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0177.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0178.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0179.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0180.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0181.jpg"
+        "<INPUT_ROOT>/IMAG0189.jpg",
+        "<INPUT_ROOT>/IMAG0190.jpg",
+        "<INPUT_ROOT>/IMAG0191.jpg"
       ]
     },
     {
-      "group_id": "139056517086cb54ffcdf2f18fe3a8488c5e132a57fbb4c51730069ff51f8680",
+      "group_id": "1fba2b539c1230c1eeb08e79626a5a9951e253d0aa12569def73a12fc0c1ae4a",
       "member_refs": [
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0184.jpg"
+        "<INPUT_ROOT>/IMAG0182.jpg",
+        "<INPUT_ROOT>/IMAG0183.jpg"
       ]
     },
     {
-      "group_id": "21e64ce7d4038ab0964fbcfdce9a4eb07713cdd8a38252ea0b21a6cb06c6be4d",
+      "group_id": "23abbf7109147a636a03d1f42b9ecd06d86f861b0ce5507c9cdf87a4ac3db2a7",
       "member_refs": [
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0201.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0202.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0202_1.jpg"
+        "<INPUT_ROOT>/IMAG0193.jpg"
       ]
     },
     {
-      "group_id": "2fc998eaf624cc65f61f34052b09a10cb01f591a858313b86f9c47114cca528f",
+      "group_id": "247532bca3a14b66fe072ea58b25fb227a8f53a79cec6c9586a293dfbeafaf0e",
       "member_refs": [
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0200.jpg"
+        "<INPUT_ROOT>/IMAG0203.jpg"
       ]
     },
     {
-      "group_id": "5134bc9aab21a98e9ff78d4113ca7b93ec2d912b39e8ddb39e68ec69b2c495a7",
+      "group_id": "3deb7a7299044220788426758afba91e03d6945288fbc88c2f066a67d9a89ac5",
       "member_refs": [
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0199.jpg"
+        "<INPUT_ROOT>/IMAG0184.jpg"
       ]
     },
     {
-      "group_id": "52a748fdee07b0e3bff7d3ed34a0359f00b8f19caf0a50d25a4649836ae69092",
+      "group_id": "3e6a838cb492b12e80dae08cb4567b89769b63b5c7d1f62b3eee3b0c82c093fe",
       "member_refs": [
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0189.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0190.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0191.jpg"
+        "<INPUT_ROOT>/IMAG0166.jpg",
+        "<INPUT_ROOT>/IMAG0167.jpg",
+        "<INPUT_ROOT>/IMAG0168.jpg",
+        "<INPUT_ROOT>/IMAG0169.jpg",
+        "<INPUT_ROOT>/IMAG0170.jpg",
+        "<INPUT_ROOT>/duplicates/IMAG0166.jpg",
+        "<INPUT_ROOT>/duplicates/IMAG0167.jpg",
+        "<INPUT_ROOT>/duplicates/IMAG0168.jpg",
+        "<INPUT_ROOT>/nested/level1/IMAG0169.jpg",
+        "<INPUT_ROOT>/nested/level1/IMAG0170.jpg"
       ]
     },
     {
-      "group_id": "5f27275a91c64511d65d0811d36569beebb46dc27eac7d88df6f5521999b28eb",
+      "group_id": "57e5ba576190817678cade183b47d9b08dcf0d556766f1297d2a45e51d9f3ab6",
       "member_refs": [
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0193.jpg"
+        "<INPUT_ROOT>/IMAG0176.jpg",
+        "<INPUT_ROOT>/IMAG0177.jpg",
+        "<INPUT_ROOT>/IMAG0178.jpg",
+        "<INPUT_ROOT>/IMAG0179.jpg",
+        "<INPUT_ROOT>/IMAG0180.jpg",
+        "<INPUT_ROOT>/IMAG0181.jpg"
       ]
     },
     {
-      "group_id": "61b6958fcc7eb7b6fe367903f0bdfae0af810959c8eafaf2c020c2d89652a477",
+      "group_id": "7a5333eadf0f189338ab2505e309ffcc32bf81ab26971fb2972d3b609434e805",
       "member_refs": [
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0187.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0188.jpg"
+        "<INPUT_ROOT>/IMAG0185.jpg",
+        "<INPUT_ROOT>/IMAG0186.jpg"
       ]
     },
     {
-      "group_id": "8736d0c10b31d4d7bee30bea540d64c18f8c0c820f79ce71ee2499cad8fb71b2",
+      "group_id": "9bc9cb6cb430f3ba1e4a249f062a7a6f07840dca0426c40839a570b87e32c313",
       "member_refs": [
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0204.jpg"
+        "<INPUT_ROOT>/IMAG0204.jpg"
       ]
     },
     {
-      "group_id": "8fa520dbf189bffb4eb59329ef990c19ed9bbf8310f59b0e02e9e6d54b0894a2",
+      "group_id": "9ca83bb387e9f21f3b602c35b8167ca08d9dcc620af3e5dd010f48c5ba8852d6",
       "member_refs": [
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0166.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0167.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0168.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0169.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0170.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//duplicates//IMAG0166.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//duplicates//IMAG0167.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//duplicates//IMAG0168.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//nested//level1//IMAG0169.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//nested//level1//IMAG0170.jpg"
+        "<INPUT_ROOT>/IMAG0194.jpg",
+        "<INPUT_ROOT>/IMAG0195.jpg",
+        "<INPUT_ROOT>/IMAG0196.jpg",
+        "<INPUT_ROOT>/IMAG0197.jpg",
+        "<INPUT_ROOT>/IMAG0198.jpg"
       ]
     },
     {
-      "group_id": "9103f82aa9c72a5502a83bc71cce0a3f8d3d7abd504cb2ad8485509b40003a62",
+      "group_id": "b6bc64da0478fc546eaf210fe0edfc8c241fd7b5084a4b6b351c11394400414d",
       "member_refs": [
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0182.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0183.jpg"
+        "<INPUT_ROOT>/IMAG0171.jpg",
+        "<INPUT_ROOT>/IMAG0172.jpg",
+        "<INPUT_ROOT>/IMAG0173.jpg",
+        "<INPUT_ROOT>/IMAG0174.jpg",
+        "<INPUT_ROOT>/nested/level1/IMAG0171.jpg"
       ]
     },
     {
-      "group_id": "adea8e1b6d455e34d9d50b3db08bd003be9a09e0308f8881c1e6ca11db101ede",
+      "group_id": "c37f6e825e6bd743849274279c72c64cafa56af9b786b1f909ab9fc24a40cc1a",
       "member_refs": [
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180316_195505_111704202.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180318_134422_1026864567.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180318_143915_1770235956.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180319_123935_715986013.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//corrupt.jpg"
+        "<INPUT_ROOT>/JPEG_20180316_195505_111704202.jpg",
+        "<INPUT_ROOT>/JPEG_20180318_134422_1026864567.jpg",
+        "<INPUT_ROOT>/JPEG_20180318_143915_1770235956.jpg",
+        "<INPUT_ROOT>/JPEG_20180319_123935_715986013.jpg",
+        "<INPUT_ROOT>/corrupt.jpg"
       ]
     },
     {
-      "group_id": "be7e57412bf7a0b6a3f4509f9d0430f2220b0a38b9716b4e109cfdc62f4ec237",
+      "group_id": "ccc469b596bd2fe719ae3235bbfa2841e546b1a40af7878480d0de433dc98c13",
       "member_refs": [
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0194.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0195.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0196.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0197.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0198.jpg"
+        "<INPUT_ROOT>/IMAG0199.jpg"
       ]
     },
     {
-      "group_id": "c0c386157ef1851848d56db3ca73f3cab0af5b4a2a6ec91afb8dba31b670dd0a",
+      "group_id": "d7b7d1bb777b9475c4b76c0e23443c1ef911051375125fb70e92d083b3570cd0",
       "member_refs": [
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0203.jpg"
+        "<INPUT_ROOT>/IMAG0201.jpg",
+        "<INPUT_ROOT>/IMAG0202.jpg",
+        "<INPUT_ROOT>/IMAG0202_1.jpg"
       ]
     },
     {
-      "group_id": "d0ecdd05b0996ccad5afcf8450aaf8b1dcf648c5e01262d4ed70199caa24fa5d",
+      "group_id": "e0e369a60a972cc510bcbcf96faaf1e1654a12b0a095294fd2ce601f434d68bc",
       "member_refs": [
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0185.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0186.jpg"
+        "<INPUT_ROOT>/IMAG0187.jpg",
+        "<INPUT_ROOT>/IMAG0188.jpg"
       ]
     },
     {
-      "group_id": "e95006ab3e8ce0c35b7660c6384f394819f32e642630e35bdf4026069cfcaf44",
+      "group_id": "f4bb4f7a34478931afd9be337cd359db715a36fb3cdefe6dab3cc27675c9a00c",
       "member_refs": [
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0171.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0172.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0173.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0174.jpg",
-        "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//nested//level1//IMAG0171.jpg"
+        "<INPUT_ROOT>/IMAG0200.jpg"
       ]
     }
   ],
@@ -355,10 +355,10 @@
       "canonical_filename": "2018-03-16_011327_0304747a.jpg",
       "duplicate_group_id": "0304747a1d77e889bc1e87a89df6791bde65a2e46cf9ef8fdda53d3d28054d40",
       "duplicate_group_size": 2,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0167.jpg",
+      "path": "<INPUT_ROOT>/IMAG0167.jpg",
       "sha256": "0304747a1d77e889bc1e87a89df6791bde65a2e46cf9ef8fdda53d3d28054d40",
       "short_hash": "0304747a",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_011327_0304747a.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_011327_0304747a.jpg",
       "timestamp": "2018-03-16 01:13:27",
       "timestamp_source": "exif_datetime"
     },
@@ -368,7 +368,7 @@
       "canonical_filename": "2018-03-16_011327_0304747a.jpg",
       "duplicate_group_id": "0304747a1d77e889bc1e87a89df6791bde65a2e46cf9ef8fdda53d3d28054d40",
       "duplicate_group_size": 2,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//duplicates//IMAG0167.jpg",
+      "path": "<INPUT_ROOT>/duplicates/IMAG0167.jpg",
       "sha256": "0304747a1d77e889bc1e87a89df6791bde65a2e46cf9ef8fdda53d3d28054d40",
       "short_hash": "0304747a",
       "target_path": null,
@@ -381,10 +381,10 @@
       "canonical_filename": "2018-03-16_185504_042d6fed.jpg",
       "duplicate_group_id": "042d6fed42078a385cdacb118b7eb4d67f981a16cb694e3cbc403a7358ed675f",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0183.jpg",
+      "path": "<INPUT_ROOT>/IMAG0183.jpg",
       "sha256": "042d6fed42078a385cdacb118b7eb4d67f981a16cb694e3cbc403a7358ed675f",
       "short_hash": "042d6fed",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_185504_042d6fed.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_185504_042d6fed.jpg",
       "timestamp": "2018-03-16 18:55:04",
       "timestamp_source": "exif_datetime"
     },
@@ -394,10 +394,10 @@
       "canonical_filename": "2018-03-17_215302_047df52f.jpg",
       "duplicate_group_id": "047df52fadac8d91af03f2da14d6e7959df73a359a7e6cafbf0b3c904ffc444e",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0195.jpg",
+      "path": "<INPUT_ROOT>/IMAG0195.jpg",
       "sha256": "047df52fadac8d91af03f2da14d6e7959df73a359a7e6cafbf0b3c904ffc444e",
       "short_hash": "047df52f",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-17_215302_047df52f.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-17_215302_047df52f.jpg",
       "timestamp": "2018-03-17 21:53:02",
       "timestamp_source": "exif_datetime"
     },
@@ -407,10 +407,10 @@
       "canonical_filename": "2018-03-16_011330_051d7291.jpg",
       "duplicate_group_id": "051d729128ca480d7aaad8fb4e16bcacd9bfa22877e04ecad3bc21435fb0c847",
       "duplicate_group_size": 2,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0168.jpg",
+      "path": "<INPUT_ROOT>/IMAG0168.jpg",
       "sha256": "051d729128ca480d7aaad8fb4e16bcacd9bfa22877e04ecad3bc21435fb0c847",
       "short_hash": "051d7291",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_011330_051d7291.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_011330_051d7291.jpg",
       "timestamp": "2018-03-16 01:13:30",
       "timestamp_source": "exif_datetime"
     },
@@ -420,7 +420,7 @@
       "canonical_filename": "2018-03-16_011330_051d7291.jpg",
       "duplicate_group_id": "051d729128ca480d7aaad8fb4e16bcacd9bfa22877e04ecad3bc21435fb0c847",
       "duplicate_group_size": 2,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//duplicates//IMAG0168.jpg",
+      "path": "<INPUT_ROOT>/duplicates/IMAG0168.jpg",
       "sha256": "051d729128ca480d7aaad8fb4e16bcacd9bfa22877e04ecad3bc21435fb0c847",
       "short_hash": "051d7291",
       "target_path": null,
@@ -433,10 +433,10 @@
       "canonical_filename": "2018-03-16_210404_0ea0bf68.jpg",
       "duplicate_group_id": "0ea0bf6805886366d882567c56c2b95b8056d873bf474897b077bddefd9a4baf",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0187.jpg",
+      "path": "<INPUT_ROOT>/IMAG0187.jpg",
       "sha256": "0ea0bf6805886366d882567c56c2b95b8056d873bf474897b077bddefd9a4baf",
       "short_hash": "0ea0bf68",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_210404_0ea0bf68.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_210404_0ea0bf68.jpg",
       "timestamp": "2018-03-16 21:04:04",
       "timestamp_source": "exif_datetime"
     },
@@ -446,10 +446,10 @@
       "canonical_filename": "2018-03-19_123900_19da1107.jpg",
       "duplicate_group_id": "19da1107b0f71287681590d29f5474a9582d414b5113a89ebca1e524b84ef289",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0204.jpg",
+      "path": "<INPUT_ROOT>/IMAG0204.jpg",
       "sha256": "19da1107b0f71287681590d29f5474a9582d414b5113a89ebca1e524b84ef289",
       "short_hash": "19da1107",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-19_123900_19da1107.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-19_123900_19da1107.jpg",
       "timestamp": "2018-03-19 12:39:00",
       "timestamp_source": "exif_datetime"
     },
@@ -459,10 +459,10 @@
       "canonical_filename": "2018-03-16_214534_1e475f94.jpg",
       "duplicate_group_id": "1e475f947e9605e2afe9ca9e5490ac4f2a381152fed7e2d94237bc74ba2ad397",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0189.jpg",
+      "path": "<INPUT_ROOT>/IMAG0189.jpg",
       "sha256": "1e475f947e9605e2afe9ca9e5490ac4f2a381152fed7e2d94237bc74ba2ad397",
       "short_hash": "1e475f94",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_214534_1e475f94.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_214534_1e475f94.jpg",
       "timestamp": "2018-03-16 21:45:34",
       "timestamp_source": "exif_datetime"
     },
@@ -472,10 +472,10 @@
       "canonical_filename": "2018-03-16_120354_1f0e0bd9.jpg",
       "duplicate_group_id": "1f0e0bd99a50822f8344287b81d2e3942a398a47c24ebf63e5724ca85540a8ae",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0173.jpg",
+      "path": "<INPUT_ROOT>/IMAG0173.jpg",
       "sha256": "1f0e0bd99a50822f8344287b81d2e3942a398a47c24ebf63e5724ca85540a8ae",
       "short_hash": "1f0e0bd9",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_120354_1f0e0bd9.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_120354_1f0e0bd9.jpg",
       "timestamp": "2018-03-16 12:03:54",
       "timestamp_source": "exif_datetime"
     },
@@ -485,25 +485,25 @@
       "canonical_filename": "2018-03-16_133623_2567b371.jpg",
       "duplicate_group_id": "2567b37168da273b8525856151e8213c61764727eb2d822cc21b72a829f738c5",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0178.jpg",
+      "path": "<INPUT_ROOT>/IMAG0178.jpg",
       "sha256": "2567b37168da273b8525856151e8213c61764727eb2d822cc21b72a829f738c5",
       "short_hash": "2567b371",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_133623_2567b371.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_133623_2567b371.jpg",
       "timestamp": "2018-03-16 13:36:23",
       "timestamp_source": "exif_datetime"
     },
     {
       "action_status": "rename",
       "canonical": true,
-      "canonical_filename": "2026-04-15_194802_313e84f4.jpg",
+      "canonical_filename": "2026-04-16_143201_313e84f4.jpg",
       "duplicate_group_id": "313e84f4bcee36c009862555a406dc2ca3314d66a35b25cc53ca934452fe842b",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180316_195505_111704202.jpg",
+      "path": "<INPUT_ROOT>/JPEG_20180316_195505_111704202.jpg",
       "sha256": "313e84f4bcee36c009862555a406dc2ca3314d66a35b25cc53ca934452fe842b",
       "short_hash": "313e84f4",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-04-15_194802_313e84f4.jpg",
-      "timestamp": "2026-04-15 19:48:02",
-      "timestamp_source": "mtime"
+      "target_path": "<INPUT_ROOT>/2026-04-16_143201_313e84f4.jpg",
+      "timestamp": "2026-04-16 14:32:01",
+      "timestamp_source": "filesystem_mtime"
     },
     {
       "action_status": "rename",
@@ -511,10 +511,10 @@
       "canonical_filename": "2018-03-17_215248_33aedb8c.jpg",
       "duplicate_group_id": "33aedb8ca4f604bb1cc96334323a3128d4c93faf615c7dcf4bd760ac08e0bedd",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0194.jpg",
+      "path": "<INPUT_ROOT>/IMAG0194.jpg",
       "sha256": "33aedb8ca4f604bb1cc96334323a3128d4c93faf615c7dcf4bd760ac08e0bedd",
       "short_hash": "33aedb8c",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-17_215248_33aedb8c.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-17_215248_33aedb8c.jpg",
       "timestamp": "2018-03-17 21:52:48",
       "timestamp_source": "exif_datetime"
     },
@@ -524,25 +524,25 @@
       "canonical_filename": "2018-03-16_120358_33d453f8.jpg",
       "duplicate_group_id": "33d453f8f657d713a88d8b926c25ad057cced33e9a1ee7caf7f53817f59f795a",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0174.jpg",
+      "path": "<INPUT_ROOT>/IMAG0174.jpg",
       "sha256": "33d453f8f657d713a88d8b926c25ad057cced33e9a1ee7caf7f53817f59f795a",
       "short_hash": "33d453f8",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_120358_33d453f8.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_120358_33d453f8.jpg",
       "timestamp": "2018-03-16 12:03:58",
       "timestamp_source": "exif_datetime"
     },
     {
       "action_status": "rename",
       "canonical": true,
-      "canonical_filename": "2026-04-15_194802_343b5799.jpg",
+      "canonical_filename": "2026-04-16_143201_343b5799.jpg",
       "duplicate_group_id": "343b5799d5a209cd67dabf47c8111c19e7339e3aa77257688f72c8efdf5ffa5e",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180318_134422_1026864567.jpg",
+      "path": "<INPUT_ROOT>/JPEG_20180318_134422_1026864567.jpg",
       "sha256": "343b5799d5a209cd67dabf47c8111c19e7339e3aa77257688f72c8efdf5ffa5e",
       "short_hash": "343b5799",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-04-15_194802_343b5799.jpg",
-      "timestamp": "2026-04-15 19:48:02",
-      "timestamp_source": "mtime"
+      "target_path": "<INPUT_ROOT>/2026-04-16_143201_343b5799.jpg",
+      "timestamp": "2026-04-16 14:32:01",
+      "timestamp_source": "filesystem_mtime"
     },
     {
       "action_status": "rename",
@@ -550,10 +550,10 @@
       "canonical_filename": "2018-03-16_011401_3a50275f.jpg",
       "duplicate_group_id": "3a50275ff90b6ecb92cc81e7ae120e05a7aa77ad377c4bdeea7a3fa118966c9e",
       "duplicate_group_size": 2,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0170.jpg",
+      "path": "<INPUT_ROOT>/IMAG0170.jpg",
       "sha256": "3a50275ff90b6ecb92cc81e7ae120e05a7aa77ad377c4bdeea7a3fa118966c9e",
       "short_hash": "3a50275f",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_011401_3a50275f.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_011401_3a50275f.jpg",
       "timestamp": "2018-03-16 01:14:01",
       "timestamp_source": "exif_datetime"
     },
@@ -563,7 +563,7 @@
       "canonical_filename": "2018-03-16_011401_3a50275f.jpg",
       "duplicate_group_id": "3a50275ff90b6ecb92cc81e7ae120e05a7aa77ad377c4bdeea7a3fa118966c9e",
       "duplicate_group_size": 2,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//nested//level1//IMAG0170.jpg",
+      "path": "<INPUT_ROOT>/nested/level1/IMAG0170.jpg",
       "sha256": "3a50275ff90b6ecb92cc81e7ae120e05a7aa77ad377c4bdeea7a3fa118966c9e",
       "short_hash": "3a50275f",
       "target_path": null,
@@ -576,10 +576,10 @@
       "canonical_filename": "2018-03-18_134418_4d68605d.jpg",
       "duplicate_group_id": "4d68605d23e1b20dd3823f7e519dd33e3268a2deab641d9489aeb8a8c41addbc",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0199.jpg",
+      "path": "<INPUT_ROOT>/IMAG0199.jpg",
       "sha256": "4d68605d23e1b20dd3823f7e519dd33e3268a2deab641d9489aeb8a8c41addbc",
       "short_hash": "4d68605d",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-18_134418_4d68605d.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-18_134418_4d68605d.jpg",
       "timestamp": "2018-03-18 13:44:18",
       "timestamp_source": "exif_datetime"
     },
@@ -589,10 +589,10 @@
       "canonical_filename": "2018-03-18_143910_51660b37.jpg",
       "duplicate_group_id": "51660b378bccc90508523272a3402e1954d3ccf589f8c313fed42cd04c06a65c",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0200.jpg",
+      "path": "<INPUT_ROOT>/IMAG0200.jpg",
       "sha256": "51660b378bccc90508523272a3402e1954d3ccf589f8c313fed42cd04c06a65c",
       "short_hash": "51660b37",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-18_143910_51660b37.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-18_143910_51660b37.jpg",
       "timestamp": "2018-03-18 14:39:10",
       "timestamp_source": "exif_datetime"
     },
@@ -602,25 +602,25 @@
       "canonical_filename": "2018-03-16_214539_59adf158.jpg",
       "duplicate_group_id": "59adf1585da289673acb3022647db744596b376d5817d42bb53f55e52b583dd5",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0190.jpg",
+      "path": "<INPUT_ROOT>/IMAG0190.jpg",
       "sha256": "59adf1585da289673acb3022647db744596b376d5817d42bb53f55e52b583dd5",
       "short_hash": "59adf158",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_214539_59adf158.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_214539_59adf158.jpg",
       "timestamp": "2018-03-16 21:45:39",
       "timestamp_source": "exif_datetime"
     },
     {
       "action_status": "rename",
       "canonical": true,
-      "canonical_filename": "2026-04-15_194802_5f1bd781.jpg",
+      "canonical_filename": "2026-04-16_143201_5f1bd781.jpg",
       "duplicate_group_id": "5f1bd781209f4256db04bcebba5055fcac16ff05b1a2542691b363e2044f69b9",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180319_123935_715986013.jpg",
+      "path": "<INPUT_ROOT>/JPEG_20180319_123935_715986013.jpg",
       "sha256": "5f1bd781209f4256db04bcebba5055fcac16ff05b1a2542691b363e2044f69b9",
       "short_hash": "5f1bd781",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-04-15_194802_5f1bd781.jpg",
-      "timestamp": "2026-04-15 19:48:02",
-      "timestamp_source": "mtime"
+      "target_path": "<INPUT_ROOT>/2026-04-16_143201_5f1bd781.jpg",
+      "timestamp": "2026-04-16 14:32:01",
+      "timestamp_source": "filesystem_mtime"
     },
     {
       "action_status": "rename",
@@ -628,10 +628,10 @@
       "canonical_filename": "2018-03-16_185449_69029a98.jpg",
       "duplicate_group_id": "69029a98b2de80bbe1ea5dff022ebeaf3ef23795bba29888bf23aed855e45c29",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0182.jpg",
+      "path": "<INPUT_ROOT>/IMAG0182.jpg",
       "sha256": "69029a98b2de80bbe1ea5dff022ebeaf3ef23795bba29888bf23aed855e45c29",
       "short_hash": "69029a98",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_185449_69029a98.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_185449_69029a98.jpg",
       "timestamp": "2018-03-16 18:54:49",
       "timestamp_source": "exif_datetime"
     },
@@ -641,10 +641,10 @@
       "canonical_filename": "2018-03-18_145542_71a7b2cc.jpg",
       "duplicate_group_id": "71a7b2ccfe539c688e1ebd8bc66edea83088e8f0b51548ad17c377d6bc4888a3",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0202.jpg",
+      "path": "<INPUT_ROOT>/IMAG0202.jpg",
       "sha256": "71a7b2ccfe539c688e1ebd8bc66edea83088e8f0b51548ad17c377d6bc4888a3",
       "short_hash": "71a7b2cc",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-18_145542_71a7b2cc.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-18_145542_71a7b2cc.jpg",
       "timestamp": "2018-03-18 14:55:42",
       "timestamp_source": "exif_datetime"
     },
@@ -654,10 +654,10 @@
       "canonical_filename": "2018-03-17_215404_7e826e45.jpg",
       "duplicate_group_id": "7e826e4578478e8e0c0c7be5b80666bf7f07e1548ef5ea7d471301612b4d0152",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0198.jpg",
+      "path": "<INPUT_ROOT>/IMAG0198.jpg",
       "sha256": "7e826e4578478e8e0c0c7be5b80666bf7f07e1548ef5ea7d471301612b4d0152",
       "short_hash": "7e826e45",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-17_215404_7e826e45.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-17_215404_7e826e45.jpg",
       "timestamp": "2018-03-17 21:54:04",
       "timestamp_source": "exif_datetime"
     },
@@ -667,10 +667,10 @@
       "canonical_filename": "2018-03-16_011359_83ed713e.jpg",
       "duplicate_group_id": "83ed713e6fc46433584f0b5277de8cd834a7ab9b1aba1a220c3f19658f2cdf67",
       "duplicate_group_size": 2,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0169.jpg",
+      "path": "<INPUT_ROOT>/IMAG0169.jpg",
       "sha256": "83ed713e6fc46433584f0b5277de8cd834a7ab9b1aba1a220c3f19658f2cdf67",
       "short_hash": "83ed713e",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_011359_83ed713e.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_011359_83ed713e.jpg",
       "timestamp": "2018-03-16 01:13:59",
       "timestamp_source": "exif_datetime"
     },
@@ -680,7 +680,7 @@
       "canonical_filename": "2018-03-16_011359_83ed713e.jpg",
       "duplicate_group_id": "83ed713e6fc46433584f0b5277de8cd834a7ab9b1aba1a220c3f19658f2cdf67",
       "duplicate_group_size": 2,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//nested//level1//IMAG0169.jpg",
+      "path": "<INPUT_ROOT>/nested/level1/IMAG0169.jpg",
       "sha256": "83ed713e6fc46433584f0b5277de8cd834a7ab9b1aba1a220c3f19658f2cdf67",
       "short_hash": "83ed713e",
       "target_path": null,
@@ -693,10 +693,10 @@
       "canonical_filename": "2018-03-16_011323_86dd78e0.jpg",
       "duplicate_group_id": "86dd78e0d634280872bdfeb6fbf255446261540368a08b7b543b7a800d6bd8d0",
       "duplicate_group_size": 2,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0166.jpg",
+      "path": "<INPUT_ROOT>/IMAG0166.jpg",
       "sha256": "86dd78e0d634280872bdfeb6fbf255446261540368a08b7b543b7a800d6bd8d0",
       "short_hash": "86dd78e0",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_011323_86dd78e0.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_011323_86dd78e0.jpg",
       "timestamp": "2018-03-16 01:13:23",
       "timestamp_source": "exif_datetime"
     },
@@ -706,7 +706,7 @@
       "canonical_filename": "2018-03-16_011323_86dd78e0.jpg",
       "duplicate_group_id": "86dd78e0d634280872bdfeb6fbf255446261540368a08b7b543b7a800d6bd8d0",
       "duplicate_group_size": 2,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//duplicates//IMAG0166.jpg",
+      "path": "<INPUT_ROOT>/duplicates/IMAG0166.jpg",
       "sha256": "86dd78e0d634280872bdfeb6fbf255446261540368a08b7b543b7a800d6bd8d0",
       "short_hash": "86dd78e0",
       "target_path": null,
@@ -716,15 +716,15 @@
     {
       "action_status": "rename",
       "canonical": true,
-      "canonical_filename": "2026-04-15_194802_8a2d495a.jpg",
+      "canonical_filename": "2026-04-16_143201_8a2d495a.jpg",
       "duplicate_group_id": "8a2d495aa48dbe79131474fb0d86495fe90f4b658823ca9e470342a7846ebf3c",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//corrupt.jpg",
+      "path": "<INPUT_ROOT>/corrupt.jpg",
       "sha256": "8a2d495aa48dbe79131474fb0d86495fe90f4b658823ca9e470342a7846ebf3c",
       "short_hash": "8a2d495a",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-04-15_194802_8a2d495a.jpg",
-      "timestamp": "2026-04-15 19:48:02",
-      "timestamp_source": "mtime"
+      "target_path": "<INPUT_ROOT>/2026-04-16_143201_8a2d495a.jpg",
+      "timestamp": "2026-04-16 14:32:01",
+      "timestamp_source": "filesystem_mtime"
     },
     {
       "action_status": "rename",
@@ -732,10 +732,10 @@
       "canonical_filename": "2018-03-16_133507_952d36c3.jpg",
       "duplicate_group_id": "952d36c35bd3b96c295bc3d0fc164a363c61a4378ee63b02ad00d02052e4258e",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0176.jpg",
+      "path": "<INPUT_ROOT>/IMAG0176.jpg",
       "sha256": "952d36c35bd3b96c295bc3d0fc164a363c61a4378ee63b02ad00d02052e4258e",
       "short_hash": "952d36c3",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_133507_952d36c3.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_133507_952d36c3.jpg",
       "timestamp": "2018-03-16 13:35:07",
       "timestamp_source": "exif_datetime"
     },
@@ -745,10 +745,10 @@
       "canonical_filename": "2018-03-16_120216_98cb50b5.jpg",
       "duplicate_group_id": "98cb50b5018cf78ab8a948d4aff2f87ff752ffd8abcaf954e28d7c8b91bf2fdf",
       "duplicate_group_size": 2,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0171.jpg",
+      "path": "<INPUT_ROOT>/IMAG0171.jpg",
       "sha256": "98cb50b5018cf78ab8a948d4aff2f87ff752ffd8abcaf954e28d7c8b91bf2fdf",
       "short_hash": "98cb50b5",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_120216_98cb50b5.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_120216_98cb50b5.jpg",
       "timestamp": "2018-03-16 12:02:16",
       "timestamp_source": "exif_datetime"
     },
@@ -758,7 +758,7 @@
       "canonical_filename": "2018-03-16_120216_98cb50b5.jpg",
       "duplicate_group_id": "98cb50b5018cf78ab8a948d4aff2f87ff752ffd8abcaf954e28d7c8b91bf2fdf",
       "duplicate_group_size": 2,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//nested//level1//IMAG0171.jpg",
+      "path": "<INPUT_ROOT>/nested/level1/IMAG0171.jpg",
       "sha256": "98cb50b5018cf78ab8a948d4aff2f87ff752ffd8abcaf954e28d7c8b91bf2fdf",
       "short_hash": "98cb50b5",
       "target_path": null,
@@ -768,15 +768,15 @@
     {
       "action_status": "rename",
       "canonical": true,
-      "canonical_filename": "2026-04-15_194802_b553b864.jpg",
+      "canonical_filename": "2026-04-16_143201_b553b864.jpg",
       "duplicate_group_id": "b553b864eb11d0348d7bc93f631324018a2aafda9a93536aa94c4df5292448bb",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180318_143915_1770235956.jpg",
+      "path": "<INPUT_ROOT>/JPEG_20180318_143915_1770235956.jpg",
       "sha256": "b553b864eb11d0348d7bc93f631324018a2aafda9a93536aa94c4df5292448bb",
       "short_hash": "b553b864",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-04-15_194802_b553b864.jpg",
-      "timestamp": "2026-04-15 19:48:02",
-      "timestamp_source": "mtime"
+      "target_path": "<INPUT_ROOT>/2026-04-16_143201_b553b864.jpg",
+      "timestamp": "2026-04-16 14:32:01",
+      "timestamp_source": "filesystem_mtime"
     },
     {
       "action_status": "rename",
@@ -784,10 +784,10 @@
       "canonical_filename": "2018-03-16_133626_b5b42107.jpg",
       "duplicate_group_id": "b5b42107c000866834af7227bfd5c04f7004d40ea05347259d6aaadff821faa1",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0179.jpg",
+      "path": "<INPUT_ROOT>/IMAG0179.jpg",
       "sha256": "b5b42107c000866834af7227bfd5c04f7004d40ea05347259d6aaadff821faa1",
       "short_hash": "b5b42107",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_133626_b5b42107.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_133626_b5b42107.jpg",
       "timestamp": "2018-03-16 13:36:26",
       "timestamp_source": "exif_datetime"
     },
@@ -797,10 +797,10 @@
       "canonical_filename": "2018-03-16_195027_cabafb63.jpg",
       "duplicate_group_id": "cabafb63be94c919a2a7920781283a5af1ec58f480a9120b4391dcc7bdc020ca",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0184.jpg",
+      "path": "<INPUT_ROOT>/IMAG0184.jpg",
       "sha256": "cabafb63be94c919a2a7920781283a5af1ec58f480a9120b4391dcc7bdc020ca",
       "short_hash": "cabafb63",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_195027_cabafb63.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_195027_cabafb63.jpg",
       "timestamp": "2018-03-16 19:50:27",
       "timestamp_source": "exif_datetime"
     },
@@ -810,10 +810,10 @@
       "canonical_filename": "2018-03-16_133530_d46c1e65.jpg",
       "duplicate_group_id": "d46c1e65d25daa65b4315ac14289bfdf83795709cf9df6806f88774109df6495",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0177.jpg",
+      "path": "<INPUT_ROOT>/IMAG0177.jpg",
       "sha256": "d46c1e65d25daa65b4315ac14289bfdf83795709cf9df6806f88774109df6495",
       "short_hash": "d46c1e65",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_133530_d46c1e65.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_133530_d46c1e65.jpg",
       "timestamp": "2018-03-16 13:35:30",
       "timestamp_source": "exif_datetime"
     },
@@ -823,10 +823,10 @@
       "canonical_filename": "2018-03-16_133813_d4ab324b.jpg",
       "duplicate_group_id": "d4ab324b5dea69448d403edafcd311ce2dc998a96eea04d897b74a8b0932f503",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0181.jpg",
+      "path": "<INPUT_ROOT>/IMAG0181.jpg",
       "sha256": "d4ab324b5dea69448d403edafcd311ce2dc998a96eea04d897b74a8b0932f503",
       "short_hash": "d4ab324b",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_133813_d4ab324b.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_133813_d4ab324b.jpg",
       "timestamp": "2018-03-16 13:38:13",
       "timestamp_source": "exif_datetime"
     },
@@ -836,10 +836,10 @@
       "canonical_filename": "2018-03-17_215310_d50a1a94.jpg",
       "duplicate_group_id": "d50a1a94e12e062cf2f2071f7319366a27add493b8c335cf48e27e300fde8d47",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0196.jpg",
+      "path": "<INPUT_ROOT>/IMAG0196.jpg",
       "sha256": "d50a1a94e12e062cf2f2071f7319366a27add493b8c335cf48e27e300fde8d47",
       "short_hash": "d50a1a94",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-17_215310_d50a1a94.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-17_215310_d50a1a94.jpg",
       "timestamp": "2018-03-17 21:53:10",
       "timestamp_source": "exif_datetime"
     },
@@ -849,10 +849,10 @@
       "canonical_filename": "2018-03-17_215357_dde36ca8.jpg",
       "duplicate_group_id": "dde36ca81ecec8222494bb8ebebe6b44a66155d822e7cfada3ff6d93f13ecda2",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0197.jpg",
+      "path": "<INPUT_ROOT>/IMAG0197.jpg",
       "sha256": "dde36ca81ecec8222494bb8ebebe6b44a66155d822e7cfada3ff6d93f13ecda2",
       "short_hash": "dde36ca8",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-17_215357_dde36ca8.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-17_215357_dde36ca8.jpg",
       "timestamp": "2018-03-17 21:53:57",
       "timestamp_source": "exif_datetime"
     },
@@ -862,10 +862,10 @@
       "canonical_filename": "2018-03-16_202840_df1302c5.jpg",
       "duplicate_group_id": "df1302c56edc65e97492384535fd23e4f44c1f9295d70f9bbc5eecb4b2d6a5d1",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0185.jpg",
+      "path": "<INPUT_ROOT>/IMAG0185.jpg",
       "sha256": "df1302c56edc65e97492384535fd23e4f44c1f9295d70f9bbc5eecb4b2d6a5d1",
       "short_hash": "df1302c5",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_202840_df1302c5.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_202840_df1302c5.jpg",
       "timestamp": "2018-03-16 20:28:40",
       "timestamp_source": "exif_datetime"
     },
@@ -875,10 +875,10 @@
       "canonical_filename": "2018-03-19_122545_e5e2b418.jpg",
       "duplicate_group_id": "e5e2b418795ead29f65ed81be4f157c5ee6b9df2c9934891f8d8e8bd7222da9c",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0203.jpg",
+      "path": "<INPUT_ROOT>/IMAG0203.jpg",
       "sha256": "e5e2b418795ead29f65ed81be4f157c5ee6b9df2c9934891f8d8e8bd7222da9c",
       "short_hash": "e5e2b418",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-19_122545_e5e2b418.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-19_122545_e5e2b418.jpg",
       "timestamp": "2018-03-19 12:25:45",
       "timestamp_source": "exif_datetime"
     },
@@ -888,10 +888,10 @@
       "canonical_filename": "2018-03-16_133628_e62ba046.jpg",
       "duplicate_group_id": "e62ba046b6638f4f9175f2aad1fc0285bb53883fb9103d18e8f8b2b886a2bd2a",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0180.jpg",
+      "path": "<INPUT_ROOT>/IMAG0180.jpg",
       "sha256": "e62ba046b6638f4f9175f2aad1fc0285bb53883fb9103d18e8f8b2b886a2bd2a",
       "short_hash": "e62ba046",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_133628_e62ba046.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_133628_e62ba046.jpg",
       "timestamp": "2018-03-16 13:36:28",
       "timestamp_source": "exif_datetime"
     },
@@ -901,10 +901,10 @@
       "canonical_filename": "2018-03-17_124445_e7bc75e8.jpg",
       "duplicate_group_id": "e7bc75e8c89c8b0c63d36bdf823590c4bc204e78390479cab58f7c3b6c389de9",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0193.jpg",
+      "path": "<INPUT_ROOT>/IMAG0193.jpg",
       "sha256": "e7bc75e8c89c8b0c63d36bdf823590c4bc204e78390479cab58f7c3b6c389de9",
       "short_hash": "e7bc75e8",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-17_124445_e7bc75e8.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-17_124445_e7bc75e8.jpg",
       "timestamp": "2018-03-17 12:44:45",
       "timestamp_source": "exif_datetime"
     },
@@ -914,10 +914,10 @@
       "canonical_filename": "2018-03-16_210617_f239c36f.jpg",
       "duplicate_group_id": "f239c36f567bf5baf26680884df9b523574d56eb2c2659518f950fd92d8ab6b0",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0188.jpg",
+      "path": "<INPUT_ROOT>/IMAG0188.jpg",
       "sha256": "f239c36f567bf5baf26680884df9b523574d56eb2c2659518f950fd92d8ab6b0",
       "short_hash": "f239c36f",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_210617_f239c36f.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_210617_f239c36f.jpg",
       "timestamp": "2018-03-16 21:06:17",
       "timestamp_source": "exif_datetime"
     },
@@ -927,10 +927,10 @@
       "canonical_filename": "2018-03-18_145542_f5b8fdef.jpg",
       "duplicate_group_id": "f5b8fdefc984265d0bfbd23f332044ace537fd7fb3d9a6cf53f1025178df2577",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0202_1.jpg",
+      "path": "<INPUT_ROOT>/IMAG0202_1.jpg",
       "sha256": "f5b8fdefc984265d0bfbd23f332044ace537fd7fb3d9a6cf53f1025178df2577",
       "short_hash": "f5b8fdef",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-18_145542_f5b8fdef.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-18_145542_f5b8fdef.jpg",
       "timestamp": "2018-03-18 14:55:42",
       "timestamp_source": "exif_datetime"
     },
@@ -940,10 +940,10 @@
       "canonical_filename": "2018-03-16_202919_f5d2e46a.jpg",
       "duplicate_group_id": "f5d2e46ab0a6f0ecbc3e10e49a03837d983628c5262a3e327a21b3c516bbd6f4",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0186.jpg",
+      "path": "<INPUT_ROOT>/IMAG0186.jpg",
       "sha256": "f5d2e46ab0a6f0ecbc3e10e49a03837d983628c5262a3e327a21b3c516bbd6f4",
       "short_hash": "f5d2e46a",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_202919_f5d2e46a.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_202919_f5d2e46a.jpg",
       "timestamp": "2018-03-16 20:29:19",
       "timestamp_source": "exif_datetime"
     },
@@ -953,10 +953,10 @@
       "canonical_filename": "2018-03-16_120310_fbee0810.jpg",
       "duplicate_group_id": "fbee0810965a4324e90b877d7628cb31f1914d7ab09ab8dd4626ae4ecbe13601",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0172.jpg",
+      "path": "<INPUT_ROOT>/IMAG0172.jpg",
       "sha256": "fbee0810965a4324e90b877d7628cb31f1914d7ab09ab8dd4626ae4ecbe13601",
       "short_hash": "fbee0810",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_120310_fbee0810.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_120310_fbee0810.jpg",
       "timestamp": "2018-03-16 12:03:10",
       "timestamp_source": "exif_datetime"
     },
@@ -966,10 +966,10 @@
       "canonical_filename": "2018-03-18_145540_fc3846b8.jpg",
       "duplicate_group_id": "fc3846b8a7d576244eae0761382e0b4b6abcf5bb447761566c43c7a916fa6bb4",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0201.jpg",
+      "path": "<INPUT_ROOT>/IMAG0201.jpg",
       "sha256": "fc3846b8a7d576244eae0761382e0b4b6abcf5bb447761566c43c7a916fa6bb4",
       "short_hash": "fc3846b8",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-18_145540_fc3846b8.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-18_145540_fc3846b8.jpg",
       "timestamp": "2018-03-18 14:55:40",
       "timestamp_source": "exif_datetime"
     },
@@ -979,10 +979,10 @@
       "canonical_filename": "2018-03-16_214608_ff241e14.jpg",
       "duplicate_group_id": "ff241e1427b5cfe67c61333a62c0371fb35e39bfa6d8613cae74ebcb250d2275",
       "duplicate_group_size": 1,
-      "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//IMAG0191.jpg",
+      "path": "<INPUT_ROOT>/IMAG0191.jpg",
       "sha256": "ff241e1427b5cfe67c61333a62c0371fb35e39bfa6d8613cae74ebcb250d2275",
       "short_hash": "ff241e14",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2018-03-16_214608_ff241e14.jpg",
+      "target_path": "<INPUT_ROOT>/2018-03-16_214608_ff241e14.jpg",
       "timestamp": "2018-03-16 21:46:08",
       "timestamp_source": "exif_datetime"
     }

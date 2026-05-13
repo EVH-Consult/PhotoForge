@@ -1,4 +1,4 @@
-PhotoForge v0.5-dev
+PhotoForge v0.7-dev
 Mode: dry-run
 
 Summary
@@ -50,8 +50,8 @@ Planned actions
     timestamp source: exif_datetime
   [rename]
     source: <INPUT_ROOT>/JPEG_20180316_195505_111704202.jpg
-    target: <INPUT_ROOT>/2026-04-15_194802_313e84f4.jpg
-    timestamp source: mtime
+    target: <INPUT_ROOT>/2026-04-16_143201_313e84f4.jpg
+    timestamp source: filesystem_mtime
   [rename]
     source: <INPUT_ROOT>/IMAG0194.jpg
     target: <INPUT_ROOT>/2018-03-17_215248_33aedb8c.jpg
@@ -62,8 +62,8 @@ Planned actions
     timestamp source: exif_datetime
   [rename]
     source: <INPUT_ROOT>/JPEG_20180318_134422_1026864567.jpg
-    target: <INPUT_ROOT>/2026-04-15_194802_343b5799.jpg
-    timestamp source: mtime
+    target: <INPUT_ROOT>/2026-04-16_143201_343b5799.jpg
+    timestamp source: filesystem_mtime
   [rename]
     source: <INPUT_ROOT>/IMAG0170.jpg
     target: <INPUT_ROOT>/2018-03-16_011401_3a50275f.jpg
@@ -82,8 +82,8 @@ Planned actions
     timestamp source: exif_datetime
   [rename]
     source: <INPUT_ROOT>/JPEG_20180319_123935_715986013.jpg
-    target: <INPUT_ROOT>/2026-04-15_194802_5f1bd781.jpg
-    timestamp source: mtime
+    target: <INPUT_ROOT>/2026-04-16_143201_5f1bd781.jpg
+    timestamp source: filesystem_mtime
   [rename]
     source: <INPUT_ROOT>/IMAG0182.jpg
     target: <INPUT_ROOT>/2018-03-16_185449_69029a98.jpg
@@ -106,8 +106,8 @@ Planned actions
     timestamp source: exif_datetime
   [rename]
     source: <INPUT_ROOT>/corrupt.jpg
-    target: <INPUT_ROOT>/2026-04-15_194802_8a2d495a.jpg
-    timestamp source: mtime
+    target: <INPUT_ROOT>/2026-04-16_143201_8a2d495a.jpg
+    timestamp source: filesystem_mtime
   [rename]
     source: <INPUT_ROOT>/IMAG0176.jpg
     target: <INPUT_ROOT>/2018-03-16_133507_952d36c3.jpg
@@ -118,8 +118,8 @@ Planned actions
     timestamp source: exif_datetime
   [rename]
     source: <INPUT_ROOT>/JPEG_20180318_143915_1770235956.jpg
-    target: <INPUT_ROOT>/2026-04-15_194802_b553b864.jpg
-    timestamp source: mtime
+    target: <INPUT_ROOT>/2026-04-16_143201_b553b864.jpg
+    timestamp source: filesystem_mtime
   [rename]
     source: <INPUT_ROOT>/IMAG0179.jpg
     target: <INPUT_ROOT>/2018-03-16_133626_b5b42107.jpg

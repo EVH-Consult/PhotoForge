@@ -4,31 +4,31 @@ from __future__ import annotations
 
 from datetime import datetime, timedelta
 
-from photoforge.metadata import (
-    ExtractedMetadata,
+from photoforge.model import TimestampCandidate
+from photoforge.timestamp_diagnostics import (
     build_metadata_diagnostics,
-    compare_metadata_pair,
-    normalize_metadata,
+    compare_timestamp_candidates,
 )
 
 
 def test_compare_utc_candidates_equal() -> None:
-    left = normalize_metadata(
-        ExtractedMetadata(
-            naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
-            timestamp_source="source_a",
-            timezone_offset=timedelta(hours=1),
-        )
-    )
-    right = normalize_metadata(
-        ExtractedMetadata(
-            naive_timestamp=datetime(2024, 1, 1, 9, 0, 0),
-            timestamp_source="source_b",
-            timezone_offset=timedelta(0),
-        )
+    left = TimestampCandidate(
+        source_kind="exif",
+        source_detail="source_a",
+        naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
+        precision="datetime",
+        timezone_offset=timedelta(hours=1),
     )
 
-    comparison = compare_metadata_pair(left, right)
+    right = TimestampCandidate(
+        source_kind="exif",
+        source_detail="source_b",
+        naive_timestamp=datetime(2024, 1, 1, 9, 0, 0),
+        precision="datetime",
+        timezone_offset=timedelta(0),
+    )
+
+    comparison = compare_timestamp_candidates(left, right)
 
     assert comparison is not None
     assert comparison.representation == "utc"
@@ -36,20 +36,21 @@ def test_compare_utc_candidates_equal() -> None:
 
 
 def test_compare_naive_candidates_equal() -> None:
-    left = normalize_metadata(
-        ExtractedMetadata(
-            naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
-            timestamp_source="source_a",
-        )
-    )
-    right = normalize_metadata(
-        ExtractedMetadata(
-            naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
-            timestamp_source="source_b",
-        )
+    left = TimestampCandidate(
+        source_kind="filename",
+        source_detail="source_a",
+        naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
+        precision="datetime",
     )
 
-    comparison = compare_metadata_pair(left, right)
+    right = TimestampCandidate(
+        source_kind="folder",
+        source_detail="source_b",
+        naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
+        precision="datetime",
+    )
+
+    comparison = compare_timestamp_candidates(left, right)
 
     assert comparison is not None
     assert comparison.representation == "naive"
@@ -57,37 +58,39 @@ def test_compare_naive_candidates_equal() -> None:
 
 
 def test_aware_and_naive_are_not_compared() -> None:
-    aware = normalize_metadata(
-        ExtractedMetadata(
-            naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
-            timestamp_source="source_a",
-            timezone_offset=timedelta(hours=1),
-        )
-    )
-    naive = normalize_metadata(
-        ExtractedMetadata(
-            naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
-            timestamp_source="source_b",
-        )
+    aware = TimestampCandidate(
+        source_kind="exif",
+        source_detail="source_a",
+        naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
+        precision="datetime",
+        timezone_offset=timedelta(hours=1),
     )
 
-    comparison = compare_metadata_pair(aware, naive)
+    naive = TimestampCandidate(
+        source_kind="filename",
+        source_detail="source_b",
+        naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
+        precision="datetime",
+    )
+
+    comparison = compare_timestamp_candidates(aware, naive)
 
     assert comparison is None
 
 
 def test_build_metadata_diagnostics_detects_inconsistency() -> None:
-    left = normalize_metadata(
-        ExtractedMetadata(
-            naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
-            timestamp_source="source_a",
-        )
+    left = TimestampCandidate(
+        source_kind="filename",
+        source_detail="source_a",
+        naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
+        precision="datetime",
     )
-    right = normalize_metadata(
-        ExtractedMetadata(
-            naive_timestamp=datetime(2024, 1, 1, 11, 0, 0),
-            timestamp_source="source_b",
-        )
+
+    right = TimestampCandidate(
+        source_kind="folder",
+        source_detail="source_b",
+        naive_timestamp=datetime(2024, 1, 1, 11, 0, 0),
+        precision="datetime",
     )
 
     diagnostics = build_metadata_diagnostics((right, left))
@@ -98,17 +101,18 @@ def test_build_metadata_diagnostics_detects_inconsistency() -> None:
 
 
 def test_build_metadata_diagnostics_ignores_same_source_pairs() -> None:
-    first = normalize_metadata(
-        ExtractedMetadata(
-            naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
-            timestamp_source="source_a",
-        )
+    first = TimestampCandidate(
+        source_kind="filename",
+        source_detail="source_a",
+        naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
+        precision="datetime",
     )
-    second = normalize_metadata(
-        ExtractedMetadata(
-            naive_timestamp=datetime(2024, 1, 1, 11, 0, 0),
-            timestamp_source="source_a",
-        )
+
+    second = TimestampCandidate(
+        source_kind="filename",
+        source_detail="source_a",
+        naive_timestamp=datetime(2024, 1, 1, 11, 0, 0),
+        precision="datetime",
     )
 
     diagnostics = build_metadata_diagnostics((second, first))

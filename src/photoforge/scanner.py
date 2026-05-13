@@ -204,7 +204,9 @@ def scan_directory(input_path: Path) -> ScanResult:
         issues=tuple(_sorted_issues(issues)),
         total_entries_seen=len(discovered_paths),
         supported_files_processed=len(records),
-        metadata_diagnostics=tuple(metadata_diagnostics),
+        metadata_diagnostics=tuple(
+            _sorted_metadata_diagnostics(metadata_diagnostics)
+        ),
     )
 
 
@@ -247,3 +249,8 @@ def _sorted_skipped(items: Iterable[SkippedFile]) -> list[SkippedFile]:
 
 def _sorted_issues(items: Iterable[ScanIssue]) -> list[ScanIssue]:
     return sorted(items, key=lambda item: (str(item.path), item.code))
+
+def _sorted_metadata_diagnostics(
+    items: Iterable[FileMetadataDiagnostics],
+) -> list[FileMetadataDiagnostics]:
+    return sorted(items, key=lambda item: str(item.path))

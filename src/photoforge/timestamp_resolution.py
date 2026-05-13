@@ -47,7 +47,7 @@ def resolve_timestamp_candidates(
 
 
 def is_valid_timestamp_candidate(candidate: TimestampCandidate) -> bool:
-    if candidate.precision != "datetime":
+    if candidate.precision not in {"date", "datetime"}:
         return False
 
     if candidate.naive_timestamp.tzinfo is not None:
