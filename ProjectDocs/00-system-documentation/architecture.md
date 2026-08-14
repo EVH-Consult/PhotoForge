@@ -75,14 +75,15 @@ Expressed structurally:
     CLI
       ├─ validate_input_path(...)
       ├─ validate_output_path(...)           [optional]
-      ├─ scan_directory(input_path)          [first scan]
+      ├─ scan_directory(input_path)          [single shared scan]
       ├─ derive CorruptFile from skipped corrupt entries
       ├─ run_pipeline(
       │      input_path,
       │      output_path=...,
       │      corrupt_files=...,
+      │      scan_result=...,
       │  )
-      │    ├─ scan_directory(input_path)     [second scan]
+      │    ├─ reuse scan_result.records
       │    ├─ build_contextual_grouping(records)
       │    └─ plan_files(records, output_path=..., corrupt_files=...)
       ├─ render_console_report(...) or render_json_report(...)
@@ -193,7 +194,7 @@ The scanner is a deterministic producer of valid records and diagnostics only.
 
 The pipeline orchestration layer is responsible for:
 
-- performing the scan used for planning and grouping
+- accepting a supplied scan snapshot or performing one scan when none is supplied
 - obtaining the valid `FileRecord` set from `ScanResult.records`
 - computing contextual grouping exactly once from that valid record set
 - invoking the planner exactly once
@@ -204,7 +205,7 @@ The pipeline orchestration layer is responsible for:
 
 `run_pipeline(...)` performs:
 
-1. `scan_directory(input_path)`
+1. use the supplied `scan_result`, or call `scan_directory(input_path)` once
 2. `records = scan_result.records`
 3. `grouping = build_contextual_grouping(records)`
 4. `plan_result = plan_files(records, *planner_args, **planner_kwargs)`
@@ -383,7 +384,7 @@ The model layer:
 
 ## Data Flow Architecture
 
-### A. First Scan: Corrupt Derivation Path
+### A. Shared Scan: Corrupt Derivation Path
 
 The CLI passes this scan result into the pipeline.
 
@@ -405,8 +406,7 @@ The CLI-supplied `ScanResult` is consumed inside `run_pipeline(...)`.
 
 Flow:
 
-    scan_directory(input_path)
-        -> ScanResult
+    shared ScanResult
         -> scan_result.records
         -> valid FileRecord[]
 
@@ -461,39 +461,20 @@ This occurs only when `--apply` is enabled.
 
 ---
 
-## Double-Scan Architecture
+## Single-Snapshot Architecture
 
-Current runtime architecture performs two separate scans during normal CLI execution.
+Normal CLI execution performs one scan. The CLI uses that `ScanResult` to
+derive `CorruptFile` values and passes the same snapshot into
+`run_pipeline(...)`.
 
-### First Scan
+The shared snapshot provides:
 
-Owned by the CLI.
+- `scan_result.skipped` for corrupt-file derivation
+- `scan_result.records` for contextual grouping and planning
 
-Purpose:
-
-- derive `CorruptFile` from corrupt scanner skip results
-
-### Second Scan
-
-Owned by `run_pipeline(...)`.
-
-Purpose:
-
-- obtain the valid `FileRecord` set used by:
-  - contextual grouping
-  - planner
-
-### Architectural Significance
-
-This means:
-
-- scanner output is not shared directly between CLI and pipeline
-- corrupt-file derivation and valid-record planning input are produced by separate scan invocations
-- the current architecture separates:
-  - corrupt-file derivation
-  - planning/grouping orchestration
-
-This is an implementation fact, not a conceptual simplification.
+This prevents the filesystem from being observed at two different moments
+during one CLI run. Direct library callers may omit `scan_result`; in that
+case `run_pipeline(...)` performs one scan itself.
 
 ---
 
@@ -508,12 +489,13 @@ This is an implementation fact, not a conceptual simplification.
 ### CLI ↔ Pipeline
 
 - CLI invokes `run_pipeline(...)`
-- CLI forwards planner arguments such as `output_path` and `corrupt_files`
+- CLI forwards `scan_result` and planner arguments such as `output_path` and `corrupt_files`
 
 ### Pipeline ↔ Scanner
 
-- pipeline invokes scanner independently
-- pipeline consumes only `scan_result.records`
+- pipeline reuses the supplied `ScanResult` during normal CLI execution
+- pipeline invokes scanner once only when a library caller omits `scan_result`
+- pipeline consumes `scan_result.records`
 
 ### Pipeline ↔ Planner
 
@@ -589,7 +571,7 @@ The most important architectural facts are:
 
 - corrupt-file derivation occurs at CLI level
 - planning and contextual grouping are coordinated by `run_pipeline(...)`
-- the valid-record scan used for planning is separate from the scan used for corrupt derivation
+- corrupt derivation, planning, and grouping use one shared scan snapshot
 - contextual grouping is independent from planner behavior
 - all components interact only through explicit data contracts
 
@@ -601,10 +583,11 @@ The implemented architecture must preserve the following:
 
 1. scanner produces valid-file and diagnostic output only
 2. CLI derives `CorruptFile` explicitly from corrupt scanner skips
-3. pipeline orchestration performs the scan used for planning and grouping
+3. CLI passes its `ScanResult` to pipeline orchestration; direct library calls may let the pipeline scan once
 4. planner consumes valid records and propagated corrupt files
 5. contextual grouping is computed separately and does not alter planner output
 6. reporter renders output without changing model semantics
 7. operations execute planned actions only when explicitly requested
 
 No component may silently assume responsibilities owned by another component.
+
