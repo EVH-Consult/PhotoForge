@@ -40,8 +40,8 @@ def _stabilize_e2e_temp_paths(text: str) -> str:
         stabilized,
     )
 
-    stabilized = stabilized.replace(f"{INPUT_ROOT_PLACEHOLDER}//", f"{INPUT_ROOT_PLACEHOLDER}/")
-    stabilized = stabilized.replace(f"{OUTPUT_ROOT_PLACEHOLDER}//", f"{OUTPUT_ROOT_PLACEHOLDER}/")
+    while "//" in stabilized:
+        stabilized = stabilized.replace("//", "/")
     return stabilized
 
 def fixture_ids() -> tuple[str, ...]:
