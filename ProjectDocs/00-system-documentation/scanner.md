@@ -163,7 +163,7 @@ These files are recognized by the scanner but are not processed into `FileRecord
 
 They are recorded as:
 
-- `SkippedFile(reason="recognized_format_not_processable")`
+- `SkippedFile(reason="recognized_not_processable")`
 
 No issue is recorded for this classification.
 
@@ -208,7 +208,7 @@ If `is_supported_file(path)` is false:
 
 If `is_recognized_file(path)` is true:
 
-- record `SkippedFile(reason="recognized_format_not_processable")`
+- record `SkippedFile(reason="recognized_not_processable")`
 - do not process further
 
 ### 5. Processable file
@@ -414,7 +414,7 @@ Non-corrupt reasons:
 - `symlink`
 - `not_regular_file`
 - `unsupported_extension`
-- `recognized_format_not_processable`
+- `recognized_not_processable`
 
 Corrupt reasons:
 

@@ -11,7 +11,6 @@ from .hashing import compute_sha256
 from .metadata import normalize_metadata
 from .metadata_extractors import (
     extract_exif_diagnostics,
-    extract_filesystem_timestamp_candidates,
     extract_heic_timestamp,
     extract_jpeg_timestamp,
     extract_png_timestamp,
@@ -38,7 +37,8 @@ EXTRACTOR_MAP: dict[str, TimestampExtractor] = {
     ".mov": extract_video_timestamp,
 }
 
-SUPPORTED_EXTENSIONS = set(EXTRACTOR_MAP)
+SUPPORTED_EXTENSIONS = {".jpg", ".jpeg"}
+RECOGNIZED_EXTENSIONS = set(EXTRACTOR_MAP) - SUPPORTED_EXTENSIONS
 
 
 @dataclass(frozen=True)
@@ -82,7 +82,9 @@ def discover_files(input_path: Path) -> tuple[Path, ...]:
 
         root_path = Path(root)
         for filename in filenames:
-            discovered.append((root_path / filename).resolve(strict=False))
+            # Keep the lexical path until symlink classification. Resolving here
+            # would follow a file symlink before ``is_symlink`` can reject it.
+            discovered.append(root_path / filename)
 
     return tuple(discovered)
 
@@ -111,7 +113,12 @@ def scan_directory(input_path: Path) -> ScanResult:
             continue
 
         if not is_supported_file(path):
-            skipped.append(SkippedFile(path=path, reason="unsupported_extension"))
+            reason = (
+                "recognized_not_processable"
+                if path.suffix.lower() in RECOGNIZED_EXTENSIONS
+                else "unsupported_extension"
+            )
+            skipped.append(SkippedFile(path=path, reason=reason))
             continue
 
         ext = path.suffix.lower()
@@ -131,9 +138,8 @@ def scan_directory(input_path: Path) -> ScanResult:
             continue
 
         try:
-            file_candidates = extract_filesystem_timestamp_candidates(path, mtime_timestamp)
             format_candidates = extractor(path, mtime_timestamp)
-            extracted_candidates = file_candidates + format_candidates
+            extracted_candidates = format_candidates
 
             exif_diagnostics = ()
             if ext in {".jpg", ".jpeg"}:

@@ -48,7 +48,7 @@
     {
       "action": "rename",
       "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180316_195505_111704202.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-04-15_194802_313e84f4.jpg"
+      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-08-13_211443_313e84f4.jpg"
     },
     {
       "action": "rename",
@@ -63,7 +63,7 @@
     {
       "action": "rename",
       "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180318_134422_1026864567.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-04-15_194802_343b5799.jpg"
+      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-08-13_211443_343b5799.jpg"
     },
     {
       "action": "rename",
@@ -88,7 +88,7 @@
     {
       "action": "rename",
       "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180319_123935_715986013.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-04-15_194802_5f1bd781.jpg"
+      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-08-13_211443_5f1bd781.jpg"
     },
     {
       "action": "rename",
@@ -118,7 +118,7 @@
     {
       "action": "rename",
       "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//corrupt.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-04-15_194802_8a2d495a.jpg"
+      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-08-13_211443_8a2d495a.jpg"
     },
     {
       "action": "rename",
@@ -133,7 +133,7 @@
     {
       "action": "rename",
       "source_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180318_143915_1770235956.jpg",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-04-15_194802_b553b864.jpg"
+      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-08-13_211443_b553b864.jpg"
     },
     {
       "action": "rename",
@@ -364,15 +364,15 @@
     {
       "action_status": "rename",
       "canonical": true,
-      "canonical_filename": "2026-04-15_194802_313e84f4.jpg",
+      "canonical_filename": "2026-08-13_211443_313e84f4.jpg",
       "duplicate_group_id": "313e84f4bcee36c009862555a406dc2ca3314d66a35b25cc53ca934452fe842b",
       "duplicate_group_size": 1,
       "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180316_195505_111704202.jpg",
       "sha256": "313e84f4bcee36c009862555a406dc2ca3314d66a35b25cc53ca934452fe842b",
       "short_hash": "313e84f4",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-04-15_194802_313e84f4.jpg",
-      "timestamp": "2026-04-15 19:48:02",
-      "timestamp_source": "mtime"
+      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-08-13_211443_313e84f4.jpg",
+      "timestamp": "2026-08-13 21:14:43",
+      "timestamp_source": "filesystem_mtime"
     },
     {
       "action_status": "rename",
@@ -403,15 +403,15 @@
     {
       "action_status": "rename",
       "canonical": true,
-      "canonical_filename": "2026-04-15_194802_343b5799.jpg",
+      "canonical_filename": "2026-08-13_211443_343b5799.jpg",
       "duplicate_group_id": "343b5799d5a209cd67dabf47c8111c19e7339e3aa77257688f72c8efdf5ffa5e",
       "duplicate_group_size": 1,
       "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180318_134422_1026864567.jpg",
       "sha256": "343b5799d5a209cd67dabf47c8111c19e7339e3aa77257688f72c8efdf5ffa5e",
       "short_hash": "343b5799",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-04-15_194802_343b5799.jpg",
-      "timestamp": "2026-04-15 19:48:02",
-      "timestamp_source": "mtime"
+      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-08-13_211443_343b5799.jpg",
+      "timestamp": "2026-08-13 21:14:43",
+      "timestamp_source": "filesystem_mtime"
     },
     {
       "action_status": "rename",
@@ -481,15 +481,15 @@
     {
       "action_status": "rename",
       "canonical": true,
-      "canonical_filename": "2026-04-15_194802_5f1bd781.jpg",
+      "canonical_filename": "2026-08-13_211443_5f1bd781.jpg",
       "duplicate_group_id": "5f1bd781209f4256db04bcebba5055fcac16ff05b1a2542691b363e2044f69b9",
       "duplicate_group_size": 1,
       "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180319_123935_715986013.jpg",
       "sha256": "5f1bd781209f4256db04bcebba5055fcac16ff05b1a2542691b363e2044f69b9",
       "short_hash": "5f1bd781",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-04-15_194802_5f1bd781.jpg",
-      "timestamp": "2026-04-15 19:48:02",
-      "timestamp_source": "mtime"
+      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-08-13_211443_5f1bd781.jpg",
+      "timestamp": "2026-08-13 21:14:43",
+      "timestamp_source": "filesystem_mtime"
     },
     {
       "action_status": "rename",
@@ -585,15 +585,15 @@
     {
       "action_status": "rename",
       "canonical": true,
-      "canonical_filename": "2026-04-15_194802_8a2d495a.jpg",
+      "canonical_filename": "2026-08-13_211443_8a2d495a.jpg",
       "duplicate_group_id": "8a2d495aa48dbe79131474fb0d86495fe90f4b658823ca9e470342a7846ebf3c",
       "duplicate_group_size": 1,
       "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//corrupt.jpg",
       "sha256": "8a2d495aa48dbe79131474fb0d86495fe90f4b658823ca9e470342a7846ebf3c",
       "short_hash": "8a2d495a",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-04-15_194802_8a2d495a.jpg",
-      "timestamp": "2026-04-15 19:48:02",
-      "timestamp_source": "mtime"
+      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-08-13_211443_8a2d495a.jpg",
+      "timestamp": "2026-08-13 21:14:43",
+      "timestamp_source": "filesystem_mtime"
     },
     {
       "action_status": "rename",
@@ -637,15 +637,15 @@
     {
       "action_status": "rename",
       "canonical": true,
-      "canonical_filename": "2026-04-15_194802_b553b864.jpg",
+      "canonical_filename": "2026-08-13_211443_b553b864.jpg",
       "duplicate_group_id": "b553b864eb11d0348d7bc93f631324018a2aafda9a93536aa94c4df5292448bb",
       "duplicate_group_size": 1,
       "path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//JPEG_20180318_143915_1770235956.jpg",
       "sha256": "b553b864eb11d0348d7bc93f631324018a2aafda9a93536aa94c4df5292448bb",
       "short_hash": "b553b864",
-      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-04-15_194802_b553b864.jpg",
-      "timestamp": "2026-04-15 19:48:02",
-      "timestamp_source": "mtime"
+      "target_path": "C://Users//erwin//AppData//Local//Temp//photoforge-e2e//demo//input//2026-08-13_211443_b553b864.jpg",
+      "timestamp": "2026-08-13 21:14:43",
+      "timestamp_source": "filesystem_mtime"
     },
     {
       "action_status": "rename",

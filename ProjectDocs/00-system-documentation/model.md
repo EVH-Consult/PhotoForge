@@ -383,7 +383,7 @@ A contextual group references `FileRecord` objects indirectly using a stable ide
 
 Definition:
 
-- `record_ref` is the normalized absolute file path represented as a string
+- `record_ref` is the POSIX-style path relative to the grouping root
 - `record_ref` is derived deterministically from `FileRecord.path`
 - `record_ref` uniquely identifies a `FileRecord` within a scan result
 

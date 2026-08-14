@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import TypeAlias, cast
 
 from .model import ContextualGrouping, FileRecord, PlanResult
-from .scanner import scan_directory
+from .scanner import ScanResult, scan_directory
 
 PlannerFunction: TypeAlias = Callable[..., PlanResult]
 GroupingBuilder: TypeAlias = Callable[[tuple[FileRecord, ...]], ContextualGrouping]
@@ -16,6 +16,7 @@ def run_pipeline(
     *planner_args: object,
     plan_files: PlannerFunction | None = None,
     build_contextual_grouping: GroupingBuilder | None = None,
+    scan_result: ScanResult | None = None,
     **planner_kwargs: object,
 ) -> tuple[PlanResult, ContextualGrouping]:
     """Run the composed pipeline without changing existing planner behavior.
@@ -43,11 +44,11 @@ def run_pipeline(
         else _load_grouping_builder()
     )
 
-    scan_result = scan_directory(input_path)
-    records = scan_result.records
+    effective_scan_result = scan_result or scan_directory(input_path)
+    records = effective_scan_result.records
 
     grouping = grouping_builder(records)
-    plan_result = planner(scan_result.records, *planner_args, **planner_kwargs)
+    plan_result = planner(records, *planner_args, **planner_kwargs)
 
     return plan_result, grouping
 

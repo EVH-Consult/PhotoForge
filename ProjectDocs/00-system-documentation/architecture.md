@@ -61,15 +61,14 @@ The model layer defines the shared immutable data contracts used by the runtime 
 Current end-to-end CLI execution is:
 
 1. CLI parses and validates arguments
-2. CLI performs an initial scan
+2. CLI performs one scan
 3. CLI derives `CorruptFile` objects from corrupt scanner skips
-4. CLI invokes `run_pipeline(...)`, passing planner arguments including `corrupt_files`
-5. `run_pipeline(...)` performs a second scan
-6. `run_pipeline(...)` computes contextual grouping from the valid `FileRecord` set
-7. `run_pipeline(...)` invokes the planner with the valid `FileRecord` set and forwarded planner arguments
-8. CLI passes `PlanResult` and `ContextualGrouping` to the reporter
-9. CLI prints the report
-10. CLI optionally executes planned actions via `operations.py` when `--apply` is enabled
+4. CLI invokes `run_pipeline(...)`, passing the `ScanResult` and planner arguments
+5. `run_pipeline(...)` computes contextual grouping from that valid `FileRecord` set
+6. `run_pipeline(...)` invokes the planner with the same records
+7. CLI passes `PlanResult` and `ContextualGrouping` to the reporter
+8. CLI prints the report
+9. CLI optionally executes planned actions via `operations.py` when `--apply` is enabled
 
 Expressed structurally:
 
@@ -90,7 +89,9 @@ Expressed structurally:
       ├─ print(report)
       └─ apply_actions(...)                  [only if --apply]
 
-This double-scan behavior is part of the implemented architecture and must be documented explicitly.
+The CLI reuses one scan snapshot for corrupt-file reporting, contextual
+grouping, and planning. Library callers that omit `scan_result` receive one
+internal scan.
 
 ---
 
@@ -104,7 +105,7 @@ The CLI is responsible for:
 
 - parsing command-line arguments
 - validating input and output paths
-- performing the initial scan used for corrupt-file derivation
+- performing the scan used by corrupt-file derivation and the pipeline
 - deriving `CorruptFile` objects from scanner output
 - invoking pipeline orchestration
 - selecting report format
@@ -384,7 +385,7 @@ The model layer:
 
 ### A. First Scan: Corrupt Derivation Path
 
-The first scan exists only at CLI level.
+The CLI passes this scan result into the pipeline.
 
 Flow:
 
@@ -398,9 +399,9 @@ This path exists to derive planner-layer corrupt-file input.
 
 ---
 
-### B. Second Scan: Planning and Grouping Path
+### B. Shared Scan: Planning and Grouping Path
 
-The second scan exists inside `run_pipeline(...)`.
+The CLI-supplied `ScanResult` is consumed inside `run_pipeline(...)`.
 
 Flow:
 

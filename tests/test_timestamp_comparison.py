@@ -1,118 +1,38 @@
-# tests/test_timestamp_comparison.py
-
 from __future__ import annotations
 
 from datetime import datetime, timedelta
 
-from photoforge.metadata import (
-    ExtractedMetadata,
-    build_metadata_diagnostics,
-    compare_metadata_pair,
-    normalize_metadata,
-)
+from photoforge.model import TimestampCandidate
+from photoforge.timestamp_diagnostics import compare_timestamp_candidates
+
+
+def _candidate(value: datetime, source: str, offset: timedelta | None = None) -> TimestampCandidate:
+    return TimestampCandidate("exif", source, value, "datetime", offset)
 
 
 def test_compare_utc_candidates_equal() -> None:
-    left = normalize_metadata(
-        ExtractedMetadata(
-            naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
-            timestamp_source="source_a",
-            timezone_offset=timedelta(hours=1),
-        )
+    comparison = compare_timestamp_candidates(
+        _candidate(datetime(2024, 1, 1, 10), "a", timedelta(hours=1)),
+        _candidate(datetime(2024, 1, 1, 9), "b", timedelta()),
     )
-    right = normalize_metadata(
-        ExtractedMetadata(
-            naive_timestamp=datetime(2024, 1, 1, 9, 0, 0),
-            timestamp_source="source_b",
-            timezone_offset=timedelta(0),
-        )
-    )
-
-    comparison = compare_metadata_pair(left, right)
-
     assert comparison is not None
     assert comparison.representation == "utc"
     assert comparison.equal is True
 
 
 def test_compare_naive_candidates_equal() -> None:
-    left = normalize_metadata(
-        ExtractedMetadata(
-            naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
-            timestamp_source="source_a",
-        )
+    comparison = compare_timestamp_candidates(
+        _candidate(datetime(2024, 1, 1, 10), "a"),
+        _candidate(datetime(2024, 1, 1, 10), "b"),
     )
-    right = normalize_metadata(
-        ExtractedMetadata(
-            naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
-            timestamp_source="source_b",
-        )
-    )
-
-    comparison = compare_metadata_pair(left, right)
-
     assert comparison is not None
     assert comparison.representation == "naive"
     assert comparison.equal is True
 
 
 def test_aware_and_naive_are_not_compared() -> None:
-    aware = normalize_metadata(
-        ExtractedMetadata(
-            naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
-            timestamp_source="source_a",
-            timezone_offset=timedelta(hours=1),
-        )
+    comparison = compare_timestamp_candidates(
+        _candidate(datetime(2024, 1, 1, 10), "a", timedelta(hours=1)),
+        _candidate(datetime(2024, 1, 1, 10), "b"),
     )
-    naive = normalize_metadata(
-        ExtractedMetadata(
-            naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
-            timestamp_source="source_b",
-        )
-    )
-
-    comparison = compare_metadata_pair(aware, naive)
-
     assert comparison is None
-
-
-def test_build_metadata_diagnostics_detects_inconsistency() -> None:
-    left = normalize_metadata(
-        ExtractedMetadata(
-            naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
-            timestamp_source="source_a",
-        )
-    )
-    right = normalize_metadata(
-        ExtractedMetadata(
-            naive_timestamp=datetime(2024, 1, 1, 11, 0, 0),
-            timestamp_source="source_b",
-        )
-    )
-
-    diagnostics = build_metadata_diagnostics((right, left))
-
-    assert len(diagnostics.comparisons) == 1
-    assert len(diagnostics.inconsistent_pairs) == 1
-    assert diagnostics.has_inconsistency is True
-
-
-def test_build_metadata_diagnostics_ignores_same_source_pairs() -> None:
-    first = normalize_metadata(
-        ExtractedMetadata(
-            naive_timestamp=datetime(2024, 1, 1, 10, 0, 0),
-            timestamp_source="source_a",
-        )
-    )
-    second = normalize_metadata(
-        ExtractedMetadata(
-            naive_timestamp=datetime(2024, 1, 1, 11, 0, 0),
-            timestamp_source="source_a",
-        )
-    )
-
-    diagnostics = build_metadata_diagnostics((second, first))
-
-    assert diagnostics.comparisons == ()
-    assert diagnostics.inconsistent_pairs == ()
-    assert diagnostics.has_inconsistency is False

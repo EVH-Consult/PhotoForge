@@ -2,8 +2,7 @@
 
 from __future__ import annotations
 
-import os
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 from ..model import TimestampCandidate
@@ -13,19 +12,8 @@ def extract_filesystem_timestamp_candidates(
     path: Path,
     mtime_timestamp: float,
 ) -> tuple[TimestampCandidate, ...]:
-    _ = mtime_timestamp
-
-    stat_result = os.stat(path)
-    candidates: list[TimestampCandidate] = []
-
-    candidates.extend(_candidate_from_timestamp("filesystem_mtime", stat_result.st_mtime))
-    candidates.extend(_candidate_from_timestamp("filesystem_ctime", stat_result.st_ctime))
-
-    birthtime_value = getattr(stat_result, "st_birthtime", None)
-    if birthtime_value is not None:
-        candidates.extend(_candidate_from_timestamp("filesystem_birthtime", birthtime_value))
-
-    return tuple(candidates)
+    _ = path
+    return _candidate_from_timestamp("filesystem_mtime", mtime_timestamp)
 
 
 def _candidate_from_timestamp(
@@ -33,7 +21,9 @@ def _candidate_from_timestamp(
     timestamp_value: float,
 ) -> tuple[TimestampCandidate, ...]:
     try:
-        naive_timestamp = datetime.fromtimestamp(timestamp_value)
+        naive_timestamp = datetime.fromtimestamp(
+            timestamp_value, tz=timezone.utc
+        ).replace(tzinfo=None)
     except (OverflowError, OSError, ValueError):
         return ()
 

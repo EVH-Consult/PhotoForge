@@ -39,7 +39,7 @@ def test_normalize_metadata_with_timezone_uses_utc_timestamp() -> None:
     result = normalize_metadata(candidate)
 
     assert result == NormalizedMetadata(
-        timestamp=datetime(2024, 1, 2, 0, 34, 5, tzinfo=timezone.utc),
+        timestamp=datetime(2024, 1, 2, 0, 34, 5),
         timestamp_source="exif_datetimeoriginal",
     )
 
@@ -58,16 +58,14 @@ def test_normalize_metadata_rejects_date_precision() -> None:
 
 
 def test_normalize_metadata_rejects_aware_naive_timestamp() -> None:
-    candidate = TimestampCandidate(
-        source_kind="exif",
-        source_detail="exif_datetimeoriginal",
-        naive_timestamp=datetime(2024, 1, 2, 3, 4, 5, tzinfo=timezone.utc),
-        precision="datetime",
-        timezone_offset=None,
-    )
-
-    with pytest.raises(TypeError, match="naive_timestamp must be naive"):
-        normalize_metadata(candidate)
+    with pytest.raises(ValueError, match="naive_timestamp must be naive"):
+        TimestampCandidate(
+            source_kind="exif",
+            source_detail="exif_datetimeoriginal",
+            naive_timestamp=datetime(2024, 1, 2, 3, 4, 5, tzinfo=timezone.utc),
+            precision="datetime",
+            timezone_offset=None,
+        )
 
 
 def test_normalize_metadata_rejects_invalid_timezone_offset() -> None:

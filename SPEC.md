@@ -1,8 +1,8 @@
 # PhotoForge Specification
 
 Status: Accepted  
-Version: v0.5.0
-Date: 2026-04-15  
+Version: v0.7-dev
+Date: 2026-08-13
 
 This document defines the exact behavior of PhotoForge as implemented.
 
@@ -49,59 +49,48 @@ Current end-to-end CLI execution is:
 
 1. CLI validates input and output paths
 
-2. CLI performs an initial scan:
+2. CLI performs one scan:
    scan_directory(input_path)
 
 3. CLI derives CorruptFile objects from skipped entries where:
    reason starts with "corrupt_"
 
-4. CLI invokes:
+4. CLI invokes the pipeline with the completed scan result:
    run_pipeline(
        input_path,
        output_path=...,
-       corrupt_files=...
+       corrupt_files=...,
+       scan_result=...
    )
 
-5. run_pipeline(...) performs a second scan:
-   scan_directory(input_path)
-
-6. run_pipeline(...) extracts:
+5. run_pipeline(...) extracts:
    records = scan_result.records
 
-7. run_pipeline(...) computes contextual grouping:
+6. run_pipeline(...) computes contextual grouping:
    grouping = build_contextual_grouping(records)
 
-8. run_pipeline(...) invokes planner:
+7. run_pipeline(...) invokes planner:
    plan_files(
        records,
        output_path=...,
        corrupt_files=...
    )
 
-9. run_pipeline(...) returns:
+8. run_pipeline(...) returns:
    PlanResult, ContextualGrouping
 
-10. CLI renders output using:
+9. CLI renders output using:
     - PlanResult
     - ContextualGrouping
 
-11. CLI optionally executes actions if --apply is enabled
+10. CLI optionally executes actions if --apply is enabled
 
-### Double-Scan Behavior
+### Single-Snapshot Behavior
 
-The system performs two independent scans:
-
-1. CLI scan:
-   - used for corrupt-file derivation
-   - operates on ScanResult.skipped
-
-2. Pipeline scan:
-   - used for planning and grouping
-   - operates on ScanResult.records
-
-These scans are intentionally independent.
-
-The pipeline does not consume or reuse the CLI scan result.
+The CLI passes its `ScanResult` into the pipeline. Corrupt-file derivation,
+planning, and grouping therefore consume the same filesystem snapshot. Direct
+library callers may omit `scan_result`; in that case `run_pipeline` performs
+exactly one scan.
 
 ---
 
@@ -211,7 +200,9 @@ Timestamp fallback chain:
 
 Rules:
 
-- timestamps are naive
+- timestamps are represented internally as naive UTC values
+- filesystem fallback uses `mtime` only and converts it from epoch time as UTC
+- EXIF offsets are applied before the timezone marker is removed
 - invalid EXIF values are ignored
 - `mtime` is valid fallback
 
@@ -339,6 +330,9 @@ Grouping rule:
   - path (lexicographically)
 - consecutive records belong to the same group if:
   (current.timestamp - previous.timestamp) <= 300 seconds
+
+- member references are relative POSIX-style paths
+- group identifiers therefore do not depend on the absolute scan location
 
 Included in output only when:
 

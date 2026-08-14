@@ -1,4 +1,4 @@
-PhotoForge v0.5-dev
+PhotoForge v0.7-dev
 Mode: dry-run
 
 Summary
@@ -50,8 +50,8 @@ Planned actions
     timestamp source: exif_datetime
   [rename]
     source: <INPUT_ROOT>/JPEG_20180316_195505_111704202.jpg
-    target: <INPUT_ROOT>/2026-04-15_194802_313e84f4.jpg
-    timestamp source: mtime
+    target: <INPUT_ROOT>/2026-08-13_211443_313e84f4.jpg
+    timestamp source: filesystem_mtime
   [rename]
     source: <INPUT_ROOT>/IMAG0194.jpg
     target: <INPUT_ROOT>/2018-03-17_215248_33aedb8c.jpg
@@ -62,8 +62,8 @@ Planned actions
     timestamp source: exif_datetime
   [rename]
     source: <INPUT_ROOT>/JPEG_20180318_134422_1026864567.jpg
-    target: <INPUT_ROOT>/2026-04-15_194802_343b5799.jpg
-    timestamp source: mtime
+    target: <INPUT_ROOT>/2026-08-13_211443_343b5799.jpg
+    timestamp source: filesystem_mtime
   [rename]
     source: <INPUT_ROOT>/IMAG0170.jpg
     target: <INPUT_ROOT>/2018-03-16_011401_3a50275f.jpg
@@ -82,8 +82,8 @@ Planned actions
     timestamp source: exif_datetime
   [rename]
     source: <INPUT_ROOT>/JPEG_20180319_123935_715986013.jpg
-    target: <INPUT_ROOT>/2026-04-15_194802_5f1bd781.jpg
-    timestamp source: mtime
+    target: <INPUT_ROOT>/2026-08-13_211443_5f1bd781.jpg
+    timestamp source: filesystem_mtime
   [rename]
     source: <INPUT_ROOT>/IMAG0182.jpg
     target: <INPUT_ROOT>/2018-03-16_185449_69029a98.jpg
@@ -106,8 +106,8 @@ Planned actions
     timestamp source: exif_datetime
   [rename]
     source: <INPUT_ROOT>/corrupt.jpg
-    target: <INPUT_ROOT>/2026-04-15_194802_8a2d495a.jpg
-    timestamp source: mtime
+    target: <INPUT_ROOT>/2026-08-13_211443_8a2d495a.jpg
+    timestamp source: filesystem_mtime
   [rename]
     source: <INPUT_ROOT>/IMAG0176.jpg
     target: <INPUT_ROOT>/2018-03-16_133507_952d36c3.jpg
@@ -118,8 +118,8 @@ Planned actions
     timestamp source: exif_datetime
   [rename]
     source: <INPUT_ROOT>/JPEG_20180318_143915_1770235956.jpg
-    target: <INPUT_ROOT>/2026-04-15_194802_b553b864.jpg
-    timestamp source: mtime
+    target: <INPUT_ROOT>/2026-08-13_211443_b553b864.jpg
+    timestamp source: filesystem_mtime
   [rename]
     source: <INPUT_ROOT>/IMAG0179.jpg
     target: <INPUT_ROOT>/2018-03-16_133626_b5b42107.jpg
@@ -189,68 +189,68 @@ Corrupt files
   None
 
 Contextual groups
-  0443bb567192afd27f32fb64324d4fd57bf143ca2eeec683d22f61616f05fbdf
-    <INPUT_ROOT>/IMAG0176.jpg
-    <INPUT_ROOT>/IMAG0177.jpg
-    <INPUT_ROOT>/IMAG0178.jpg
-    <INPUT_ROOT>/IMAG0179.jpg
-    <INPUT_ROOT>/IMAG0180.jpg
-    <INPUT_ROOT>/IMAG0181.jpg
-  139056517086cb54ffcdf2f18fe3a8488c5e132a57fbb4c51730069ff51f8680
-    <INPUT_ROOT>/IMAG0184.jpg
-  21e64ce7d4038ab0964fbcfdce9a4eb07713cdd8a38252ea0b21a6cb06c6be4d
-    <INPUT_ROOT>/IMAG0201.jpg
-    <INPUT_ROOT>/IMAG0202.jpg
-    <INPUT_ROOT>/IMAG0202_1.jpg
-  2fc998eaf624cc65f61f34052b09a10cb01f591a858313b86f9c47114cca528f
-    <INPUT_ROOT>/IMAG0200.jpg
-  5134bc9aab21a98e9ff78d4113ca7b93ec2d912b39e8ddb39e68ec69b2c495a7
-    <INPUT_ROOT>/IMAG0199.jpg
-  52a748fdee07b0e3bff7d3ed34a0359f00b8f19caf0a50d25a4649836ae69092
-    <INPUT_ROOT>/IMAG0189.jpg
-    <INPUT_ROOT>/IMAG0190.jpg
-    <INPUT_ROOT>/IMAG0191.jpg
-  5f27275a91c64511d65d0811d36569beebb46dc27eac7d88df6f5521999b28eb
-    <INPUT_ROOT>/IMAG0193.jpg
-  61b6958fcc7eb7b6fe367903f0bdfae0af810959c8eafaf2c020c2d89652a477
-    <INPUT_ROOT>/IMAG0187.jpg
-    <INPUT_ROOT>/IMAG0188.jpg
-  8736d0c10b31d4d7bee30bea540d64c18f8c0c820f79ce71ee2499cad8fb71b2
-    <INPUT_ROOT>/IMAG0204.jpg
-  8fa520dbf189bffb4eb59329ef990c19ed9bbf8310f59b0e02e9e6d54b0894a2
-    <INPUT_ROOT>/IMAG0166.jpg
-    <INPUT_ROOT>/IMAG0167.jpg
-    <INPUT_ROOT>/IMAG0168.jpg
-    <INPUT_ROOT>/IMAG0169.jpg
-    <INPUT_ROOT>/IMAG0170.jpg
-    <INPUT_ROOT>/duplicates/IMAG0166.jpg
-    <INPUT_ROOT>/duplicates/IMAG0167.jpg
-    <INPUT_ROOT>/duplicates/IMAG0168.jpg
-    <INPUT_ROOT>/nested/level1/IMAG0169.jpg
-    <INPUT_ROOT>/nested/level1/IMAG0170.jpg
-  9103f82aa9c72a5502a83bc71cce0a3f8d3d7abd504cb2ad8485509b40003a62
-    <INPUT_ROOT>/IMAG0182.jpg
-    <INPUT_ROOT>/IMAG0183.jpg
-  adea8e1b6d455e34d9d50b3db08bd003be9a09e0308f8881c1e6ca11db101ede
-    <INPUT_ROOT>/JPEG_20180316_195505_111704202.jpg
-    <INPUT_ROOT>/JPEG_20180318_134422_1026864567.jpg
-    <INPUT_ROOT>/JPEG_20180318_143915_1770235956.jpg
-    <INPUT_ROOT>/JPEG_20180319_123935_715986013.jpg
-    <INPUT_ROOT>/corrupt.jpg
-  be7e57412bf7a0b6a3f4509f9d0430f2220b0a38b9716b4e109cfdc62f4ec237
-    <INPUT_ROOT>/IMAG0194.jpg
-    <INPUT_ROOT>/IMAG0195.jpg
-    <INPUT_ROOT>/IMAG0196.jpg
-    <INPUT_ROOT>/IMAG0197.jpg
-    <INPUT_ROOT>/IMAG0198.jpg
-  c0c386157ef1851848d56db3ca73f3cab0af5b4a2a6ec91afb8dba31b670dd0a
-    <INPUT_ROOT>/IMAG0203.jpg
-  d0ecdd05b0996ccad5afcf8450aaf8b1dcf648c5e01262d4ed70199caa24fa5d
-    <INPUT_ROOT>/IMAG0185.jpg
-    <INPUT_ROOT>/IMAG0186.jpg
-  e95006ab3e8ce0c35b7660c6384f394819f32e642630e35bdf4026069cfcaf44
-    <INPUT_ROOT>/IMAG0171.jpg
-    <INPUT_ROOT>/IMAG0172.jpg
-    <INPUT_ROOT>/IMAG0173.jpg
-    <INPUT_ROOT>/IMAG0174.jpg
-    <INPUT_ROOT>/nested/level1/IMAG0171.jpg
+  017ae0cf34d339ed8cda9585354618c9b80598a97273883ea00c43464ed4f480
+    IMAG0182.jpg
+    IMAG0183.jpg
+  0bb915309044c7bacf4ec3761c30dddcb1de0826fe585507d632acb7a329048c
+    IMAG0194.jpg
+    IMAG0195.jpg
+    IMAG0196.jpg
+    IMAG0197.jpg
+    IMAG0198.jpg
+  158d1816314171684a920cf748e2a727adde5a4c389b6ac5de05774bd494a5ef
+    IMAG0204.jpg
+  1e9bf4c3564a5092947a25b7cc8c68d16256db51d0719417a17c2afae6690328
+    IMAG0184.jpg
+  2d020637ad69bd1f7d970487f5a60498120f556fb2e6cd921fb1b0749e579649
+    IMAG0187.jpg
+    IMAG0188.jpg
+  74e644a5c957a2daeca48343dd2dd5160b0b7075459177e66d0f4a6dd336e91b
+    IMAG0199.jpg
+  78c758d932d2bf360a160fb0f540dcf82121578575344d594b386d7d6f4b019c
+    IMAG0176.jpg
+    IMAG0177.jpg
+    IMAG0178.jpg
+    IMAG0179.jpg
+    IMAG0180.jpg
+    IMAG0181.jpg
+  7af90216da8f606ab000a72f5bcc32ba140d35b402b73dcb6c891cb228d9903e
+    IMAG0193.jpg
+  7df715b4b276ee8076ddad9fb927335f14c3f96d02a4258404b03c3ddc879844
+    JPEG_20180316_195505_111704202.jpg
+    JPEG_20180318_134422_1026864567.jpg
+    JPEG_20180318_143915_1770235956.jpg
+    JPEG_20180319_123935_715986013.jpg
+    corrupt.jpg
+  7e6a5ba9eb9895c2b9d223ab17f1a1b87b0b21674eb407d65f7e911b7d4d3f51
+    IMAG0166.jpg
+    IMAG0167.jpg
+    IMAG0168.jpg
+    IMAG0169.jpg
+    IMAG0170.jpg
+    duplicates/IMAG0166.jpg
+    duplicates/IMAG0167.jpg
+    duplicates/IMAG0168.jpg
+    nested/level1/IMAG0169.jpg
+    nested/level1/IMAG0170.jpg
+  89aeccb76238a92b2459ea7e731883b9aa74a538127d4da64edac0bc26d10ebb
+    IMAG0203.jpg
+  b9240376a90dbeb7cf559f56a7c5c6929cbed32647fb4274aaccf243be92fb75
+    IMAG0201.jpg
+    IMAG0202.jpg
+    IMAG0202_1.jpg
+  b9eab110fd07aeda20113c8063406c6d83bab71042323067c5d3cd80d8628412
+    IMAG0189.jpg
+    IMAG0190.jpg
+    IMAG0191.jpg
+  d094c768e2d3bba240c9d0675b1917949bebb8f1ea63cdee69a6cc3e72f08976
+    IMAG0200.jpg
+  e2eb1b0334e0df8b12849bfa9d6c71615a0f1a3715bca7e26aba2cc302a864af
+    IMAG0171.jpg
+    IMAG0172.jpg
+    IMAG0173.jpg
+    IMAG0174.jpg
+    nested/level1/IMAG0171.jpg
+  e9bda4eb7ec6d94a02c926f261b248ce3f4eb3225971495e3140ebffe9901aee
+    IMAG0185.jpg
+    IMAG0186.jpg
