@@ -35,7 +35,7 @@ def _stabilize_e2e_temp_paths(text: str) -> str:
     stabilized = text.replace("\r\n", "\n").replace("\\", "/")
 
     stabilized = re.sub(
-        r"[A-Za-z]:/{1,2}Users/{1,2}[^/]+/{1,2}AppData/{1,2}Local/{1,2}Temp/{1,2}photoforge-e2e-[^/]+/{1,2}input",
+        r"[A-Za-z]:/{1,2}Users/{1,2}[^/]+/{1,2}AppData/{1,2}Local/{1,2}Temp/{1,2}(?:photoforge-e2e-[^/]+|photoforge-e2e/{1,2}[^/]+)/{1,2}input",
         INPUT_ROOT_PLACEHOLDER,
         stabilized,
     )
