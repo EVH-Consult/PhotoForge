@@ -71,6 +71,20 @@ def load_manifest(fixture_id: str) -> dict[str, Any]:
     if not isinstance(scenarios, dict):
         raise E2EError(f"Manifest scenarios is invalid for fixture: {fixture_id}")
 
+    fixture_mtime_utc = data.get("fixture_mtime_utc")
+    if not isinstance(fixture_mtime_utc, str):
+        raise E2EError(f"Manifest fixture_mtime_utc is invalid for fixture: {fixture_id}")
+    try:
+        parsed_mtime = datetime.fromisoformat(fixture_mtime_utc.replace("Z", "+00:00"))
+    except ValueError as exc:
+        raise E2EError(
+            f"Manifest fixture_mtime_utc is invalid for fixture: {fixture_id}"
+        ) from exc
+    if parsed_mtime.tzinfo is None:
+        raise E2EError(
+            f"Manifest fixture_mtime_utc must include a timezone: {fixture_id}"
+        )
+
     determinism_runs = scenarios.get("determinism_runs")
     if not isinstance(determinism_runs, int) or determinism_runs < 1:
         raise E2EError(
@@ -115,6 +129,14 @@ def copy_fixture_to_temp(fixture_id: str) -> Path:
     temp_root.mkdir(parents=True, exist_ok=True)
     target_dir = temp_root / "input"
     shutil.copytree(source_dir, target_dir)
+
+    fixture_mtime = datetime.fromisoformat(
+        load_manifest(fixture_id)["fixture_mtime_utc"].replace("Z", "+00:00")
+    ).timestamp()
+    for path in sorted(target_dir.rglob("*"), key=lambda item: item.as_posix()):
+        if path.is_file():
+            os.utime(path, (fixture_mtime, fixture_mtime))
+
     return target_dir
 
 
