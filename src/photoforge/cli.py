@@ -87,6 +87,7 @@ def main(argv: list[str] | None = None) -> int:
         input_path,
         output_path=output_path,
         corrupt_files=corrupt_files,
+        scan_result=scan_result,
     )
 
     if args.json:

@@ -26,7 +26,7 @@ def _group_by_sha256(records: list[FileRecord]) -> list[tuple[str, list[FileReco
 
 
 def _canonical_ranking_key(record: FileRecord) -> tuple[int, int, str]:
-    exif_priority = 0 if record.timestamp_source != "mtime" else 1
+    exif_priority = 0 if record.timestamp_source.startswith("exif_") else 1
     return (-record.size, exif_priority, str(record.path))
 
 
@@ -57,10 +57,11 @@ def _classify_action(
     source_path: Path,
     target_path: Path,
     output_path: Path | None,
+    reserved_targets: set[Path],
 ) -> str:
     if source_path == target_path:
         return "skip"
-    if target_path.exists():
+    if target_path.exists() or target_path in reserved_targets:
         return "collision"
     if output_path is None:
         return "rename"
@@ -77,6 +78,7 @@ def plan_files(
 
     planned_records: list[PlannedRecord] = []
     planned_actions: list[PlannedAction] = []
+    reserved_targets: set[Path] = set()
 
     for sha256, group_records in grouped_records:
         canonical_record = _select_canonical(group_records)
@@ -98,7 +100,10 @@ def plan_files(
             source_path=canonical_record.path,
             target_path=canonical_target_path,
             output_path=output_path,
+            reserved_targets=reserved_targets,
         )
+        if canonical_action_status not in {"skip", "collision"}:
+            reserved_targets.add(canonical_target_path)
 
         for record in group_records:
             is_canonical = record.path == canonical_record.path

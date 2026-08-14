@@ -113,7 +113,7 @@ Exactly one file per group is selected.
 Selection criteria (in order):
 
 1. largest file size
-2. prefer EXIF-derived timestamp over `mtime`
+2. prefer a timestamp source whose identifier starts with `exif_`
 3. lexicographically smallest path
 
 Ranking key:
@@ -122,7 +122,7 @@ Ranking key:
 
 Where:
 
-    exif_priority = 0 if timestamp_source != "mtime" else 1
+    exif_priority = 0 if timestamp_source.startswith("exif_") else 1
 
 Canonical file is the minimum of this key.
 

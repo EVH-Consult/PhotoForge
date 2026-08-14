@@ -42,20 +42,21 @@ Directories, non-Python files, and cache artifacts must be ignored.
 
 ### Module Documentation
 
-A markdown file under ProjectDocs/ corresponding to the module path under src/photoforge/.
+A markdown file under `ProjectDocs/00-system-documentation/` corresponding
+to the module name or documented subsystem.
 
 Mapping rule:
 
 ``src/photoforge/<path>/<module>.py``
-→ ``ProjectDocs/<path>/<module>.md``
+→ ``ProjectDocs/00-system-documentation/<path>/<module>.md``
 
 Examples:
 
 src/photoforge/scanner.py
-→ ProjectDocs/scanner.md
+→ ProjectDocs/00-system-documentation/scanner.md
 
 src/photoforge/metadata_extractors/heic.py
-→ ProjectDocs/metadata_extractors/heic.md
+→ ProjectDocs/00-system-documentation/metadata_extractors/heic.md
 
 This mapping is mandatory.
 
@@ -142,7 +143,7 @@ The validation scope is defined strictly as:
 
   * README.md
   * SPEC.md
-  * ProjectDocs/architecture.md
+  * ProjectDocs/00-system-documentation/architecture.md
 
 Only Python source files (*.py) are considered modules.
 
@@ -167,7 +168,7 @@ This list defines the complete validation scope.
 For each module:
 
 ``src/photoforge/<path>/<module>.py``
-→ ``ProjectDocs/<path>/<module>.md``
+→ ``ProjectDocs/00-system-documentation/<path>/<module>.md``
 
 Check:
 
@@ -263,7 +264,7 @@ The following documents must always be validated:
 
 * README.md
 * SPEC.md
-* ProjectDocs/architecture.md
+* ProjectDocs/00-system-documentation/architecture.md
 
 Check:
 
@@ -279,7 +280,7 @@ Check:
 Construct mapping:
 
 ``src/photoforge/<path>/<module>.py``
-→ ``ProjectDocs/<path>/<module>.md``
+→ ``ProjectDocs/00-system-documentation/<path>/<module>.md``
 → referenced in generic docs where required by tier
 
 Reference requirements:
@@ -287,11 +288,11 @@ Reference requirements:
 CORE modules must be referenced in:
 
 * SPEC.md
-* ProjectDocs/architecture.md
+* ProjectDocs/00-system-documentation/architecture.md
 
 BOUNDARY modules must be referenced in:
 
-* ProjectDocs/architecture.md
+* ProjectDocs/00-system-documentation/architecture.md
 
 Additionally:
 

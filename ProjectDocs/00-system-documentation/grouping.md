@@ -106,7 +106,8 @@ Definition:
 
 Properties:
 
-- derived deterministically from normalized absolute path
+- derived deterministically from the POSIX-style path relative to the common
+  scanned root, so relocating an unchanged dataset does not change group IDs
 - stable for identical `FileRecord.path`
 - independent of object identity
 - independent of scan order

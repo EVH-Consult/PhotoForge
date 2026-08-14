@@ -15,6 +15,9 @@ class NormalizedMetadata:
 
 
 def normalize_metadata(primary_candidate: TimestampCandidate) -> NormalizedMetadata:
+    if primary_candidate.precision != "datetime":
+        raise ValueError('primary_candidate.precision must be "datetime"')
+
     naive = primary_candidate.naive_timestamp
     source = primary_candidate.source_detail
     offset = primary_candidate.timezone_offset
@@ -25,9 +28,12 @@ def normalize_metadata(primary_candidate: TimestampCandidate) -> NormalizedMetad
             timestamp_source=source,
         )
 
-    aware = naive.replace(tzinfo=timezone(offset))
+    try:
+        aware = naive.replace(tzinfo=timezone(offset))
+    except ValueError as exc:
+        raise ValueError("timezone_offset is invalid") from exc
 
     return NormalizedMetadata(
-        timestamp=aware.astimezone(timezone.utc),
+        timestamp=aware.astimezone(timezone.utc).replace(tzinfo=None),
         timestamp_source=source,
     )

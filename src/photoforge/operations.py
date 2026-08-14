@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import shutil
 from typing import Iterable
 
 from .model import PlannedAction
@@ -34,4 +35,4 @@ def _move_without_overwrite(source_path: Path, target_path: Path) -> None:
     if target_path.exists():
         return
 
-    source_path.rename(target_path)
+    shutil.move(str(source_path), str(target_path))

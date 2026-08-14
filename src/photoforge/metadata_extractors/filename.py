@@ -35,7 +35,7 @@ def extract_filename_timestamp(filename: str) -> tuple[TimestampCandidate, ...]:
 
     for _, _, source_detail, match in matches:
         try:
-            if "hhmmss" in source_detail:
+            if match.lastindex == 2:
                 dt = _parse_full_datetime(match, source_detail)
                 return (
                     TimestampCandidate(

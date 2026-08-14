@@ -9,9 +9,15 @@
   },
   "scan_result": {
     "issues": [],
+    "metadata_diagnostics": [],
     "records": [],
-    "skipped": [],
+    "skipped": [
+      {
+        "path": "<INPUT_ROOT>/.gitkeep",
+        "reason": "unsupported_extension"
+      }
+    ],
     "supported_files_processed": 0,
-    "total_entries_seen": 0
+    "total_entries_seen": 1
   }
 }

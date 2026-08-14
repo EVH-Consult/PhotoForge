@@ -13,17 +13,17 @@ The system is designed to be:
 
 ## Version
 
-Current version: v0.5
-Status: stable / accepted
+Current version: v0.7-dev
+Status: development
 
 This version includes:
 
 - deterministic scanner pipeline
-- metadata extraction and normalization
+- EXIF extraction and UTC-normalized filesystem fallback
 - exact duplicate detection (SHA-256)
 - canonical file selection and planning
 - corrupt file classification and reporting
-- contextual grouping (optional structural output)
+- location-independent contextual grouping (optional structural output)
 
 ---
 
@@ -146,7 +146,8 @@ Corrupt files:
   4. filesystem `mtime`
 
 - metadata is normalized into a consistent internal representation
-- timestamps must be naive (no timezone)
+- timestamps are stored as naive UTC values; EXIF offsets and filesystem
+  timestamps are converted to UTC before timezone information is removed
 - invalid timestamps cause processing failure and are treated as corrupt files
 
 ---
@@ -277,12 +278,13 @@ If `--context` is enabled:
 
 ## Determinism
 
-PhotoForge guarantees:
+Within the documented JPEG input contract, PhotoForge enforces:
 
 - identical input → identical output
 - explicit ordering everywhere
 - no randomness
-- no environment-dependent behavior
+- UTC-normalized filesystem fallback behavior
+- contextual identifiers based on paths relative to the scanned root
 
 This applies to:
 
