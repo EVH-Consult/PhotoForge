@@ -1,10 +1,12 @@
-# PhotoForge Backlog
+# PhotoForge Backlog — historical legacy list
 
-This file tracks ideas, improvements, and future work.
+> **Current work tracking:** EVH Consult Jira (`EVHC`) is authoritative for PhotoForge backlog, work selection, dependencies, acceptance criteria and lifecycle state. This file is retained as historical repository evidence from the earlier PhotoForge version-cycle workflow. Do not add new active work here and do not infer current commitments or Jira status from these entries. See `ProjectDocs/README.md` for the current source-of-truth model.
 
-Nothing in this file should influence v0.1 implementation.
+This file historically tracked ideas, improvements, and future work.
 
-Backlog hygiene rules:
+Nothing in this file should be treated as current selected scope unless represented by a current Jira work item.
+
+Historical backlog hygiene rules were:
 
 - Keep entries minimal and one-line
 - Prefer extending existing entries over creating new ones
@@ -142,7 +144,8 @@ Backlog hygiene rules:
 
 ---
 
-## Notes
+## Historical notes
 
-- v0.1 scope is intentionally minimal and deterministic
-- All items here are out of scope for v0.1 unless explicitly promoted
+- v0.1 scope was intentionally minimal and deterministic.
+- Items in this historical list were out of v0.1 scope unless explicitly promoted under the earlier workflow.
+- A still-useful item must now be represented and selected through Jira before it is treated as current work.
