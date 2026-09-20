@@ -1,5 +1,25 @@
 # PhotoForge — Model Contract
 
+## Classification
+
+CORE
+
+## EVHC-291 timestamp and metadata structures
+
+`TimestampCandidate` retains source kind/detail, `date` or `datetime` precision,
+the naive source value, and an optional fixed UTC offset. Its computed
+`aware_timestamp` and `utc_timestamp` exist only when that offset exists.
+
+`MediaMetadata` is attached to each enriched `FileRecord` and propagated to the
+corresponding `PlannedRecord`. It contains all valid timestamp candidates, the
+selected candidate, camera make/model, normalized keywords, paired GPS
+coordinates, XMP sidecar provenance, timezone basis and applied clock
+correction. GPS coordinates must be present as a valid pair.
+
+`BatchContext` records one immediate folder's deterministic classification,
+member count, time bounds and timestamp-source inconsistency marker. It is
+carried on `PlanResult` for reporting and has no planning authority.
+
 ## Purpose
 
 The model layer defines the immutable data structures exchanged between scanner, planner, reporter, CLI, and operations.

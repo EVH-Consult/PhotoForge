@@ -32,6 +32,7 @@ All behavior is deterministic.
 
 ```bash
 photoforge <input_path> [--output <output_path>] [--json] [--apply] [--context]
+           [--timestamp-policy <policy.json>]
 ```
 
 ### Flags
@@ -40,6 +41,7 @@ photoforge <input_path> [--output <output_path>] [--json] [--apply] [--context]
 - `--json`
 - `--apply`
 - `--context` (include contextual grouping in output only)
+- `--timestamp-policy <policy.json>` (apply an explicit version-1 timestamp policy)
 
 ---
 
@@ -189,29 +191,101 @@ Notes:
 
 ---
 
-## 7. Metadata Extraction
+## 7. Metadata and Timestamp Resolution
 
-Timestamp fallback chain:
+### 7.1 Source trust and precedence
 
-1. EXIF `DateTimeOriginal`
-2. EXIF `DateTimeDigitized`
-3. EXIF `DateTime`
-4. filesystem `mtime`
+Every valid candidate is retained for diagnostics and structured output. The
+primary timestamp is the first valid candidate in this fixed source order:
 
-Rules:
+1. EXIF `DateTimeOriginal`, `DateTimeDigitized`, then `DateTime`
+2. XMP sidecar `CreateDate`, `DateCreated`, then `ModifyDate`
+3. filename timestamp
+4. immediate parent-folder timestamp
+5. filesystem `mtime`
 
-- timestamps are represented internally as naive UTC values
-- filesystem fallback uses `mtime` only and converts it from epoch time as UTC
-- EXIF offsets are applied before the timezone marker is removed
-- invalid EXIF values are ignored
-- `mtime` is valid fallback
+Input order is preserved inside one source kind. Invalid candidates are ignored
+without blocking lower-precedence sources. Date-only filename/folder values are
+valid at `00:00:00` and retain `precision = "date"` in structured output.
 
-Normalization rules:
+Filename patterns, in deterministic left-to-right order, are:
 
-- extracted timestamps are validated
-- timestamps must be naive (no timezone)
-- invalid timestamps cause normalization failure
-- normalization failure results in corrupt file classification
+- `YYYYMMDD_HHMMSS`
+- `YYYY-MM-DD_HH-MM-SS`
+- `YYYY-MM-DD HH-MM-SS`
+- `YYYYMMDD`
+- `YYYY-MM-DD`
+
+Folder patterns use the immediate parent folder only and support `YYYYMMDD`,
+`YYYY-MM-DD`, and same-format date ranges. A range uses its first date.
+
+Filesystem fallback uses `mtime`, interpreted as UTC and truncated to seconds.
+
+### 7.2 Structured timestamp representations
+
+Each candidate exposes:
+
+- source kind and detail;
+- precision (`date` or `datetime`);
+- naive timestamp;
+- timezone offset when known;
+- aware timestamp and UTC timestamp when the offset is known.
+
+The selected candidate is normalized to a naive UTC value only when a timezone
+offset is known. A selected candidate without an offset remains a naive value;
+its output does not claim UTC comparability.
+
+### 7.3 Deterministic correction and inference policy
+
+`--timestamp-policy` accepts UTF-8 JSON with `"version": 1`. Supported keys are:
+
+- `default`: optional `timezone_offset` and `clock_correction`;
+- `folder_rules`: exact input-relative folder paths plus either correction;
+- `device_rules`: exact EXIF make/model pairs plus either correction;
+- `gps_rules`: named inclusive latitude/longitude rectangles and a fixed offset.
+
+Offsets use signed `+HH:MM` or `-HH:MM`. Clock correction changes the source
+wall-clock value and is never applied to filesystem `mtime`. Filesystem `mtime`
+is already interpreted as UTC, so timezone correction and inference are not
+applied to it. For all other candidates, timezone selection uses this fixed
+order:
+
+1. exact folder rule;
+2. exact camera make/model rule;
+3. embedded EXIF/XMP offset;
+4. the configured GPS rectangle (overlapping matches must agree);
+5. trusted-device consensus, but only when every offset-bearing EXIF/XMP
+   candidate for that exact make/model has one identical offset;
+6. default policy offset.
+
+The policy file is explicit run input. PhotoForge does not consult a network
+timezone service, infer daylight-saving rules, or mutate a policy interactively.
+Review/correction remains auditable by editing the policy and rerunning.
+
+### 7.4 Metadata context and diagnostics
+
+Read-only metadata context includes camera make/model, EXIF/XMP keywords, GPS
+coordinates, the selected XMP sidecar, all timestamp candidates, the correction
+basis, and extraction/comparison diagnostics. EXIF/XMP, filename, folder and
+filesystem candidates are compared only when they share a representation:
+UTC-to-UTC or naive-to-naive.
+
+Immediate folders receive a deterministic batch classification:
+
+- `insufficient_evidence`: one valid media record;
+- `event_bounded`: at least two records spanning no more than 24 hours;
+- `mixed_content`: at least two records spanning more than 24 hours.
+
+The batch result also records whether any member has a comparable timestamp
+inconsistency. It is diagnostic only and does not change planning or grouping.
+
+XMP sidecars are read-only inputs. Keywords and GPS are exposed for inspection
+and future explicit naming/grouping contracts; they do not currently change the
+canonical filename, target path, or grouping. PhotoForge does not rewrite EXIF,
+XMP, media files, or sidecars.
+
+Normalization failure after all candidates are exhausted results in corrupt-file
+classification.
 
 ---
 
@@ -355,7 +429,12 @@ Includes:
 - records
 - actions
 - corrupt_files
+- batch_contexts
 - contextual_groups (optional)
+
+Record metadata in JSON includes the selected timestamp candidate, every valid
+candidate with naive/aware/UTC representations, camera/device context, keywords,
+GPS, sidecar path, timezone basis, and clock correction.
 
 JSON output:
 
@@ -399,3 +478,6 @@ No randomness allowed.
 - no overwrite
 - no concurrency
 - no external state
+- no implicit or explicit metadata rewriting
+- no automatic GPS-based naming/grouping
+- no hidden or prompt-only timestamp corrections

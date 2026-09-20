@@ -4,23 +4,40 @@ from __future__ import annotations
 
 import os
 from dataclasses import dataclass
+from datetime import timedelta
 from pathlib import Path
 from typing import Callable, Iterable
 
 from .hashing import compute_sha256
 from .metadata import normalize_metadata
 from .metadata_extractors import (
+    extract_exif_context,
     extract_exif_diagnostics,
+    extract_filename_timestamp,
+    extract_folder_timestamp,
     extract_heic_timestamp,
     extract_jpeg_timestamp,
     extract_png_timestamp,
     extract_raw_timestamp,
     extract_video_timestamp,
+    extract_xmp_metadata,
 )
-from .model import FileMetadataDiagnostics, FileRecord, TimestampCandidate
+from .model import (
+    BatchContext,
+    ExtractionDiagnostic,
+    FileMetadataDiagnostics,
+    FileRecord,
+    MediaMetadata,
+    TimestampCandidate,
+)
 from .timestamp_diagnostics import build_metadata_diagnostics
+from .timestamp_policy import (
+    AppliedTimestampPolicy,
+    PolicyContext,
+    TimestampPolicy,
+    apply_timestamp_policy,
+)
 from .timestamp_resolution import resolve_timestamp_candidates
-
 
 TimestampExtractor = Callable[[Path, float], tuple[TimestampCandidate, ...]]
 
@@ -63,6 +80,22 @@ class ScanResult:
     total_entries_seen: int
     supported_files_processed: int
     metadata_diagnostics: tuple[FileMetadataDiagnostics, ...] = ()
+    batch_contexts: tuple[BatchContext, ...] = ()
+
+
+@dataclass(frozen=True)
+class _PreparedMedia:
+    path: Path
+    size: int
+    candidates: tuple[TimestampCandidate, ...]
+    extraction_diagnostics: tuple[ExtractionDiagnostic, ...]
+    camera_make: str | None
+    camera_model: str | None
+    keywords: tuple[str, ...]
+    gps_latitude: float | None
+    gps_longitude: float | None
+    xmp_sidecar: Path | None
+    sha256: str
 
 
 def normalize_path(path: Path) -> Path:
@@ -94,11 +127,17 @@ def get_file_size_and_mtime(path: Path) -> tuple[int, float]:
     return stat_result.st_size, stat_result.st_mtime
 
 
-def scan_directory(input_path: Path) -> ScanResult:
+def scan_directory(
+    input_path: Path,
+    *,
+    timestamp_policy: TimestampPolicy | None = None,
+) -> ScanResult:
     root_path = _validate_input_directory(input_path)
     discovered_paths = discover_files(root_path)
+    policy = timestamp_policy or TimestampPolicy()
 
     records: list[FileRecord] = []
+    prepared_media: list[_PreparedMedia] = []
     skipped: list[SkippedFile] = []
     issues: list[ScanIssue] = []
     metadata_diagnostics: list[FileMetadataDiagnostics] = []
@@ -139,18 +178,24 @@ def scan_directory(input_path: Path) -> ScanResult:
 
         try:
             format_candidates = extractor(path, mtime_timestamp)
-            extracted_candidates = format_candidates
+            filename_candidates = extract_filename_timestamp(path.name)
+            folder_candidates = extract_folder_timestamp(path.parent.name)
+            xmp_metadata = extract_xmp_metadata(path)
+            extracted_candidates = (
+                *format_candidates,
+                *xmp_metadata.timestamp_candidates,
+                *filename_candidates,
+                *folder_candidates,
+            )
 
             exif_diagnostics = ()
+            exif_context = extract_exif_context(path)
             if ext in {".jpg", ".jpeg"}:
                 exif_diagnostics = extract_exif_diagnostics(path)
-
-            resolution_result = resolve_timestamp_candidates(extracted_candidates)
-            diagnostics = build_metadata_diagnostics(
-                resolution_result.valid_candidates,
-                extraction_diagnostics=exif_diagnostics,
+            extraction_diagnostics = (
+                *exif_diagnostics,
+                *xmp_metadata.diagnostics,
             )
-            normalized_metadata = normalize_metadata(resolution_result.primary_candidate)
         except Exception as exc:
             _record_corrupt_file(
                 skipped=skipped,
@@ -185,24 +230,109 @@ def scan_directory(input_path: Path) -> ScanResult:
             )
             continue
 
-        records.append(
-            FileRecord(
+        gps_latitude = exif_context.gps_latitude
+        gps_longitude = exif_context.gps_longitude
+        if gps_latitude is None:
+            gps_latitude = xmp_metadata.gps_latitude
+            gps_longitude = xmp_metadata.gps_longitude
+
+        prepared_media.append(
+            _PreparedMedia(
                 path=path,
                 size=size,
-                timestamp=normalized_metadata.timestamp,
-                timestamp_source=normalized_metadata.timestamp_source,
+                candidates=tuple(extracted_candidates),
+                extraction_diagnostics=tuple(extraction_diagnostics),
+                camera_make=exif_context.camera_make,
+                camera_model=exif_context.camera_model,
+                keywords=tuple(
+                    sorted(
+                        {*exif_context.keywords, *xmp_metadata.keywords},
+                        key=lambda value: (value.casefold(), value),
+                    )
+                ),
+                gps_latitude=gps_latitude,
+                gps_longitude=gps_longitude,
+                xmp_sidecar=xmp_metadata.path,
                 sha256=sha256,
-                short_hash=sha256[:8],
             )
         )
 
+    trusted_device_offsets = _trusted_device_offsets(prepared_media)
+    inconsistent_paths: set[Path] = set()
+
+    for prepared in prepared_media:
+        relative_folder = prepared.path.parent.relative_to(root_path).as_posix()
+        device_key = _device_key(prepared.camera_make, prepared.camera_model)
+        context = PolicyContext(
+            relative_folder="" if relative_folder == "." else relative_folder,
+            camera_make=prepared.camera_make,
+            camera_model=prepared.camera_model,
+            gps_latitude=prepared.gps_latitude,
+            gps_longitude=prepared.gps_longitude,
+            trusted_device_offset=(
+                trusted_device_offsets.get(device_key) if device_key is not None else None
+            ),
+        )
+        applied = tuple(
+            apply_timestamp_policy(candidate, policy, context)
+            for candidate in prepared.candidates
+        )
+        applied_candidates = tuple(item.candidate for item in applied)
+
+        try:
+            resolution_result = resolve_timestamp_candidates(applied_candidates)
+            diagnostics = build_metadata_diagnostics(
+                resolution_result.valid_candidates,
+                extraction_diagnostics=prepared.extraction_diagnostics,
+            )
+            normalized_metadata = normalize_metadata(resolution_result.primary_candidate)
+        except Exception as exc:
+            _record_corrupt_file(
+                skipped=skipped,
+                issues=issues,
+                path=prepared.path,
+                reason="corrupt_timestamp_unresolved",
+                code="corrupt_timestamp_unresolved",
+                message=str(exc),
+            )
+            continue
+
+        selected_policy = _selected_policy(applied, resolution_result.primary_candidate)
+        media_metadata = MediaMetadata(
+            timestamp_candidates=resolution_result.valid_candidates,
+            selected_candidate=resolution_result.primary_candidate,
+            camera_make=prepared.camera_make,
+            camera_model=prepared.camera_model,
+            keywords=prepared.keywords,
+            gps_latitude=prepared.gps_latitude,
+            gps_longitude=prepared.gps_longitude,
+            xmp_sidecar=prepared.xmp_sidecar,
+            timezone_basis=selected_policy.timezone_basis,
+            clock_correction=selected_policy.clock_correction,
+        )
+        records.append(
+            FileRecord(
+                path=prepared.path,
+                size=prepared.size,
+                timestamp=normalized_metadata.timestamp,
+                timestamp_source=normalized_metadata.timestamp_source,
+                sha256=prepared.sha256,
+                short_hash=prepared.sha256[:8],
+                metadata=media_metadata,
+            )
+        )
+
+        if diagnostics.has_inconsistency:
+            inconsistent_paths.add(prepared.path)
         if diagnostics.extraction_diagnostics or diagnostics.comparisons:
             metadata_diagnostics.append(
                 FileMetadataDiagnostics(
-                    path=path,
+                    path=prepared.path,
                     metadata_diagnostics=diagnostics,
                 )
             )
+
+    batch_contexts = _build_batch_contexts(records, inconsistent_paths)
 
     return ScanResult(
         records=tuple(records),
@@ -211,7 +341,75 @@ def scan_directory(input_path: Path) -> ScanResult:
         total_entries_seen=len(discovered_paths),
         supported_files_processed=len(records),
         metadata_diagnostics=tuple(metadata_diagnostics),
+        batch_contexts=batch_contexts,
     )
+
+
+def _device_key(make: str | None, model: str | None) -> tuple[str, str] | None:
+    if make is None or model is None:
+        return None
+    return make, model
+
+
+def _trusted_device_offsets(
+    prepared_media: list[_PreparedMedia],
+) -> dict[tuple[str, str], timedelta]:
+    candidates: dict[tuple[str, str], set[timedelta]] = {}
+    for prepared in prepared_media:
+        key = _device_key(prepared.camera_make, prepared.camera_model)
+        if key is None:
+            continue
+        for candidate in prepared.candidates:
+            if candidate.source_kind in {"exif", "xmp"} and candidate.timezone_offset is not None:
+                candidates.setdefault(key, set()).add(candidate.timezone_offset)
+    return {
+        key: next(iter(offsets))
+        for key, offsets in candidates.items()
+        if len(offsets) == 1
+    }
+
+
+def _selected_policy(
+    applied: tuple[AppliedTimestampPolicy, ...],
+    selected: TimestampCandidate,
+) -> AppliedTimestampPolicy:
+    for item in applied:
+        if item.candidate == selected:
+            return item
+    raise ValueError("selected timestamp policy result is missing")
+
+
+def _build_batch_contexts(
+    records: list[FileRecord],
+    inconsistent_paths: set[Path],
+) -> tuple[BatchContext, ...]:
+    grouped: dict[Path, list[FileRecord]] = {}
+    for record in records:
+        grouped.setdefault(record.path.parent, []).append(record)
+
+    contexts: list[BatchContext] = []
+    for folder in sorted(grouped, key=str):
+        members = grouped[folder]
+        timestamps = sorted(record.timestamp for record in members)
+        if len(members) < 2:
+            classification = "insufficient_evidence"
+        elif timestamps[-1] - timestamps[0] <= timedelta(hours=24):
+            classification = "event_bounded"
+        else:
+            classification = "mixed_content"
+        contexts.append(
+            BatchContext(
+                folder=folder,
+                classification=classification,
+                member_count=len(members),
+                earliest_timestamp=timestamps[0],
+                latest_timestamp=timestamps[-1],
+                has_source_inconsistency=any(
+                    member.path in inconsistent_paths for member in members
+                ),
+            )
+        )
+    return tuple(contexts)
 
 
 def _record_corrupt_file(

@@ -1,7 +1,9 @@
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
+
+from PIL import Image
 
 from photoforge.grouping import build_contextual_grouping
 from photoforge.model import ContextualGrouping, FileRecord, PlanResult
@@ -55,3 +57,46 @@ def test_scanner_skips_recognized_non_jpeg(tmp_path: Path) -> None:
     result = scan_directory(tmp_path)
     assert result.records == ()
     assert result.skipped[0].reason == "recognized_not_processable"
+
+
+def test_scanner_integrates_filename_fallback_and_structured_metadata(
+    tmp_path: Path,
+) -> None:
+    image_path = tmp_path / "IMG_20240102_030405.jpg"
+    Image.new("RGB", (1, 1)).save(image_path)
+
+    result = scan_directory(tmp_path)
+
+    assert len(result.records) == 1
+    record = result.records[0]
+    assert record.timestamp == datetime(2024, 1, 2, 3, 4, 5)
+    assert record.timestamp_source == "filename_yyyymmdd_hhmmss"
+    assert record.metadata is not None
+    assert tuple(
+        candidate.source_kind for candidate in record.metadata.timestamp_candidates
+    ) == ("filename", "filesystem")
+    assert result.batch_contexts[0].classification == "insufficient_evidence"
+
+
+def test_scanner_infers_unanimous_trusted_device_offset(tmp_path: Path) -> None:
+    first_exif = Image.Exif()
+    first_exif[271] = "Example"
+    first_exif[272] = "Camera"
+    first_exif[36867] = "2024:01:02 12:00:00"
+    first_exif[36881] = "+02:00"
+    Image.new("RGB", (1, 1)).save(tmp_path / "a.jpg", exif=first_exif)
+
+    second_exif = Image.Exif()
+    second_exif[271] = "Example"
+    second_exif[272] = "Camera"
+    second_exif[36867] = "2024:01:02 13:00:00"
+    Image.new("RGB", (1, 1)).save(tmp_path / "b.jpg", exif=second_exif)
+
+    result = scan_directory(tmp_path)
+    second = next(record for record in result.records if record.path.name == "b.jpg")
+
+    assert second.timestamp == datetime(2024, 1, 2, 11, 0, 0)
+    assert second.metadata is not None
+    assert second.metadata.timezone_basis == "trusted_device_cluster"
+    assert second.metadata.selected_candidate.timezone_offset == timedelta(hours=2)
+    assert result.batch_contexts[0].classification == "event_bounded"

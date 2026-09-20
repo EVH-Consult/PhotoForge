@@ -35,6 +35,7 @@ The reporter is responsible for:
 - rendering human-readable console output
 - rendering structured JSON output
 - optionally including contextual grouping
+- including structured timestamp metadata and batch contexts
 
 ---
 
@@ -88,6 +89,7 @@ Behavior:
   - records
   - actions
   - corrupt_files
+  - batch_contexts
   - optional contextual_groups
 
 - JSON output is serialized with fixed indentation of 2 spaces
@@ -104,8 +106,10 @@ Ordering rules:
 - uses recursive conversion:
 
   - dataclasses → dict
+  - timestamp candidates → naive/aware/UTC representations plus provenance
   - Path → string
   - datetime → formatted string
+  - timedelta → signed offset string
 
 Implementation: :contentReference[oaicite:7]{index=7}  
 

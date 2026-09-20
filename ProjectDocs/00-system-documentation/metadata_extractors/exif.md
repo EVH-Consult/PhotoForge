@@ -13,3 +13,8 @@ field-specific `invalid` diagnostics; an invalid offset does not discard its
 valid timestamp. The module returns all valid EXIF candidates in tag order and
 does not resolve precedence. The two public convenience functions return only
 candidates or only diagnostics from the same extraction behavior.
+
+`extract_exif_context(path)` separately exposes trimmed camera make/model,
+Windows XPKeywords, and paired GPS latitude/longitude. Invalid or unreadable
+context returns empty fields and never changes timestamp fallback. The scanner
+merges this read-only context with XMP context using EXIF as the GPS preference.

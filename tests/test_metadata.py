@@ -44,7 +44,7 @@ def test_normalize_metadata_with_timezone_uses_utc_timestamp() -> None:
     )
 
 
-def test_normalize_metadata_rejects_date_precision() -> None:
+def test_normalize_metadata_accepts_date_precision_as_midnight() -> None:
     candidate = TimestampCandidate(
         source_kind="filename",
         source_detail="filename_yyyymmdd",
@@ -53,8 +53,10 @@ def test_normalize_metadata_rejects_date_precision() -> None:
         timezone_offset=None,
     )
 
-    with pytest.raises(ValueError, match='primary_candidate.precision must be "datetime"'):
-        normalize_metadata(candidate)
+    result = normalize_metadata(candidate)
+
+    assert result.timestamp == datetime(2024, 1, 2, 0, 0, 0)
+    assert result.timestamp_source == "filename_yyyymmdd"
 
 
 def test_normalize_metadata_rejects_aware_naive_timestamp() -> None:

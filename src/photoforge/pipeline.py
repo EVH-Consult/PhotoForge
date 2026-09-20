@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Callable
+from dataclasses import replace
 from pathlib import Path
 from typing import TypeAlias, cast
 
@@ -49,6 +50,11 @@ def run_pipeline(
 
     grouping = grouping_builder(records)
     plan_result = planner(records, *planner_args, **planner_kwargs)
+    if effective_scan_result.batch_contexts:
+        plan_result = replace(
+            plan_result,
+            batch_contexts=effective_scan_result.batch_contexts,
+        )
 
     return plan_result, grouping
 

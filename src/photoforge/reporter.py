@@ -1,12 +1,12 @@
 from __future__ import annotations
 
 import json
-from dataclasses import asdict, is_dataclass
-from datetime import datetime
+from dataclasses import fields, is_dataclass
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any, Mapping, Sequence, cast
 
-from .model import ContextualGrouping, PlanResult
+from .model import ContextualGrouping, PlanResult, TimestampCandidate
 from .version import VERSION
 
 
@@ -77,6 +77,8 @@ def render_console_report(
             lines.append(f"    source: {record.path}")
             lines.append(f"    target: {record.target_path}")
             lines.append(f"    timestamp source: {record.timestamp_source}")
+            if record.metadata is not None and record.metadata.timezone_basis is not None:
+                lines.append(f"    timezone basis: {record.metadata.timezone_basis}")
 
     lines.append("")
     lines.append("Corrupt files")
@@ -102,6 +104,20 @@ def render_console_report(
                 for record_ref in group.member_refs:
                     lines.append(f"    {record_ref}")
 
+        lines.append("")
+        lines.append("Batch contexts")
+        if not plan_result.batch_contexts:
+            lines.append("  None")
+        else:
+            for context in plan_result.batch_contexts:
+                lines.append(f"  {context.folder}")
+                lines.append(f"    classification: {context.classification}")
+                lines.append(f"    members: {context.member_count}")
+                lines.append(
+                    "    source inconsistency: "
+                    f"{'yes' if context.has_source_inconsistency else 'no'}"
+                )
+
     return "\n".join(lines)
 
 
@@ -120,6 +136,9 @@ def render_json_report(
         "records": [_to_jsonable(record) for record in plan_result.records],
         "actions": [_to_jsonable(action) for action in plan_result.actions],
         "corrupt_files": [_to_jsonable(cf) for cf in plan_result.corrupt_files],
+        "batch_contexts": [
+            _to_jsonable(context) for context in plan_result.batch_contexts
+        ],
     }
 
     if include_context:
@@ -136,9 +155,26 @@ def render_json_report(
 
 
 def _to_jsonable(value: Any) -> Any:
+    if isinstance(value, TimestampCandidate):
+        return {
+            "aware_timestamp": (
+                value.aware_timestamp.isoformat() if value.aware_timestamp else None
+            ),
+            "naive_timestamp": value.naive_timestamp.strftime("%Y-%m-%d %H:%M:%S"),
+            "precision": value.precision,
+            "source_detail": value.source_detail,
+            "source_kind": value.source_kind,
+            "timezone_offset": _to_jsonable(value.timezone_offset),
+            "utc_timestamp": (
+                value.utc_timestamp.isoformat() if value.utc_timestamp else None
+            ),
+        }
+
     if is_dataclass(value) and not isinstance(value, type):
-        dataclass_dict = asdict(value)
-        return {key: _to_jsonable(item) for key, item in dataclass_dict.items()}
+        return {
+            field.name: _to_jsonable(getattr(value, field.name))
+            for field in fields(value)
+        }
 
     if isinstance(value, dict):
         mapping_value = cast(Mapping[Any, Any], value)
@@ -153,5 +189,12 @@ def _to_jsonable(value: Any) -> Any:
 
     if isinstance(value, datetime):
         return value.strftime("%Y-%m-%d %H:%M:%S")
+
+    if isinstance(value, timedelta):
+        total_minutes = int(value.total_seconds() // 60)
+        sign = "+" if total_minutes >= 0 else "-"
+        total_minutes = abs(total_minutes)
+        hours, minutes = divmod(total_minutes, 60)
+        return f"{sign}{hours:02d}:{minutes:02d}"
 
     return value

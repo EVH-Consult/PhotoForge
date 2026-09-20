@@ -26,6 +26,20 @@ It does not redefine detailed behavior already specified in:
 
 ## Architectural Principles
 
+### Timestamp and metadata boundary (EVHC-291)
+
+The scanner owns read-only metadata aggregation. Active timestamp sources are
+EXIF, same-stem XMP, filename, immediate folder and filesystem `mtime`.
+`timestamp_resolution.py` owns fixed source trust order;
+`timestamp_policy.py` owns explicit correction/inference order. Structured
+metadata and immediate-folder batch contexts are diagnostic outputs and cannot
+change duplicate grouping, canonical selection or target-path planning.
+
+Timestamp policy evaluation is offline and deterministic. GPS timezone use is
+limited to configured fixed-offset rectangles, and trusted-device inference is
+limited to exact make/model clusters whose embedded offsets unanimously agree.
+No metadata or sidecar write path exists.
+
 PhotoForge follows these architectural principles:
 
 - deterministic execution

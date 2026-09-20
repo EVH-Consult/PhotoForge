@@ -33,7 +33,7 @@ def test_exif_candidate_wins_over_filesystem_candidate() -> None:
     )
 
 
-def test_date_only_candidate_is_invalid_for_resolution() -> None:
+def test_date_only_candidate_uses_midnight_and_precedence() -> None:
     result = resolve_timestamp_candidates(
         (
             TimestampCandidate(
@@ -51,8 +51,9 @@ def test_date_only_candidate_is_invalid_for_resolution() -> None:
         )
     )
 
-    assert result.primary_candidate.source_kind == "filesystem"
+    assert result.primary_candidate.source_kind == "filename"
     assert tuple(candidate.source_kind for candidate in result.valid_candidates) == (
+        "filename",
         "filesystem",
     )
 

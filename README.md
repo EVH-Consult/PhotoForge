@@ -19,7 +19,8 @@ Status: development
 This version includes:
 
 - deterministic scanner pipeline
-- EXIF extraction and UTC-normalized filesystem fallback
+- deterministic EXIF/XMP/filename/folder/filesystem timestamp resolution
+- explicit timestamp correction/inference policies and structured diagnostics
 - exact duplicate detection (SHA-256)
 - canonical file selection and planning
 - corrupt file classification and reporting
@@ -69,6 +70,7 @@ pip install -e .
 
 ```bash
 photoforge <input_path> [--output <output_path>] [--json] [--apply] [--context]
+           [--timestamp-policy <policy.json>]
 ```
 
 ### Arguments
@@ -92,6 +94,10 @@ photoforge <input_path> [--output <output_path>] [--json] [--apply] [--context]
 - `--context`  
   Include contextual grouping in output  
   Does not affect planning behavior
+
+- `--timestamp-policy <policy.json>`
+  Apply an explicit, versioned timestamp correction/inference policy.
+  The policy is read-only and never rewrites media metadata
 
 ---
 
@@ -139,16 +145,29 @@ Corrupt files:
 
 ### 2. Metadata Extraction
 
-- EXIF-based timestamp extraction with strict fallback chain:
-  1. `DateTimeOriginal`
-  2. `DateTimeDigitized`
-  3. `DateTime`
-  4. filesystem `mtime`
+Timestamp candidates use this strict trust order:
 
-- metadata is normalized into a consistent internal representation
-- timestamps are stored as naive UTC values; EXIF offsets and filesystem
-  timestamps are converted to UTC before timezone information is removed
-- invalid timestamps cause processing failure and are treated as corrupt files
+1. EXIF `DateTimeOriginal`, `DateTimeDigitized`, `DateTime`
+2. XMP sidecar `CreateDate`, `DateCreated`, `ModifyDate`
+3. filename timestamp
+4. immediate parent-folder timestamp
+5. filesystem `mtime`
+
+All valid candidates are retained in JSON output with their source, precision,
+naive value, timezone offset, aware value and UTC value where available.
+Date-only filenames/folders resolve at midnight. Invalid high-priority values do
+not block deterministic fallback.
+
+An optional version-1 JSON timestamp policy supports exact folder and camera
+make/model corrections, configured GPS-region offsets, trusted-device offset
+consensus, and a default. The precedence and schema are defined in `SPEC.md`.
+See `timestamp-policy.example.json` for a complete non-secret example.
+Corrections are explicit input; PhotoForge never silently rewrites EXIF, XMP,
+media files or sidecars.
+
+Read-only metadata context also includes camera make/model, keywords, GPS,
+sidecar provenance, candidate comparisons and immediate-folder batch
+classification. These diagnostics do not alter canonical naming or planning.
 
 ---
 
