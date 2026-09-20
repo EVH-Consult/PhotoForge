@@ -13,7 +13,7 @@ and prints a report, and optionally applies planned actions.
 
 ## Interface
 
-`photoforge <input_path> [--output <output_path>] [--json] [--apply] [--context]`
+`photoforge <input_path> [--output <output_path>] [--json] [--apply] [--context] [--timestamp-policy <policy.json>]`
 
 `validate_input_path` expands the user path, requires an existing directory,
 and returns its resolved path. `validate_output_path` expands and resolves the
@@ -22,7 +22,8 @@ path without requiring it to exist, but rejects an existing non-directory.
 ## Execution flow
 
 1. Parse arguments and validate paths.
-2. Call `scan_directory(input_path)` once.
+2. Load the optional version-1 timestamp policy, then call
+   `scan_directory(input_path, timestamp_policy=...)` once.
 3. Convert skipped items whose reason starts with `corrupt_` into
    `CorruptFile(path, error_type)`.
 4. Call `run_pipeline(..., scan_result=scan_result)`.

@@ -3,12 +3,13 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from .version import VERSION
-from .pipeline import run_pipeline
+from .model import CorruptFile
 from .operations import apply_actions
+from .pipeline import run_pipeline
 from .reporter import render_console_report, render_json_report
 from .scanner import scan_directory
-from .model import CorruptFile
+from .timestamp_policy import load_timestamp_policy
+from .version import VERSION
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -40,6 +41,11 @@ def build_parser() -> argparse.ArgumentParser:
         "--context",
         action="store_true",
         help="Include contextual grouping output",
+    )
+    parser.add_argument(
+        "--timestamp-policy",
+        metavar="policy.json",
+        help="Apply explicit deterministic timestamp correction and inference rules",
     )
     return parser
 
@@ -75,7 +81,12 @@ def main(argv: list[str] | None = None) -> int:
         validate_output_path(args.output) if args.output is not None else None
     )
 
-    scan_result = scan_directory(input_path)
+    timestamp_policy = (
+        load_timestamp_policy(Path(args.timestamp_policy).expanduser().resolve())
+        if args.timestamp_policy is not None
+        else None
+    )
+    scan_result = scan_directory(input_path, timestamp_policy=timestamp_policy)
 
     corrupt_files = [
         CorruptFile(path=s.path, error_type=s.reason)

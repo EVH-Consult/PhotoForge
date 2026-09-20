@@ -8,7 +8,7 @@ import subprocess
 import sys
 import tempfile
 from dataclasses import asdict, is_dataclass
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -211,6 +211,13 @@ def canonicalize_for_json(
     if isinstance(value, datetime):
         return value.strftime("%Y-%m-%d %H:%M:%S")
 
+    if isinstance(value, timedelta):
+        total_minutes = int(value.total_seconds() // 60)
+        sign = "+" if total_minutes >= 0 else "-"
+        total_minutes = abs(total_minutes)
+        hours, minutes = divmod(total_minutes, 60)
+        return f"{sign}{hours:02d}:{minutes:02d}"
+
     return value
 
 
@@ -409,4 +416,3 @@ def scenario_outputs(
             input_root=input_root,
         ),
     }
-

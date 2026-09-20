@@ -4,10 +4,12 @@
   },
   "plan_result": {
     "actions": [],
+    "batch_contexts": [],
     "corrupt_files": [],
     "records": []
   },
   "scan_result": {
+    "batch_contexts": [],
     "issues": [],
     "metadata_diagnostics": [],
     "records": [],

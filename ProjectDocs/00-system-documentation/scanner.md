@@ -19,6 +19,8 @@ The scanner returns a deterministic `ScanResult` containing:
 - skipped files
 - scan issues
 - deterministic counters
+- structured media metadata and diagnostics
+- immediate-folder batch contexts
 
 ---
 
@@ -80,7 +82,7 @@ For a given input directory, the scanner executes the following stages in order:
 
 Function:
 
-    scan_directory(input_path: Path) -> ScanResult
+    scan_directory(input_path: Path, *, timestamp_policy=None) -> ScanResult
 
 Validation is performed by:
 
@@ -245,41 +247,24 @@ No `FileRecord` is created for that file.
 
 ## Timestamp Extraction Stage
 
-The scanner invokes timestamp extraction through:
+The scanner builds candidates from the active `metadata_extractors` package:
 
-    extract_timestamp(path: Path, mtime_timestamp: float) -> tuple[datetime, str]
+1. EXIF
+2. XMP sidecar
+3. filename
+4. immediate parent folder
+5. filesystem `mtime`
 
-This is provided by `exif.py`.
+It also reads camera make/model, keywords and GPS context. The scanner performs
+two deterministic phases: extract/hash every processable file, then derive exact
+trusted-device offset consensus and apply the supplied `TimestampPolicy` before
+resolution. Candidate precedence is owned by `timestamp_resolution.py`; policy
+precedence is owned by `timestamp_policy.py`.
 
-EXIF fallback order:
-
-1. EXIF `DateTimeOriginal`
-2. EXIF `DateTimeDigitized`
-3. EXIF `DateTime`
-4. filesystem `mtime`
-
-Possible raw timestamp-source values returned by extraction:
-
-- `exif_datetimeoriginal`
-- `exif_datetimedigitized`
-- `exif_datetime`
-- `mtime`
-
-Important behavior:
-
-- missing EXIF is not an error
-- unreadable or invalid EXIF inside `_read_exif(...)` falls back to empty EXIF data
-- invalid EXIF datetime values are treated as missing and fallback continues
-- `mtime` is a valid fallback result
-
-After extraction, the scanner invokes metadata normalization:
-
-    normalize_metadata(extracted_timestamp, extracted_timestamp_source)
-
-The normalized result provides:
-
-- `timestamp`
-- `timestamp_source`
+The selected candidate is normalized through `normalize_metadata`. Every valid
+candidate and the selected policy basis are retained in `MediaMetadata` on the
+`FileRecord`. Missing or invalid higher-precedence metadata is diagnostic and
+does not block fallback.
 
 Failure behavior:
 
@@ -293,6 +278,10 @@ Corrupt classification:
 - `ScanIssue.message = str(exception)`
 
 No `FileRecord` is created for that file.
+
+After valid records are built, the scanner classifies each immediate folder as
+`insufficient_evidence`, `event_bounded` (span <= 24 hours), or `mixed_content`
+(span > 24 hours). Batch context is diagnostic and never changes planning.
 
 ---
 

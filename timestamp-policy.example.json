@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "default": {
+    "timezone_offset": "+01:00"
+  },
+  "folder_rules": [
+    {
+      "path": "trip/day-1",
+      "clock_correction": "-01:00",
+      "timezone_offset": "+02:00"
+    }
+  ],
+  "device_rules": [
+    {
+      "make": "Example Camera Company",
+      "model": "Example Model",
+      "timezone_offset": "+02:00"
+    }
+  ],
+  "gps_rules": [
+    {
+      "name": "example-region",
+      "bounds": [49.0, 52.0, 2.0, 7.0],
+      "timezone_offset": "+02:00"
+    }
+  ]
+}

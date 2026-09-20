@@ -8,9 +8,10 @@ from .model import TimestampCandidate, TimestampResolutionResult
 
 _SOURCE_PRECEDENCE: dict[str, int] = {
     "exif": 0,
-    "filename": 1,
-    "folder": 2,
-    "filesystem": 3,
+    "xmp": 1,
+    "filename": 2,
+    "folder": 3,
+    "filesystem": 4,
 }
 
 
@@ -47,7 +48,7 @@ def resolve_timestamp_candidates(
 
 
 def is_valid_timestamp_candidate(candidate: TimestampCandidate) -> bool:
-    if candidate.precision != "datetime":
+    if candidate.precision not in {"date", "datetime"}:
         return False
 
     if candidate.naive_timestamp.tzinfo is not None:

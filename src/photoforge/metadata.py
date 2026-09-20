@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime,  timezone
+from datetime import datetime, timezone
 
 from .model import TimestampCandidate
 
@@ -15,8 +15,8 @@ class NormalizedMetadata:
 
 
 def normalize_metadata(primary_candidate: TimestampCandidate) -> NormalizedMetadata:
-    if primary_candidate.precision != "datetime":
-        raise ValueError('primary_candidate.precision must be "datetime"')
+    if primary_candidate.precision not in {"date", "datetime"}:
+        raise ValueError('primary_candidate.precision must be "date" or "datetime"')
 
     naive = primary_candidate.naive_timestamp
     source = primary_candidate.source_detail

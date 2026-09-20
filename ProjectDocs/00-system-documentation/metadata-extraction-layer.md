@@ -17,33 +17,25 @@ It establishes:
 - the boundary between extraction and downstream processing
 - the alignment rules for EXIF and non-JPEG formats
 
-This document defines structure only.
-It does not introduce or modify runtime behavior.
+This document describes the implemented extraction structure. Exact behaviour
+remains authoritative in `SPEC.md`, implementation and tests.
 
 ---
 
 ## Current System State
 
-Metadata extraction currently exists in multiple locations:
-
-- ``src/photoforge/exif.py`` performs JPEG EXIF extraction
-- ``src/photoforge/metadata_extractors/`` contains format-specific extractors:
-  - HEIC.py
-  - PNG.py
-  - RAW.py
-  - video.py
-- ``scanner.py`` directly invokes extraction functions
-- ``metadata.py`` performs normalization but does not control extraction
-
-The extraction layer is not yet unified.
+All extraction resides under ``src/photoforge/metadata_extractors/``. The
+package contains EXIF/JPEG, XMP sidecar, filename, folder, filesystem, HEIC,
+PNG, RAW and video extractors. `scanner.py` orchestrates them;
+`timestamp_resolution.py` owns cross-source precedence; `metadata.py` owns
+normalization. The former standalone `src/photoforge/exif.py` had no supported
+consumer and was removed under EVHC-291.
 
 ---
 
 ## Target Structure
 
-The metadata extraction layer defines the future single entry point for all metadata extraction.
-
-Once implemented:
+The metadata extraction package is the single location for extraction logic:
 
 - all metadata extraction must be routed through this layer
 - no module outside the layer may access format-specific extraction logic directly
@@ -60,23 +52,27 @@ src/photoforge/metadata_extractors/
 
 Each format must have a dedicated extractor.
 
-Existing extractors:
+Implemented extractors include:
 
 - ``extract_heic_timestamp``
 - ``extract_png_timestamp``
 - ``extract_raw_timestamp``
 - ``extract_video_timestamp``
-
-JPEG extraction currently resides outside this structure and must be aligned in future milestones.
+- ``extract_exif_metadata`` / ``extract_exif_context``
+- ``extract_jpeg_timestamp``
+- ``extract_xmp_metadata``
+- ``extract_filename_timestamp``
+- ``extract_folder_timestamp``
+- ``extract_filesystem_timestamp_candidates``
 
 ---
 
 ## Extractor Interface
 
-All extractors must implement:
+Format timestamp extractors implement:
 
 ```python
-(path: Path, mtime_timestamp: float) -> tuple[datetime, str]
+(path: Path, mtime_timestamp: float) -> tuple[TimestampCandidate, ...]
 ```
 
 Inputs:
@@ -86,8 +82,7 @@ Inputs:
 
 Outputs:
 
-- ``datetime``: extracted timestamp (naive)
-- ``str``: timestamp source identifier
+- zero or more structured timestamp candidates
 
 ---
 
@@ -114,16 +109,16 @@ Extractors must not:
 
 ## Current Extractor Behavior
 
-Existing non-JPEG extractors:
+Existing non-JPEG format extractors:
 
 - do not read embedded metadata
 - deterministically fallback to filesystem timestamp
-- return ``("mtime")`` as source
+- return a filesystem candidate
 
 Example:
 
 ```python
-return datetime.fromtimestamp(mtime_timestamp), "mtime"
+return extract_filesystem_timestamp_candidates(path, mtime_timestamp)
 ```
 
 This behavior is explicitly defined and must remain unchanged.
@@ -157,25 +152,18 @@ The metadata module
 Pipeline order:
 
 ``
-extractor → normalize_metadata → FileRecord
+extractors → policy → resolution → normalize_metadata → FileRecord
 ``
 
 The extraction layer operates strictly before normalization.
 
 ---
 
-## EXIF Alignment Rule
+## EXIF Alignment
 
-JPEG EXIF extraction must be aligned with the extraction layer:
-
-- EXIF logic must be integrated into ``metadata_extractors``
-- EXIF extraction must conform to the extractor interface
-- direct use of standalone EXIF modules by the pipeline must be removed once alignment is implemented
-
-Current behavior:
-
-- ``scanner.py`` calls EXIF extraction directly
-- this remains valid until alignment is completed
+Alignment is complete. The active EXIF path is
+``metadata_extractors/exif.py`` through ``metadata_extractors/jpeg.py``. There
+is no standalone compatibility module or supported `photoforge.exif` API.
 
 ---
 

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -16,6 +17,34 @@ _EXIF_DATETIME_TAGS: tuple[tuple[int, str, int], ...] = (
 )
 
 _EXIF_DATETIME_FORMAT = "%Y:%m:%d %H:%M:%S"
+
+
+@dataclass(frozen=True)
+class ExifContext:
+    camera_make: str | None
+    camera_model: str | None
+    keywords: tuple[str, ...]
+    gps_latitude: float | None
+    gps_longitude: float | None
+
+
+def extract_exif_context(path: Path) -> ExifContext:
+    try:
+        with Image.open(path) as image:
+            exif = image.getexif()
+            make = _clean_text(exif.get(271))
+            model = _clean_text(exif.get(272))
+            keywords = _parse_keywords(exif.get(40094))
+            gps = exif.get_ifd(34853) if 34853 in exif else {}
+    except (OSError, UnidentifiedImageError, KeyError, TypeError, ValueError):
+        return ExifContext(None, None, (), None, None)
+
+    latitude = _parse_gps_coordinate(gps.get(2), gps.get(1), latitude=True)
+    longitude = _parse_gps_coordinate(gps.get(4), gps.get(3), latitude=False)
+    if (latitude is None) != (longitude is None):
+        latitude = None
+        longitude = None
+    return ExifContext(make, model, keywords, latitude, longitude)
 
 
 def extract_exif_timestamp_candidates(path: Path) -> tuple[TimestampCandidate, ...]:
@@ -145,3 +174,53 @@ def _parse_exif_offset(value: object) -> timedelta | None:
         offset = -offset
 
     return offset
+
+
+def _clean_text(value: object) -> str | None:
+    if not isinstance(value, str):
+        return None
+    cleaned = value.strip().strip("\x00")
+    return cleaned or None
+
+
+def _parse_keywords(value: object) -> tuple[str, ...]:
+    if isinstance(value, bytes):
+        try:
+            text = value.decode("utf-16-le").strip("\x00")
+        except UnicodeDecodeError:
+            return ()
+    elif isinstance(value, str):
+        text = value
+    else:
+        return ()
+    return tuple(
+        sorted(
+            {item.strip() for item in text.replace(",", ";").split(";") if item.strip()},
+            key=lambda item: (item.casefold(), item),
+        )
+    )
+
+
+def _parse_gps_coordinate(
+    values: object,
+    reference: object,
+    *,
+    latitude: bool,
+) -> float | None:
+    if not isinstance(values, (tuple, list)) or len(values) != 3:
+        return None
+    if not isinstance(reference, str):
+        return None
+    try:
+        degrees, minutes, seconds = (float(value) for value in values)
+    except (TypeError, ValueError, ZeroDivisionError):
+        return None
+    result = degrees + minutes / 60 + seconds / 3600
+    if reference.upper() in {"S", "W"}:
+        result = -result
+    elif reference.upper() not in {"N", "E"}:
+        return None
+    limit = 90 if latitude else 180
+    if not -limit <= result <= limit:
+        return None
+    return result

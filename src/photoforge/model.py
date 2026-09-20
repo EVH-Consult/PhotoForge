@@ -5,7 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 from dataclasses import dataclass
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 
@@ -29,6 +29,46 @@ class TimestampCandidate:
 
         if self.precision not in {"date", "datetime"}:
             raise ValueError("precision must be 'date' or 'datetime'")
+
+    @property
+    def aware_timestamp(self) -> datetime | None:
+        if self.timezone_offset is None:
+            return None
+        return self.naive_timestamp.replace(tzinfo=timezone(self.timezone_offset))
+
+    @property
+    def utc_timestamp(self) -> datetime | None:
+        aware = self.aware_timestamp
+        if aware is None:
+            return None
+        return aware.astimezone(timezone.utc)
+
+
+@dataclass(frozen=True)
+class MediaMetadata:
+    timestamp_candidates: tuple[TimestampCandidate, ...]
+    selected_candidate: TimestampCandidate
+    camera_make: str | None = None
+    camera_model: str | None = None
+    keywords: tuple[str, ...] = ()
+    gps_latitude: float | None = None
+    gps_longitude: float | None = None
+    xmp_sidecar: Path | None = None
+    timezone_basis: str | None = None
+    clock_correction: timedelta | None = None
+
+    def __post_init__(self) -> None:
+        if self.selected_candidate not in self.timestamp_candidates:
+            raise ValueError("selected_candidate must be present in timestamp_candidates")
+
+        if (self.gps_latitude is None) != (self.gps_longitude is None):
+            raise ValueError("GPS latitude and longitude must be provided together")
+
+        if self.gps_latitude is not None and not -90 <= self.gps_latitude <= 90:
+            raise ValueError("gps_latitude must be between -90 and 90")
+
+        if self.gps_longitude is not None and not -180 <= self.gps_longitude <= 180:
+            raise ValueError("gps_longitude must be between -180 and 180")
 
 
 @dataclass(frozen=True)
@@ -74,6 +114,7 @@ class FileRecord:
     timestamp_source: str
     sha256: str
     short_hash: str
+    metadata: MediaMetadata | None = None
 
 
 @dataclass(frozen=True)
@@ -95,6 +136,7 @@ class PlannedRecord:
     short_hash: str
     timestamp: datetime
     timestamp_source: str
+    metadata: MediaMetadata | None = None
 
 
 @dataclass(frozen=True)
@@ -109,6 +151,29 @@ class PlanResult:
     records: tuple[PlannedRecord, ...]
     actions: tuple[PlannedAction, ...]
     corrupt_files: tuple[CorruptFile, ...]
+    batch_contexts: tuple[BatchContext, ...] = ()
+
+
+@dataclass(frozen=True)
+class BatchContext:
+    folder: Path
+    classification: str
+    member_count: int
+    earliest_timestamp: datetime
+    latest_timestamp: datetime
+    has_source_inconsistency: bool
+
+    def __post_init__(self) -> None:
+        if self.classification not in {
+            "event_bounded",
+            "mixed_content",
+            "insufficient_evidence",
+        }:
+            raise ValueError("unsupported batch classification")
+        if self.member_count < 1:
+            raise ValueError("member_count must be positive")
+        if self.latest_timestamp < self.earliest_timestamp:
+            raise ValueError("latest_timestamp must not precede earliest_timestamp")
 
 
 @dataclass(frozen=True)

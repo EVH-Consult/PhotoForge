@@ -1,5 +1,11 @@
 # PhotoForge v0.1 — Implementation Plan
 
+> Historical implementation sequence for v0.1. It is not the current module
+> map or work plan. Current work is owned by Jira and current behaviour by
+> implementation plus `SPEC.md`. EXIF extraction now lives under
+> `metadata_extractors/exif.py`; the former standalone `src/photoforge/exif.py`
+> was removed by EVHC-291 after reference verification found no active consumer.
+
 ## Principles
 
 - Follow `SPEC.md` exactly, no redesign, no feature creep

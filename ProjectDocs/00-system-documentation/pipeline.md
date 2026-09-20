@@ -25,16 +25,18 @@ build_contextual_grouping=None, scan_result=None, **planner_kwargs)` returns
 5. Build contextual grouping exactly once.
 6. Invoke the planner exactly once with the same records and forwarded
    arguments.
-7. Return both results separately.
+7. Copy diagnostic `ScanResult.batch_contexts` onto `PlanResult`.
+8. Return both results separately.
 
 The CLI supplies its existing snapshot, producing a single-snapshot end-to-end
 flow. Library callers may omit it and receive one pipeline-owned scan.
 
 ## Integration boundaries
 
-The pipeline consumes only `ScanResult.records`. It does not derive corrupt
-files, inspect diagnostics, alter planner arguments or results, embed grouping
-in `PlanResult`, render output, or execute actions. Default planner loading is
+The pipeline consumes `ScanResult.records` and its already-computed batch
+contexts. It does not derive corrupt files, recalculate diagnostics, alter
+planner arguments, embed contextual grouping in `PlanResult`, render output,
+or execute actions. Default planner loading is
 from `.planner.plan_files`; grouping loading tries
 `.grouping.build_contextual_grouping` then
 `.contextual_grouping.build_contextual_grouping`. Missing integrations raise

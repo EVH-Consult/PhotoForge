@@ -4,7 +4,13 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Iterable
 
-from .model import FileRecord, PlanResult, PlannedAction, PlannedRecord, CorruptFile
+from .model import (
+    CorruptFile,
+    FileRecord,
+    PlannedAction,
+    PlannedRecord,
+    PlanResult,
+)
 
 
 def _sorted_records(records: Iterable[FileRecord]) -> list[FileRecord]:
@@ -135,6 +141,7 @@ def plan_files(
                     short_hash=record.short_hash,
                     timestamp=record.timestamp,
                     timestamp_source=record.timestamp_source,
+                    metadata=record.metadata,
                 )
             )
 

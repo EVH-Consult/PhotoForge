@@ -19,3 +19,6 @@ Corrupt files
 
 Contextual groups
   None
+
+Batch contexts
+  None
