@@ -20,6 +20,10 @@ other candidates, timezone choice is ordered: folder rule, device rule, embedded
 offset, configured GPS rectangle, trusted-device consensus, default. Overlapping
 GPS rules are accepted only when their offsets agree.
 
+Folder and device rules compose independently for `timezone_offset` and
+`clock_correction`: an omitted field falls through to the next matching rule
+rather than selecting one rule object as a whole.
+
 ## Determinism and safety
 
 Rules are matched exactly; configuration order does not change folder/device

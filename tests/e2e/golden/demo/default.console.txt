@@ -13,178 +13,220 @@ Summary
 
 Planned actions
   [rename]
-    source: <INPUT_ROOT>/IMAG0167.jpg
-    target: <INPUT_ROOT>/2018-03-16_011327_0304747a.jpg
-    timestamp source: exif_datetime
+    source: <INPUT_ROOT>/IMAG0203.jpg
+    target: <INPUT_ROOT>/2024-01-01_160500_034f6263.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
   [rename]
-    source: <INPUT_ROOT>/IMAG0183.jpg
-    target: <INPUT_ROOT>/2018-03-16_185504_042d6fed.jpg
-    timestamp source: exif_datetime
+    source: <INPUT_ROOT>/IMAG0177.jpg
+    target: <INPUT_ROOT>/2024-01-01_131000_08a1a263.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
   [rename]
-    source: <INPUT_ROOT>/IMAG0195.jpg
-    target: <INPUT_ROOT>/2018-03-17_215302_047df52f.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/IMAG0168.jpg
-    target: <INPUT_ROOT>/2018-03-16_011330_051d7291.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/IMAG0187.jpg
-    target: <INPUT_ROOT>/2018-03-16_210404_0ea0bf68.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/IMAG0204.jpg
-    target: <INPUT_ROOT>/2018-03-19_123900_19da1107.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/IMAG0189.jpg
-    target: <INPUT_ROOT>/2018-03-16_214534_1e475f94.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/IMAG0173.jpg
-    target: <INPUT_ROOT>/2018-03-16_120354_1f0e0bd9.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/IMAG0178.jpg
-    target: <INPUT_ROOT>/2018-03-16_133623_2567b371.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/JPEG_20180316_195505_111704202.jpg
-    target: <INPUT_ROOT>/2018-03-16_195505_313e84f4.jpg
-    timestamp source: filename_yyyymmdd_hhmmss
-  [rename]
-    source: <INPUT_ROOT>/IMAG0194.jpg
-    target: <INPUT_ROOT>/2018-03-17_215248_33aedb8c.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/IMAG0174.jpg
-    target: <INPUT_ROOT>/2018-03-16_120358_33d453f8.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/JPEG_20180318_134422_1026864567.jpg
-    target: <INPUT_ROOT>/2018-03-18_134422_343b5799.jpg
-    timestamp source: filename_yyyymmdd_hhmmss
-  [rename]
-    source: <INPUT_ROOT>/IMAG0170.jpg
-    target: <INPUT_ROOT>/2018-03-16_011401_3a50275f.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/IMAG0199.jpg
-    target: <INPUT_ROOT>/2018-03-18_134418_4d68605d.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/IMAG0200.jpg
-    target: <INPUT_ROOT>/2018-03-18_143910_51660b37.jpg
-    timestamp source: exif_datetime
+    source: <INPUT_ROOT>/JPEG_20180318_143915_1770235956.jpg
+    target: <INPUT_ROOT>/2024-01-01_164000_092b9d17.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
   [rename]
     source: <INPUT_ROOT>/IMAG0190.jpg
-    target: <INPUT_ROOT>/2018-03-16_214539_59adf158.jpg
-    timestamp source: exif_datetime
+    target: <INPUT_ROOT>/2024-01-01_144100_1253551e.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/JPEG_20180316_195505_111704202.jpg
+    target: <INPUT_ROOT>/2024-01-01_162600_14e46c20.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0195.jpg
+    target: <INPUT_ROOT>/2024-01-01_150900_1735fc74.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0174.jpg
+    target: <INPUT_ROOT>/2024-01-01_125600_2784cf04.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0184.jpg
+    target: <INPUT_ROOT>/2024-01-01_135900_3833887d.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0194.jpg
+    target: <INPUT_ROOT>/2024-01-01_150200_41fac945.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0186.jpg
+    target: <INPUT_ROOT>/2024-01-01_141300_42ff06db.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
   [rename]
     source: <INPUT_ROOT>/JPEG_20180319_123935_715986013.jpg
-    target: <INPUT_ROOT>/2018-03-19_123935_5f1bd781.jpg
-    timestamp source: filename_yyyymmdd_hhmmss
+    target: <INPUT_ROOT>/2024-01-01_164700_4ad27679.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
   [rename]
-    source: <INPUT_ROOT>/IMAG0182.jpg
-    target: <INPUT_ROOT>/2018-03-16_185449_69029a98.jpg
-    timestamp source: exif_datetime
+    source: <INPUT_ROOT>/IMAG0176.jpg
+    target: <INPUT_ROOT>/2024-01-01_130300_4c8bad3f.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0181.jpg
+    target: <INPUT_ROOT>/2024-01-01_133800_517e2140.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0200.jpg
+    target: <INPUT_ROOT>/2024-01-01_154400_51dc7eba.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0196.jpg
+    target: <INPUT_ROOT>/2024-01-01_151600_55cc8306.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0170.jpg
+    target: <INPUT_ROOT>/2024-01-01_122800_59994e05.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0201.jpg
+    target: <INPUT_ROOT>/2024-01-01_155100_605e9c47.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0187.jpg
+    target: <INPUT_ROOT>/2024-01-01_142000_632d3154.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0173.jpg
+    target: <INPUT_ROOT>/2024-01-01_124900_694544fc.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
   [rename]
     source: <INPUT_ROOT>/IMAG0202.jpg
-    target: <INPUT_ROOT>/2018-03-18_145542_71a7b2cc.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/IMAG0198.jpg
-    target: <INPUT_ROOT>/2018-03-17_215404_7e826e45.jpg
-    timestamp source: exif_datetime
+    target: <INPUT_ROOT>/2024-01-01_155800_6a382714.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
   [rename]
     source: <INPUT_ROOT>/IMAG0169.jpg
-    target: <INPUT_ROOT>/2018-03-16_011359_83ed713e.jpg
-    timestamp source: exif_datetime
+    target: <INPUT_ROOT>/2024-01-01_122100_6aeb7ed9.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
   [rename]
-    source: <INPUT_ROOT>/IMAG0166.jpg
-    target: <INPUT_ROOT>/2018-03-16_011323_86dd78e0.jpg
-    timestamp source: exif_datetime
+    source: <INPUT_ROOT>/IMAG0191.jpg
+    target: <INPUT_ROOT>/2024-01-01_144800_74c9a03c.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0197.jpg
+    target: <INPUT_ROOT>/2024-01-01_152300_782f7d65.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0179.jpg
+    target: <INPUT_ROOT>/2024-01-01_132400_89b161e0.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0171.jpg
+    target: <INPUT_ROOT>/2024-01-01_123500_8bfa3fc4.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0188.jpg
+    target: <INPUT_ROOT>/2024-01-01_142700_94e480ed.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0198.jpg
+    target: <INPUT_ROOT>/2024-01-01_153000_95fe77a1.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0180.jpg
+    target: <INPUT_ROOT>/2024-01-01_133100_980138e4.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
   [rename]
     source: <INPUT_ROOT>/corrupt.jpg
-    target: <INPUT_ROOT>/2026-08-13_211443_8a2d495a.jpg
+    target: <INPUT_ROOT>/2026-08-13_211443_9b109760.jpg
     timestamp source: filesystem_mtime
     timezone basis: filesystem_utc
   [rename]
-    source: <INPUT_ROOT>/IMAG0176.jpg
-    target: <INPUT_ROOT>/2018-03-16_133507_952d36c3.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/IMAG0171.jpg
-    target: <INPUT_ROOT>/2018-03-16_120216_98cb50b5.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/JPEG_20180318_143915_1770235956.jpg
-    target: <INPUT_ROOT>/2018-03-18_143915_b553b864.jpg
-    timestamp source: filename_yyyymmdd_hhmmss
-  [rename]
-    source: <INPUT_ROOT>/IMAG0179.jpg
-    target: <INPUT_ROOT>/2018-03-16_133626_b5b42107.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/IMAG0184.jpg
-    target: <INPUT_ROOT>/2018-03-16_195027_cabafb63.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/IMAG0177.jpg
-    target: <INPUT_ROOT>/2018-03-16_133530_d46c1e65.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/IMAG0181.jpg
-    target: <INPUT_ROOT>/2018-03-16_133813_d4ab324b.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/IMAG0196.jpg
-    target: <INPUT_ROOT>/2018-03-17_215310_d50a1a94.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/IMAG0197.jpg
-    target: <INPUT_ROOT>/2018-03-17_215357_dde36ca8.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/IMAG0185.jpg
-    target: <INPUT_ROOT>/2018-03-16_202840_df1302c5.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/IMAG0203.jpg
-    target: <INPUT_ROOT>/2018-03-19_122545_e5e2b418.jpg
-    timestamp source: exif_datetime
-  [rename]
-    source: <INPUT_ROOT>/IMAG0180.jpg
-    target: <INPUT_ROOT>/2018-03-16_133628_e62ba046.jpg
-    timestamp source: exif_datetime
+    source: <INPUT_ROOT>/IMAG0199.jpg
+    target: <INPUT_ROOT>/2024-01-01_153700_a9f23478.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
   [rename]
     source: <INPUT_ROOT>/IMAG0193.jpg
-    target: <INPUT_ROOT>/2018-03-17_124445_e7bc75e8.jpg
-    timestamp source: exif_datetime
+    target: <INPUT_ROOT>/2024-01-01_145500_af7e86f2.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
   [rename]
-    source: <INPUT_ROOT>/IMAG0188.jpg
-    target: <INPUT_ROOT>/2018-03-16_210617_f239c36f.jpg
-    timestamp source: exif_datetime
+    source: <INPUT_ROOT>/IMAG0183.jpg
+    target: <INPUT_ROOT>/2024-01-01_135200_b4f2ed1c.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
   [rename]
-    source: <INPUT_ROOT>/IMAG0202_1.jpg
-    target: <INPUT_ROOT>/2018-03-18_145542_f5b8fdef.jpg
-    timestamp source: exif_datetime
+    source: <INPUT_ROOT>/IMAG0189.jpg
+    target: <INPUT_ROOT>/2024-01-01_143400_c1a87f66.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
   [rename]
-    source: <INPUT_ROOT>/IMAG0186.jpg
-    target: <INPUT_ROOT>/2018-03-16_202919_f5d2e46a.jpg
-    timestamp source: exif_datetime
+    source: <INPUT_ROOT>/IMAG0182.jpg
+    target: <INPUT_ROOT>/2024-01-01_134500_c6d47390.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
   [rename]
     source: <INPUT_ROOT>/IMAG0172.jpg
-    target: <INPUT_ROOT>/2018-03-16_120310_fbee0810.jpg
-    timestamp source: exif_datetime
+    target: <INPUT_ROOT>/2024-01-01_124200_ce0921fc.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
   [rename]
-    source: <INPUT_ROOT>/IMAG0201.jpg
-    target: <INPUT_ROOT>/2018-03-18_145540_fc3846b8.jpg
-    timestamp source: exif_datetime
+    source: <INPUT_ROOT>/JPEG_20180318_134422_1026864567.jpg
+    target: <INPUT_ROOT>/2024-01-01_163300_d1d00bc6.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
   [rename]
-    source: <INPUT_ROOT>/IMAG0191.jpg
-    target: <INPUT_ROOT>/2018-03-16_214608_ff241e14.jpg
-    timestamp source: exif_datetime
+    source: <INPUT_ROOT>/IMAG0167.jpg
+    target: <INPUT_ROOT>/2024-01-01_120700_d23cd5f5.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0185.jpg
+    target: <INPUT_ROOT>/2024-01-01_140600_dc0e94c7.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0202_1.jpg
+    target: <INPUT_ROOT>/2024-01-01_161900_ebd2c8b8.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0168.jpg
+    target: <INPUT_ROOT>/2024-01-01_121400_ed17dc2d.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0178.jpg
+    target: <INPUT_ROOT>/2024-01-01_131700_eda7064c.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0204.jpg
+    target: <INPUT_ROOT>/2024-01-01_161200_f9942324.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
+  [rename]
+    source: <INPUT_ROOT>/IMAG0166.jpg
+    target: <INPUT_ROOT>/2024-01-01_120000_fcf10f83.jpg
+    timestamp source: exif_datetimeoriginal
+    timezone basis: embedded
 
 Corrupt files
   None

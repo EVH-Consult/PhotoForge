@@ -52,6 +52,36 @@ def test_folder_rule_applies_clock_correction_and_timezone(tmp_path: Path) -> No
     assert result.clock_correction == timedelta(hours=-1)
 
 
+def test_partial_folder_and_device_rules_compose_per_field(tmp_path: Path) -> None:
+    policy = _load(
+        tmp_path,
+        {
+            "version": 1,
+            "folder_rules": [
+                {
+                    "path": "trip/day-1",
+                    "clock_correction": "-01:00",
+                }
+            ],
+            "device_rules": [
+                {
+                    "make": "Canon",
+                    "model": "X",
+                    "timezone_offset": "+02:00",
+                }
+            ],
+        },
+    )
+    context = PolicyContext("trip/day-1", "Canon", "X", None, None)
+
+    result = apply_timestamp_policy(_candidate(), policy, context)
+
+    assert result.candidate.naive_timestamp == datetime(2024, 1, 2, 11, 0, 0)
+    assert result.candidate.timezone_offset == timedelta(hours=2)
+    assert result.timezone_basis == "device:Canon/X"
+    assert result.clock_correction == timedelta(hours=-1)
+
+
 def test_embedded_offset_precedes_gps_and_default_rules(tmp_path: Path) -> None:
     policy = _load(
         tmp_path,

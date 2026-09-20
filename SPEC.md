@@ -258,6 +258,10 @@ order:
    candidate for that exact make/model has one identical offset;
 6. default policy offset.
 
+Folder and device rules are composed per field. A matching higher-precedence
+rule that omits `timezone_offset` does not prevent the next matching rule from
+supplying it; the same rule applies independently to `clock_correction`.
+
 The policy file is explicit run input. PhotoForge does not consult a network
 timezone service, infer daylight-saving rules, or mutate a policy interactively.
 Review/correction remains auditable by editing the policy and rerunning.

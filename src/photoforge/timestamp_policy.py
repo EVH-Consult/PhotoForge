@@ -117,9 +117,16 @@ def apply_timestamp_policy(
     if candidate.source_kind == "filesystem":
         return AppliedTimestampPolicy(candidate, "filesystem_utc", None)
 
-    explicit_rule, explicit_basis = _select_explicit_rule(policy, context)
+    explicit_rules = _matching_explicit_rules(policy, context)
 
-    correction = explicit_rule.clock_correction
+    correction = next(
+        (
+            rule.clock_correction
+            for rule, _ in explicit_rules
+            if rule.clock_correction is not None
+        ),
+        policy.default.clock_correction,
+    )
     corrected = candidate
     if correction is not None:
         corrected = replace(
@@ -129,8 +136,13 @@ def apply_timestamp_policy(
     else:
         correction = None
 
-    timezone_offset = explicit_rule.timezone_offset
-    timezone_basis = explicit_basis if timezone_offset is not None else None
+    timezone_offset = None
+    timezone_basis = None
+    for rule, basis in explicit_rules:
+        if rule.timezone_offset is not None:
+            timezone_offset = rule.timezone_offset
+            timezone_basis = basis
+            break
     if timezone_offset is None and corrected.timezone_offset is not None:
         timezone_offset = corrected.timezone_offset
         timezone_basis = "embedded"
@@ -152,18 +164,23 @@ def apply_timestamp_policy(
     return AppliedTimestampPolicy(corrected, timezone_basis, correction)
 
 
-def _select_explicit_rule(
+def _matching_explicit_rules(
     policy: TimestampPolicy,
     context: PolicyContext,
-) -> tuple[CorrectionRule, str | None]:
+) -> tuple[tuple[CorrectionRule, str], ...]:
+    matches: list[tuple[CorrectionRule, str]] = []
     for rule in policy.folder_rules:
         if rule.path == context.relative_folder:
-            return rule.correction, f"folder:{rule.path}"
+            matches.append((rule.correction, f"folder:{rule.path}"))
+            break
     if context.camera_make is not None and context.camera_model is not None:
         for rule in policy.device_rules:
             if rule.make == context.camera_make and rule.model == context.camera_model:
-                return rule.correction, f"device:{rule.make}/{rule.model}"
-    return CorrectionRule(clock_correction=policy.default.clock_correction), "default"
+                matches.append(
+                    (rule.correction, f"device:{rule.make}/{rule.model}")
+                )
+                break
+    return tuple(matches)
 
 
 def _gps_offset(
