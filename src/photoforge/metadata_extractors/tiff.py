@@ -1,5 +1,3 @@
-# src/photoforge/metadata_extractors/png.py
-
 from __future__ import annotations
 
 from pathlib import Path
@@ -9,7 +7,7 @@ from .exif import extract_exif_timestamp_candidates
 from .filesystem import extract_filesystem_timestamp_candidates
 
 
-def extract_png_timestamp(
+def extract_tiff_timestamp(
     path: Path,
     mtime_timestamp: float,
 ) -> tuple[TimestampCandidate, ...]:

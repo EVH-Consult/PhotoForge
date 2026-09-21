@@ -96,6 +96,11 @@ class FileRecord:
     timestamp_source: str
     sha256: str
     short_hash: str
+    metadata: MediaMetadata | None = None
+    media_format: str = "jpeg"
+    canonical_extension: str = ".jpg"
+    live_photo_pair_id: str | None = None
+    live_photo_role: str | None = None
 ```
 
 #### 1.1 Field Semantics
@@ -112,6 +117,10 @@ class FileRecord:
   - full SHA-256 digest of file content
 - `short_hash`
   - first 8 characters of `sha256`
+- `media_format` / `canonical_extension`
+  - normalized format identifier and deterministic output extension
+- `live_photo_pair_id` / `live_photo_role`
+  - populated only for an unambiguous still/MOV pair; role is `still` or `motion`
 
 #### 1.2 Invariants
 
@@ -123,7 +132,7 @@ class FileRecord:
   - `exif_datetimeoriginal`
   - `exif_datetimedigitized`
   - `exif_datetime`
-  - `mtime`
+  - XMP, filename, folder and filesystem identifiers defined in `SPEC.md`
 
 #### 1.3 Responsibility Boundary
 
@@ -228,6 +237,10 @@ class PlannedRecord:
     short_hash: str
     timestamp: datetime
     timestamp_source: str
+    metadata: MediaMetadata | None = None
+    media_format: str = "jpeg"
+    live_photo_pair_id: str | None = None
+    live_photo_role: str | None = None
 ```
 
 #### 3.1 Field Semantics
@@ -235,7 +248,7 @@ class PlannedRecord:
 - `path`
   - original source path of the valid file
 - `duplicate_group_id`
-  - group identifier derived from SHA-256
+  - ordinary-file SHA-256 or deterministic two-component Live Photo asset hash
 - `duplicate_group_size`
   - number of valid files in the duplicate group
 - `canonical`
@@ -254,10 +267,13 @@ class PlannedRecord:
   - canonical timestamp copied from `FileRecord`
 - `timestamp_source`
   - timestamp source copied from `FileRecord`
+- `media_format`, `live_photo_pair_id`, `live_photo_role`
+  - propagated format and optional pairing context for reporting
 
 #### 3.2 Invariants
 
-- `duplicate_group_id` must equal `sha256`
+- `duplicate_group_id` equals `sha256` for ordinary files; paired components
+  share the complete Live Photo asset hash
 - `duplicate_group_size` must be at least 1
 - `canonical_filename` must be deterministic for the group
 - if `canonical is True`:

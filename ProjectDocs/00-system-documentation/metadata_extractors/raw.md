@@ -14,7 +14,7 @@ Provides metadata extraction for RAW image formats.
 
 ## Responsibilities
 
-- extract timestamp-related metadata from RAW files
+- return the deterministic filesystem `mtime` candidate for CR2, NEF and ARW
 
 ---
 
@@ -56,4 +56,4 @@ Used by:
 
 ## Final Contract
 
-Extracts metadata from RAW files without defining system-level behavior.
+Returns filesystem fallback only; embedded RAW metadata parsing is not claimed.

@@ -16,7 +16,7 @@ This module is part of the metadata extraction layer.
 
 ## Responsibilities
 
-- extract timestamp-related metadata from HEIC files
+- return the deterministic filesystem `mtime` candidate for HEIC and HEIF
 
 ---
 
@@ -59,4 +59,4 @@ Used by:
 
 ## Final Contract
 
-Extracts metadata from HEIC files without defining system-level behavior.
+Returns filesystem fallback only; embedded HEIF metadata parsing is not claimed.

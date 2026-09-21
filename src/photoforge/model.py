@@ -115,6 +115,10 @@ class FileRecord:
     sha256: str
     short_hash: str
     metadata: MediaMetadata | None = None
+    media_format: str = "jpeg"
+    canonical_extension: str = ".jpg"
+    live_photo_pair_id: str | None = None
+    live_photo_role: str | None = None
 
 
 @dataclass(frozen=True)
@@ -137,6 +141,9 @@ class PlannedRecord:
     timestamp: datetime
     timestamp_source: str
     metadata: MediaMetadata | None = None
+    media_format: str = "jpeg"
+    live_photo_pair_id: str | None = None
+    live_photo_role: str | None = None
 
 
 @dataclass(frozen=True)

@@ -62,7 +62,6 @@ For a given input directory, the scanner executes the following stages in order:
    - symlink
    - non-regular file
    - unsupported extension
-   - recognized but not processable format
    - processable format
 4. For each processable file:
    - read file size and mtime
@@ -133,41 +132,22 @@ Notes:
 
 ## Extension Classification
 
-The scanner distinguishes three extension classes.
+The scanner distinguishes processable and unsupported extensions.
 
 ### Processable extensions
 
 Processable files are currently:
 
-- `.jpg`
-- `.jpeg`
+- `.jpg`, `.jpeg`
+- `.png`
+- `.heic`, `.heif`
+- `.tif`, `.tiff`
+- `.cr2`, `.nef`, `.arw`
+- `.mp4`, `.mov`
 
 Matching is case-insensitive.
 
 These files continue through the enrichment pipeline.
-
-### Recognized but not processable extensions
-
-Recognized but not processable files are currently:
-
-- `.png`
-- `.heic`
-- `.heif`
-- `.cr2`
-- `.nef`
-- `.arw`
-- `.mp4`
-- `.mov`
-
-Matching is case-insensitive.
-
-These files are recognized by the scanner but are not processed into `FileRecord` objects.
-
-They are recorded as:
-
-- `SkippedFile(reason="recognized_not_processable")`
-
-No issue is recorded for this classification.
 
 ### Unsupported extensions
 
@@ -206,16 +186,18 @@ If `is_supported_file(path)` is false:
 - record `SkippedFile(reason="unsupported_extension")`
 - do not process further
 
-### 4. Recognized but not processable format
-
-If `is_recognized_file(path)` is true:
-
-- record `SkippedFile(reason="recognized_not_processable")`
-- do not process further
-
-### 5. Processable file
+### 4. Processable file
 
 Only files reaching this stage are enriched into `FileRecord`.
+
+Before enrichment, every newly supported non-JPEG format passes the structural
+validation contract in `media_formats.py`. A mismatch is recorded as
+`corrupt_metadata_unreadable`. JPEG deliberately remains on its established
+v0.7 extraction/fallback path.
+
+After successful enrichment, exact same-directory, case-sensitive stem matches
+between one JPEG/HEIC/HEIF still and one MOV are annotated as a Live Photo pair.
+Ambiguous candidate sets remain independent and receive warnings.
 
 ---
 
@@ -403,7 +385,6 @@ Non-corrupt reasons:
 - `symlink`
 - `not_regular_file`
 - `unsupported_extension`
-- `recognized_not_processable`
 
 Corrupt reasons:
 
@@ -535,10 +516,12 @@ This transformation is outside the scanner boundary.
 1. validate the input directory
 2. discover entries recursively in deterministic order
 3. classify each discovered path deterministically
-4. enrich processable JPEG files into complete `FileRecord`
+4. validate newly supported non-JPEG formats and enrich processable media into
+   complete `FileRecord` values
 5. classify per-file enrichment failures as corrupt
-6. collect skipped-file and issue diagnostics
-7. return deterministic `ScanResult`
+6. annotate unambiguous Live Photo pairs
+7. collect skipped-file and issue diagnostics
+8. return deterministic `ScanResult`
 
 The scanner produces complete valid records and deterministic diagnostics only.
 

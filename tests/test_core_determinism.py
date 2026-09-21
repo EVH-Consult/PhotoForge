@@ -52,11 +52,11 @@ def test_pipeline_reuses_supplied_scan_result(monkeypatch, tmp_path: Path) -> No
     assert grouping == ContextualGrouping(())
 
 
-def test_scanner_skips_recognized_non_jpeg(tmp_path: Path) -> None:
+def test_scanner_rejects_corrupt_newly_supported_format(tmp_path: Path) -> None:
     (tmp_path / "image.png").write_bytes(b"not a png")
     result = scan_directory(tmp_path)
     assert result.records == ()
-    assert result.skipped[0].reason == "recognized_not_processable"
+    assert result.skipped[0].reason == "corrupt_metadata_unreadable"
 
 
 def test_scanner_integrates_filename_fallback_and_structured_metadata(

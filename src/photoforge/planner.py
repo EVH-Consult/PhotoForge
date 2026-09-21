@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import hashlib
 from collections import defaultdict
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
 
@@ -17,32 +19,88 @@ def _sorted_records(records: Iterable[FileRecord]) -> list[FileRecord]:
     return sorted(records, key=lambda record: str(record.path))
 
 
-def _group_by_sha256(records: list[FileRecord]) -> list[tuple[str, list[FileRecord]]]:
-    grouped: dict[str, list[FileRecord]] = defaultdict(list)
+@dataclass(frozen=True)
+class _MediaAsset:
+    asset_hash: str
+    records: tuple[FileRecord, ...]
 
+    @property
+    def primary(self) -> FileRecord:
+        return next(
+            (record for record in self.records if record.live_photo_role == "still"),
+            self.records[0],
+        )
+
+    @property
+    def size(self) -> int:
+        return sum(record.size for record in self.records)
+
+
+def _build_assets(records: list[FileRecord]) -> list[_MediaAsset]:
+    paired: dict[str, list[FileRecord]] = defaultdict(list)
+    unpaired: list[FileRecord] = []
     for record in records:
-        grouped[record.sha256].append(record)
+        if record.live_photo_pair_id is None:
+            unpaired.append(record)
+        else:
+            paired[record.live_photo_pair_id].append(record)
 
-    groups: list[tuple[str, list[FileRecord]]] = []
-    for sha256 in sorted(grouped):
-        group_records = sorted(grouped[sha256], key=lambda record: str(record.path))
-        groups.append((sha256, group_records))
+    assets = [_MediaAsset(record.sha256, (record,)) for record in unpaired]
+    for pair_id in sorted(paired):
+        components = tuple(
+            sorted(
+                paired[pair_id],
+                key=lambda item: (item.live_photo_role != "still", str(item.path)),
+            )
+        )
+        if len(components) != 2 or {item.live_photo_role for item in components} != {
+            "still",
+            "motion",
+        }:
+            raise ValueError("invalid Live Photo pair in planner input")
+        digest = hashlib.sha256(
+            f"{components[0].sha256}\0{components[1].sha256}".encode("ascii")
+        ).hexdigest()
+        assets.append(_MediaAsset(digest, components))
+    return sorted(
+        assets,
+        key=lambda asset: tuple(str(item.path) for item in asset.records),
+    )
+
+
+def _group_assets(assets: list[_MediaAsset]) -> list[tuple[str, list[_MediaAsset]]]:
+    grouped: dict[str, list[_MediaAsset]] = defaultdict(list)
+
+    for asset in assets:
+        grouped[asset.asset_hash].append(asset)
+
+    groups: list[tuple[str, list[_MediaAsset]]] = []
+    for asset_hash in sorted(grouped):
+        group_assets = sorted(
+            grouped[asset_hash],
+            key=lambda asset: tuple(str(record.path) for record in asset.records),
+        )
+        groups.append((asset_hash, group_assets))
 
     return groups
 
 
-def _canonical_ranking_key(record: FileRecord) -> tuple[int, int, str]:
-    exif_priority = 0 if record.timestamp_source.startswith("exif_") else 1
-    return (-record.size, exif_priority, str(record.path))
+def _canonical_ranking_key(asset: _MediaAsset) -> tuple[int, int, tuple[str, ...]]:
+    exif_priority = 0 if asset.primary.timestamp_source.startswith("exif_") else 1
+    return (
+        -asset.size,
+        exif_priority,
+        tuple(str(record.path) for record in asset.records),
+    )
 
 
-def _select_canonical(group_records: list[FileRecord]) -> FileRecord:
-    return min(group_records, key=_canonical_ranking_key)
+def _select_canonical(group_assets: list[_MediaAsset]) -> _MediaAsset:
+    return min(group_assets, key=_canonical_ranking_key)
 
 
-def _build_canonical_filename(record: FileRecord) -> str:
-    timestamp_part = record.timestamp.strftime("%Y-%m-%d_%H%M%S")
-    return f"{timestamp_part}_{record.short_hash}.jpg"
+def _build_canonical_basename(asset: _MediaAsset) -> str:
+    timestamp_part = asset.primary.timestamp.strftime("%Y-%m-%d_%H%M%S")
+    return f"{timestamp_part}_{asset.asset_hash[:8]}"
 
 
 def _resolve_target_path(
@@ -80,70 +138,92 @@ def plan_files(
     corrupt_files: Iterable[CorruptFile] = (),
 ) -> PlanResult:
     sorted_records = _sorted_records(records)
-    grouped_records = _group_by_sha256(sorted_records)
+    grouped_assets = _group_assets(_build_assets(sorted_records))
 
     planned_records: list[PlannedRecord] = []
     planned_actions: list[PlannedAction] = []
     reserved_targets: set[Path] = set()
 
-    for sha256, group_records in grouped_records:
-        canonical_record = _select_canonical(group_records)
-        canonical_filename = _build_canonical_filename(canonical_record)
-        timestamp_year = canonical_record.timestamp.strftime("%Y")
-        timestamp_month = canonical_record.timestamp.strftime("%m")
-        timestamp_day = canonical_record.timestamp.strftime("%d")
-        duplicate_group_size = len(group_records)
+    for asset_hash, group in grouped_assets:
+        canonical_asset = _select_canonical(group)
+        canonical_basename = _build_canonical_basename(canonical_asset)
+        timestamp_year = canonical_asset.primary.timestamp.strftime("%Y")
+        timestamp_month = canonical_asset.primary.timestamp.strftime("%m")
+        timestamp_day = canonical_asset.primary.timestamp.strftime("%d")
+        duplicate_group_size = len(group)
+        canonical_filenames = {
+            record.live_photo_role: f"{canonical_basename}{record.canonical_extension}"
+            for record in canonical_asset.records
+        }
+        if len(canonical_asset.records) == 1:
+            canonical_filenames[None] = (
+                f"{canonical_basename}{canonical_asset.records[0].canonical_extension}"
+            )
 
-        canonical_target_path = _resolve_target_path(
-            source_path=canonical_record.path,
-            canonical_filename=canonical_filename,
-            timestamp_year=timestamp_year,
-            timestamp_month=timestamp_month,
-            timestamp_day=timestamp_day,
-            output_path=output_path,
+        targets = {
+            record.path: _resolve_target_path(
+                source_path=record.path,
+                canonical_filename=canonical_filenames[record.live_photo_role],
+                timestamp_year=timestamp_year,
+                timestamp_month=timestamp_month,
+                timestamp_day=timestamp_day,
+                output_path=output_path,
+            )
+            for record in canonical_asset.records
+        }
+        has_collision = any(
+            (target.exists() and target != source) or target in reserved_targets
+            for source, target in targets.items()
         )
-        canonical_action_status = _classify_action(
-            source_path=canonical_record.path,
-            target_path=canonical_target_path,
-            output_path=output_path,
-            reserved_targets=reserved_targets,
-        )
-        if canonical_action_status not in {"skip", "collision"}:
-            reserved_targets.add(canonical_target_path)
 
-        for record in group_records:
-            is_canonical = record.path == canonical_record.path
+        for asset in group:
+            is_canonical_asset = asset is canonical_asset
+            for record in asset.records:
+                canonical_filename = canonical_filenames[record.live_photo_role]
+                if is_canonical_asset:
+                    target_path: Path | None = targets[record.path]
+                    action_status = (
+                        "collision"
+                        if has_collision
+                        else _classify_action(
+                            source_path=record.path,
+                            target_path=target_path,
+                            output_path=output_path,
+                            reserved_targets=reserved_targets,
+                        )
+                    )
+                    planned_actions.append(
+                        PlannedAction(
+                            source_path=record.path,
+                            target_path=target_path,
+                            action=action_status,
+                        )
+                    )
+                    if action_status not in {"skip", "collision"}:
+                        reserved_targets.add(target_path)
+                else:
+                    target_path = None
+                    action_status = "duplicate"
 
-            if is_canonical:
-                target_path: Path | None = canonical_target_path
-                action_status = canonical_action_status
-                planned_actions.append(
-                    PlannedAction(
-                        source_path=record.path,
-                        target_path=canonical_target_path,
-                        action=canonical_action_status,
+                planned_records.append(
+                    PlannedRecord(
+                        path=record.path,
+                        duplicate_group_id=asset_hash,
+                        duplicate_group_size=duplicate_group_size,
+                        canonical=is_canonical_asset,
+                        canonical_filename=canonical_filename,
+                        target_path=target_path,
+                        action_status=action_status,
+                        sha256=record.sha256,
+                        short_hash=record.short_hash,
+                        timestamp=record.timestamp,
+                        timestamp_source=record.timestamp_source,
+                        metadata=record.metadata,
+                        media_format=record.media_format,
+                        live_photo_pair_id=record.live_photo_pair_id,
+                        live_photo_role=record.live_photo_role,
                     )
                 )
-            else:
-                target_path = None
-                action_status = "duplicate"
-
-            planned_records.append(
-                PlannedRecord(
-                    path=record.path,
-                    duplicate_group_id=sha256,
-                    duplicate_group_size=duplicate_group_size,
-                    canonical=is_canonical,
-                    canonical_filename=canonical_filename,
-                    target_path=target_path,
-                    action_status=action_status,
-                    sha256=record.sha256,
-                    short_hash=record.short_hash,
-                    timestamp=record.timestamp,
-                    timestamp_source=record.timestamp_source,
-                    metadata=record.metadata,
-                )
-            )
 
     return PlanResult(
         records=tuple(planned_records),

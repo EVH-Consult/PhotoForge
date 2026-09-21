@@ -2,15 +2,23 @@
 
 from __future__ import annotations
 
+import hashlib
 import os
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import timedelta
 from pathlib import Path
 from typing import Callable, Iterable
 
 from .hashing import compute_sha256
+from .media_formats import (
+    CANONICAL_EXTENSION,
+    LIVE_PHOTO_STILL_FORMATS,
+    media_format_for,
+    validate_media_file,
+)
 from .metadata import normalize_metadata
 from .metadata_extractors import (
+    ExifContext,
     extract_exif_context,
     extract_exif_diagnostics,
     extract_filename_timestamp,
@@ -19,6 +27,7 @@ from .metadata_extractors import (
     extract_jpeg_timestamp,
     extract_png_timestamp,
     extract_raw_timestamp,
+    extract_tiff_timestamp,
     extract_video_timestamp,
     extract_xmp_metadata,
 )
@@ -52,10 +61,11 @@ EXTRACTOR_MAP: dict[str, TimestampExtractor] = {
     ".arw": extract_raw_timestamp,
     ".mp4": extract_video_timestamp,
     ".mov": extract_video_timestamp,
+    ".tif": extract_tiff_timestamp,
+    ".tiff": extract_tiff_timestamp,
 }
 
-SUPPORTED_EXTENSIONS = {".jpg", ".jpeg"}
-RECOGNIZED_EXTENSIONS = set(EXTRACTOR_MAP) - SUPPORTED_EXTENSIONS
+SUPPORTED_EXTENSIONS = set(EXTRACTOR_MAP)
 
 
 @dataclass(frozen=True)
@@ -152,16 +162,13 @@ def scan_directory(
             continue
 
         if not is_supported_file(path):
-            reason = (
-                "recognized_not_processable"
-                if path.suffix.lower() in RECOGNIZED_EXTENSIONS
-                else "unsupported_extension"
-            )
-            skipped.append(SkippedFile(path=path, reason=reason))
+            skipped.append(SkippedFile(path=path, reason="unsupported_extension"))
             continue
 
         ext = path.suffix.lower()
         extractor = EXTRACTOR_MAP[ext]
+        media_format = media_format_for(path)
+        assert media_format is not None
 
         try:
             size, mtime_timestamp = get_file_size_and_mtime(path)
@@ -176,6 +183,23 @@ def scan_directory(
             )
             continue
 
+        # JPEG validation remains on its established metadata/fallback path.
+        # Newly introduced formats use an explicit structural gate so their
+        # corrupt behavior is defined without changing legacy JPEG outcomes.
+        if media_format != "jpeg":
+            try:
+                validate_media_file(path, media_format)
+            except ValueError as exc:
+                _record_corrupt_file(
+                    skipped=skipped,
+                    issues=issues,
+                    path=path,
+                    reason="corrupt_metadata_unreadable",
+                    code="corrupt_metadata_unreadable",
+                    message=str(exc),
+                )
+                continue
+
         try:
             format_candidates = extractor(path, mtime_timestamp)
             filename_candidates = extract_filename_timestamp(path.name)
@@ -189,9 +213,11 @@ def scan_directory(
             )
 
             exif_diagnostics = ()
-            exif_context = extract_exif_context(path)
-            if ext in {".jpg", ".jpeg"}:
+            if ext in {".jpg", ".jpeg", ".png", ".tif", ".tiff"}:
+                exif_context = extract_exif_context(path)
                 exif_diagnostics = extract_exif_diagnostics(path)
+            else:
+                exif_context = ExifContext(None, None, (), None, None)
             extraction_diagnostics = (
                 *exif_diagnostics,
                 *xmp_metadata.diagnostics,
@@ -319,6 +345,10 @@ def scan_directory(
                 sha256=prepared.sha256,
                 short_hash=prepared.sha256[:8],
                 metadata=media_metadata,
+                media_format=media_format_for(prepared.path) or "",
+                canonical_extension=CANONICAL_EXTENSION[
+                    media_format_for(prepared.path) or ""
+                ],
             )
         )
 
@@ -332,6 +362,8 @@ def scan_directory(
                 )
             )
 
+    records, live_photo_issues = _annotate_live_photos(records, root_path)
+    issues.extend(live_photo_issues)
     batch_contexts = _build_batch_contexts(records, inconsistent_paths)
 
     return ScanResult(
@@ -343,6 +375,68 @@ def scan_directory(
         metadata_diagnostics=tuple(metadata_diagnostics),
         batch_contexts=batch_contexts,
     )
+
+
+def _annotate_live_photos(
+    records: list[FileRecord],
+    root_path: Path,
+) -> tuple[list[FileRecord], list[ScanIssue]]:
+    grouped: dict[tuple[Path, str], list[int]] = {}
+    for index, record in enumerate(records):
+        if record.media_format not in LIVE_PHOTO_STILL_FORMATS | {"mov"}:
+            continue
+        grouped.setdefault((record.path.parent, record.path.stem), []).append(index)
+
+    annotated = list(records)
+    issues: list[ScanIssue] = []
+    for _, indexes in sorted(
+        grouped.items(), key=lambda item: (str(item[0][0]), item[0][1])
+    ):
+        still_indexes = [
+            index
+            for index in indexes
+            if records[index].media_format in LIVE_PHOTO_STILL_FORMATS
+        ]
+        motion_indexes = [
+            index for index in indexes if records[index].media_format == "mov"
+        ]
+        if not motion_indexes or not still_indexes:
+            continue
+        if len(still_indexes) != 1 or len(motion_indexes) != 1:
+            for index in indexes:
+                issues.append(
+                    ScanIssue(
+                        path=records[index].path,
+                        severity="warning",
+                        code="ambiguous_live_photo_pair",
+                        message=(
+                            "Live Photo pairing requires exactly one JPEG/HEIC/HEIF "
+                            "still and one MOV with the same case-sensitive stem in "
+                            "the same directory"
+                        ),
+                    )
+                )
+            continue
+
+        still_index = still_indexes[0]
+        motion_index = motion_indexes[0]
+        still_ref = records[still_index].path.relative_to(root_path).as_posix()
+        motion_ref = records[motion_index].path.relative_to(root_path).as_posix()
+        pair_id = hashlib.sha256(
+            f"{still_ref}\0{motion_ref}".encode("utf-8")
+        ).hexdigest()
+        annotated[still_index] = replace(
+            records[still_index],
+            live_photo_pair_id=pair_id,
+            live_photo_role="still",
+        )
+        annotated[motion_index] = replace(
+            records[motion_index],
+            live_photo_pair_id=pair_id,
+            live_photo_role="motion",
+        )
+
+    return annotated, issues
 
 
 def _device_key(make: str | None, model: str | None) -> tuple[str, str] | None:
@@ -360,7 +454,10 @@ def _trusted_device_offsets(
         if key is None:
             continue
         for candidate in prepared.candidates:
-            if candidate.source_kind in {"exif", "xmp"} and candidate.timezone_offset is not None:
+            if (
+                candidate.source_kind in {"exif", "xmp"}
+                and candidate.timezone_offset is not None
+            ):
                 candidates.setdefault(key, set()).add(candidate.timezone_offset)
     return {
         key: next(iter(offsets))

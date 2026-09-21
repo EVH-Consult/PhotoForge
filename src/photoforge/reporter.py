@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any, Mapping, Sequence, cast
 
-from .model import ContextualGrouping, PlanResult, TimestampCandidate
+from .model import ContextualGrouping, PlannedRecord, PlanResult, TimestampCandidate
 from .version import VERSION
 
 
@@ -16,8 +16,12 @@ def build_summary(plan_result: PlanResult) -> dict[str, int]:
     corrupt_files = tuple(plan_result.corrupt_files)
 
     total_files_processed = len(records)
-    duplicate_groups = sum(
-        1 for record in records if record.canonical and record.duplicate_group_size > 1
+    duplicate_groups = len(
+        {
+            record.duplicate_group_id
+            for record in records
+            if record.canonical and record.duplicate_group_size > 1
+        }
     )
     total_duplicates = sum(1 for record in records if not record.canonical)
 
@@ -171,10 +175,16 @@ def _to_jsonable(value: Any) -> Any:
         }
 
     if is_dataclass(value) and not isinstance(value, type):
-        return {
+        payload = {
             field.name: _to_jsonable(getattr(value, field.name))
             for field in fields(value)
         }
+        if isinstance(value, PlannedRecord) and value.media_format == "jpeg":
+            payload.pop("media_format")
+        if isinstance(value, PlannedRecord) and value.live_photo_pair_id is None:
+            payload.pop("live_photo_pair_id")
+            payload.pop("live_photo_role")
+        return payload
 
     if isinstance(value, dict):
         mapping_value = cast(Mapping[Any, Any], value)

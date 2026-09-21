@@ -14,7 +14,8 @@ Provides metadata extraction for PNG files.
 
 ## Responsibilities
 
-- extract timestamp-related metadata from PNG files
+- return readable EXIF timestamp candidates
+- append the deterministic filesystem `mtime` candidate
 
 ---
 
@@ -39,7 +40,7 @@ Provides metadata extraction for PNG files.
 ## Non-Responsibilities
 
 - no normalization
-- no fallback logic
+- no cross-source resolution
 - no corrupt-file classification
 - no FileRecord construction
 - no planner or grouping interaction
@@ -56,4 +57,5 @@ Used by:
 
 ## Final Contract
 
-Extracts metadata from PNG files without defining system-level behavior.
+Returns EXIF candidates followed by filesystem fallback without defining
+system-level resolution behavior.
