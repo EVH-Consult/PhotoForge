@@ -86,10 +86,10 @@ Test:
 Implement:
 
 - Recursive file discovery
-- Supported file filtering (JPEG only)
+- Supported-media filtering and structural validation
 - Deterministic ordering
 - Metadata extraction (size, mtime timestamp)
-- Timestamp extraction via EXIF module
+- Format extractor selection plus common XMP/filename/folder/filesystem sources
 - Hash computation
 - Build complete `FileRecord`
 
@@ -104,7 +104,7 @@ Test:
 
 Implement:
 
-- Group by `sha256`
+- Build ordinary-file or paired Live Photo logical assets and group by asset hash
 - Deterministic ordering
 - Canonical selection
 
@@ -125,7 +125,7 @@ Extend planner.
 Implement:
 
 - Canonical filename:
-  `YYYY-MM-DD_HHMMSS_<short-hash>.jpg`
+  `YYYY-MM-DD_HHMMSS_<short-asset-hash>.<normalized-extension>`
 - Target path resolution:
   - in-place
   - organized: `<output>/<YYYY>/...`

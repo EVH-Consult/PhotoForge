@@ -14,7 +14,7 @@ Provides metadata extraction for video files.
 
 ## Responsibilities
 
-- extract timestamp-related metadata from video files
+- return the deterministic filesystem `mtime` candidate for MP4 and MOV
 
 ---
 
@@ -56,4 +56,5 @@ Used by:
 
 ## Final Contract
 
-Extracts metadata from video files without defining system-level behavior.
+Returns filesystem fallback only; embedded container metadata parsing is not
+claimed.

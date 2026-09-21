@@ -102,26 +102,31 @@ The scanner classifies files into:
 
 ### 4.1 Processable
 
-- `.jpg`
-- `.jpeg`
+- JPEG: `.jpg`, `.jpeg`
+- PNG: `.png`
+- HEIC/HEIF: `.heic`, `.heif`
+- TIFF: `.tif`, `.tiff`
+- RAW: `.cr2`, `.nef`, `.arw`
+- video: `.mp4`, `.mov`
 
 These files are fully processed into `FileRecord`.
 
 ---
 
-### 4.2 Recognized but Not Processable
+### 4.2 Deterministic format validation
 
-- `.png`, `.heic`, `.heif`
-- `.cr2`, `.nef`, `.arw`
-- `.mp4`, `.mov`
+- JPEG retains the established v0.7 metadata/fallback path without a new
+  content-validation gate.
+- PNG and TIFF must be opened, format-matched and verified by Pillow.
+- HEIC/HEIF must contain an ISO Base Media `ftyp` box with an accepted HEIF
+  brand.
+- CR2 must contain the Canon CR2 little-endian TIFF signature and `CR` marker.
+- NEF and ARW must contain a little- or big-endian TIFF signature.
+- MP4 and MOV must contain an ISO Base Media `ftyp` box with an accepted MP4 or
+  QuickTime brand respectively.
 
-Behavior:
-
-- recorded as skipped
-- not processed further
-- not considered corrupt
-
----
+A newly supported file that fails its format validation is corrupt with reason
+`corrupt_metadata_unreadable`; it is not downgraded to unsupported.
 
 ### 4.3 Unsupported
 
@@ -131,6 +136,17 @@ Behavior:
 
 - recorded as skipped
 - not processed further
+
+### 4.4 Format-specific metadata contract
+
+- JPEG, PNG and TIFF: EXIF candidates where readable, then the common XMP,
+  filename, folder and filesystem sources.
+- HEIC/HEIF, CR2/NEF/ARW and MP4/MOV: the common XMP, filename, folder and
+  filesystem sources. Their current format extractors contribute filesystem
+  `mtime`; embedded container/RAW metadata parsing is not claimed.
+- Every format uses the common normalization, hashing, grouping, planning and
+  reporting stages after extraction.
+- No extractor rewrites media or metadata.
 
 ---
 
@@ -303,9 +319,32 @@ classification.
 
 ## 9. Duplicate Grouping
 
-- files grouped by identical SHA-256
-- one group per unique hash
-- groups sorted deterministically
+- an ordinary file is one logical asset whose asset hash is its SHA-256
+- a paired Live Photo is one logical asset whose asset hash is SHA-256 over the
+  ASCII still SHA-256, a NUL separator, and the ASCII motion SHA-256
+- assets are grouped by identical asset hash
+- groups are sorted deterministically
+
+### 9.1 Apple Live Photo pairing
+
+Pairing is established before planning and uses only the current scan snapshot.
+A pair exists only when:
+
+- both files are in the same directory;
+- their case-sensitive filename stems are identical;
+- exactly one component is a JPEG/HEIC/HEIF still; and
+- exactly one component is a MOV motion file.
+
+Unpaired stills and MOV files remain independent processable assets. If a stem
+has a MOV plus multiple eligible stills, or one eligible still plus multiple
+MOV files, no pair is formed and every candidate receives an
+`ambiguous_live_photo_pair` warning.
+
+A pair uses the still component as its primary metadata/timestamp record.
+Duplicate comparison covers both component hashes. Canonical selection ranks
+the total pair size, then the still timestamp-source preference, then the
+component paths. Both canonical components are planned together. If either
+target collides, both component actions are `collision`.
 
 ### Grouping and Planning Separation
 
@@ -332,13 +371,23 @@ Exactly one file per group is selected using:
 2. prefer EXIF timestamp over `mtime`
 3. lexicographically smallest path
 
+For a Live Photo, “file” means the complete logical asset: combined component
+size, still timestamp source, then the ordered component paths. Both components
+of the selected asset are canonical.
+
 ---
 
 ## 11. Canonical Filename
 
 ``
-YYYY-MM-DD_HHMMSS_<short-hash>.jpg
+YYYY-MM-DD_HHMMSS_<short-asset-hash>.<normalized-format-extension>
 ``
+
+- JPEG normalizes to `.jpg`.
+- TIFF normalizes to `.tif`.
+- PNG, HEIC, HEIF, CR2, NEF, ARW, MP4 and MOV retain their supported extension.
+- Live Photo components share the still timestamp and short asset hash, so
+  their basenames match while their extensions remain distinct.
 
 ---
 
@@ -440,6 +489,11 @@ Record metadata in JSON includes the selected timestamp candidate, every valid
 candidate with naive/aware/UTC representations, camera/device context, keywords,
 GPS, sidecar path, timezone basis, and clock correction.
 
+Non-JPEG records also expose `media_format`. Paired Live Photo records expose
+`live_photo_pair_id` and `live_photo_role` (`still` or `motion`). These additive
+fields are omitted for ordinary JPEG records so the existing JPEG JSON contract
+remains byte-for-byte stable.
+
 JSON output:
 
 - uses fixed indentation of 2 spaces
@@ -475,7 +529,7 @@ No randomness allowed.
 
 ## 19. Constraints
 
-- JPEG processing only
+- deterministic processing for the extensions in section 4.1
 - exact duplicate detection only
 - no perceptual hashing
 - no file deletion

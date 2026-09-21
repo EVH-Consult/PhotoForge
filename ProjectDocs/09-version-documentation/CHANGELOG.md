@@ -7,6 +7,25 @@ Versions follow semantic versioning where applicable.
 
 ---
 
+## [Unreleased]
+
+### Added
+
+- End-to-end processing contracts for PNG, HEIC/HEIF, TIFF, CR2/NEF/ARW,
+  MP4 and MOV
+- Deterministic same-stem Apple Live Photo pairing, asset-level duplicate
+  grouping and paired collision handling
+- Synthetic tests covering format validation, normalized extensions, Live Photo
+  pairing, duplicate pairs, ambiguity and corrupt input
+
+### Changed
+
+- Canonical filenames now preserve each supported format's normalized extension
+- PNG and TIFF contribute readable EXIF timestamps before common fallback sources
+- Existing JPEG console and JSON golden behavior remains unchanged
+
+---
+
 ## [0.6.0] - 2026-04-18
 
 ### Added v0.6

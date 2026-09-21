@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "photoforge"
 version = "0.7.0.dev0"
-description = "Deterministic JPEG photo deduplication and organization CLI."
+description = "Deterministic media deduplication and organization CLI."
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
@@ -15,7 +15,7 @@ authors = [
 dependencies = [
   "Pillow>=12.2.0,<13"
 ]
-keywords = ["photos", "jpeg", "exif", "deduplication", "cli"]
+keywords = ["photos", "media", "exif", "deduplication", "live-photos", "cli"]
 classifiers = [
   "Development Status :: 2 - Pre-Alpha",
   "Environment :: Console",

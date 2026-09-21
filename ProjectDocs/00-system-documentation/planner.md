@@ -108,13 +108,15 @@ Rules:
 
 ### 3. Select Canonical File
 
-Exactly one file per group is selected.
+Exactly one logical asset per group is selected. An ordinary file is one asset;
+a valid Live Photo pair is one two-component asset.
 
 Selection criteria (in order):
 
-1. largest file size
-2. prefer a timestamp source whose identifier starts with `exif_`
-3. lexicographically smallest path
+1. largest file or combined pair size
+2. prefer a timestamp source whose identifier starts with `exif_` (the still
+   source for a pair)
+3. lexicographically smallest path or ordered component-path tuple
 
 Ranking key:
 
@@ -132,14 +134,15 @@ Canonical file is the minimum of this key.
 
 Format:
 
-    YYYY-MM-DD_HHMMSS_<short-hash>.jpg
+    YYYY-MM-DD_HHMMSS_<short-asset-hash>.<normalized-extension>
 
 Rules:
 
-- timestamp derived from canonical file
-- `<short-hash>` = first 8 characters of SHA-256
-- extension always `.jpg` (lowercase)
-- no variation allowed
+- timestamp derived from the canonical file or Live Photo still
+- `<short-asset-hash>` = first 8 characters of the file/asset hash
+- JPEG normalizes to `.jpg`, TIFF to `.tif`, and other formats retain their
+  supported extension
+- Live Photo components share a basename and keep distinct still/MOV extensions
 
 ---
 
@@ -164,7 +167,8 @@ Where:
 
 ### 6. Classify Action
 
-Only canonical files are evaluated.
+Only canonical files/assets are evaluated. If either Live Photo target
+collides, both pair components are classified `collision`.
 
 Decision order:
 

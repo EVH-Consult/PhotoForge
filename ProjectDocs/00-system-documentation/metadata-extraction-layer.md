@@ -26,7 +26,7 @@ remains authoritative in `SPEC.md`, implementation and tests.
 
 All extraction resides under ``src/photoforge/metadata_extractors/``. The
 package contains EXIF/JPEG, XMP sidecar, filename, folder, filesystem, HEIC,
-PNG, RAW and video extractors. `scanner.py` orchestrates them;
+PNG, TIFF, RAW and video extractors. `scanner.py` orchestrates them;
 `timestamp_resolution.py` owns cross-source precedence; `metadata.py` owns
 normalization. The former standalone `src/photoforge/exif.py` had no supported
 consumer and was removed under EVHC-291.
@@ -57,6 +57,7 @@ Implemented extractors include:
 - ``extract_heic_timestamp``
 - ``extract_png_timestamp``
 - ``extract_raw_timestamp``
+- ``extract_tiff_timestamp``
 - ``extract_video_timestamp``
 - ``extract_exif_metadata`` / ``extract_exif_context``
 - ``extract_jpeg_timestamp``
@@ -109,7 +110,7 @@ Extractors must not:
 
 ## Current Extractor Behavior
 
-Existing non-JPEG format extractors:
+HEIC/HEIF, RAW and video format extractors:
 
 - do not read embedded metadata
 - deterministically fallback to filesystem timestamp
@@ -121,7 +122,8 @@ Example:
 return extract_filesystem_timestamp_candidates(path, mtime_timestamp)
 ```
 
-This behavior is explicitly defined and must remain unchanged.
+PNG and TIFF also expose readable EXIF candidates before filesystem fallback.
+Format validation is owned by `media_formats.py`, outside timestamp extraction.
 
 ---
 

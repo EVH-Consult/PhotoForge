@@ -117,11 +117,12 @@ photoforge <input_path> [--output <output_path>] [--json] [--apply] [--context]
 The scanner distinguishes:
 
 - **processable files**
-  - `.jpg`, `.jpeg`
-
-- **recognized but not processable**
-  - `.png`, `.heic`, `.heif`, `.cr2`, `.nef`, `.arw`, `.mp4`, `.mov`
-  - recorded but not processed
+  - JPEG: `.jpg`, `.jpeg`
+  - PNG: `.png`
+  - HEIC/HEIF: `.heic`, `.heif`
+  - TIFF: `.tif`, `.tiff`
+  - RAW: `.cr2`, `.nef`, `.arw`
+  - video: `.mp4`, `.mov`
 
 - **unsupported files**
   - all other extensions
@@ -140,6 +141,21 @@ Corrupt files:
 - do not produce `FileRecord`
 - are tracked deterministically
 - are reported separately
+
+Newly supported non-JPEG formats receive deterministic structural validation.
+PNG and TIFF are verified through Pillow; HEIC/HEIF, RAW and video inputs use
+their documented container/signature checks. JPEG keeps its established
+metadata/fallback behavior unchanged.
+
+#### Apple Live Photos
+
+A Live Photo is paired only when one JPEG/HEIC/HEIF still and one MOV have the
+same case-sensitive stem in the same directory. A valid pair is planned and
+deduplicated as one logical asset, uses the still timestamp, and receives one
+shared canonical basename with format-preserving extensions. Unpaired files are
+processed independently. Ambiguous candidates are left independent and produce
+deterministic warnings. A collision affecting either component marks both pair
+components as collisions.
 
 ---
 
@@ -181,8 +197,10 @@ classification. These diagnostics do not alter canonical naming or planning.
 
 ### 4. Duplicate Grouping
 
-- files grouped by identical SHA-256
-- one group per unique hash
+- ordinary files are grouped by their SHA-256
+- Live Photos are grouped by a deterministic asset hash derived from the still
+  and motion SHA-256 values
+- one group per unique file or asset hash
 - groups of size > 1 are duplicates
 
 ---
@@ -222,8 +240,12 @@ Target structure:
 Filename format:
 
 ```text
-YYYY-MM-DD_HHMMSS_<short-hash>.jpg
+YYYY-MM-DD_HHMMSS_<short-hash>.<normalized-format-extension>
 ```
+
+JPEG remains normalized to `.jpg`; TIFF is normalized to `.tif`; other formats
+retain their supported extension. Both components of a Live Photo use the same
+basename and their own extensions.
 
 ---
 
@@ -297,7 +319,7 @@ If `--context` is enabled:
 
 ## Determinism
 
-Within the documented JPEG input contract, PhotoForge enforces:
+Within the documented supported-media contract, PhotoForge enforces:
 
 - identical input → identical output
 - explicit ordering everywhere
