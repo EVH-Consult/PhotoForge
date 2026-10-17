@@ -388,3 +388,18 @@ asset hashes and camera fields; missing camera metadata becomes `unknown`.
 never changes targets. Defaults remain unchanged. See SPEC.md section 21 for
 precise grammar, sanitization, collision and paired Live Photo rules. Review
 the default dry-run report before requesting filesystem changes.
+
+
+### CLI reporting and confirmation
+
+- `--verbosity quiet` gives a compact console summary; `normal` keeps the
+  complete existing report and `verbose` adds duplicate evidence on stderr.
+- `--progress` writes phase indicators to stderr, leaving JSON stdout intact.
+- `--diff --limit 20` displays a bounded, deterministic dry-run action diff.
+- `--apply --confirm` requires an interactive yes response after the report.
+  Refusal/EOF applies nothing; noninteractive stdin is rejected. Plain
+  `--apply` retains its existing explicit automation interface.
+
+JSON stays complete at every verbosity. Handled CLI input/filesystem errors
+return 2, refusals return 1, successful execution returns 0; argparse syntax
+errors return 2. See SPEC.md section 22 for stream and error contracts.

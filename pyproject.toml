@@ -31,7 +31,7 @@ classifiers = [
 ]
 
 [project.scripts]
-photoforge = "photoforge.cli:main"
+photoforge = "photoforge.cli:entrypoint"
 
 [tool.setuptools]
 package-dir = {"" = "src"}

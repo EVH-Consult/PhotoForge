@@ -605,3 +605,43 @@ Filename timestamp extraction additionally accepts `YYYYMMDDHHMMSS` and
 `YYYY-MM-DDTHH-MM-SS`; these datetime patterns precede date-only matches at
 the same position, retain left-to-right precedence and claim no timezone.
 Existing source precedence and timestamp policy still apply.
+
+
+## 22. CLI presentation, progress, confirmation and errors
+
+The CLI additionally accepts `--verbosity quiet|normal|verbose`, `--progress`,
+`--diff`, `--limit N`, and `--confirm`. Defaults preserve the existing complete
+console/JSON report and dry-run behavior. Normal is the default verbosity.
+Quiet emits a one-line console count summary; JSON is always complete.
+Verbose emits summary and sorted duplicate-group evidence on stderr, identifying
+canonical and duplicate components without altering duplicate selection.
+Counts refer to component records/actions, including Live Photo components.
+
+`--progress` emits deterministic phase indicators (scanning, planning, report
+complete; applying/application complete only under --apply) on stderr. No
+elapsed time or progress text enters JSON stdout. This is phase progress, not
+a claim of file-level or percentage completion.
+
+`--diff` replaces console output with a deterministic source/target action view
+sorted by source then target; paths are JSON-escaped. It is dry-run-only and
+cannot combine with --json or --apply. `--limit N` requires --diff and a positive
+integer; omitted actions are counted explicitly. This provides bounded console
+output for large scans. It changes presentation only.
+
+`--confirm` requires --apply. The full chosen report is flushed before any
+prompt or filesystem application. Interactive stdin is mandatory; the prompt
+goes to stderr. Only case-insensitive trimmed `y` or `yes` permits application.
+Refusal, empty input or EOF returns 1 with no application; noninteractive stdin
+returns 2 with no application. --apply without --confirm preserves the existing
+explicit noninteractive application interface. No new implicit mutation exists.
+Confirmation tests mock application; they do not apply changes to real media.
+
+The installed command and python -m photoforge.cli use entrypoint(), which
+returns 2 for handled ValueError/OSError failures without a traceback. ValueError
+uses code invalid_input and its deterministic message; OSError uses code
+filesystem_error and fixed message 'filesystem operation failed'. With --json,
+the error is a sorted JSON object on stderr; stdout contains no error text.
+Argument syntax errors retain argparse's usage/error output and exit 2.
+main(argv) remains an exception-based library API for callers already using it.
+An application failure may follow partial application under the pre-existing
+sequential operations contract; this change does not claim transactional apply.
