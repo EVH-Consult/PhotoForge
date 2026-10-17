@@ -14,6 +14,8 @@ _PATTERNS: Final[list[tuple[str, str]]] = [
     ("filename_yyyymmdd_hhmmss", r"(?<!\d)(\d{8})_(\d{6})(?!\d)"),
     ("filename_yyyy-mm-dd_hh-mm-ss", r"(?<!\d)(\d{4}-\d{2}-\d{2})_(\d{2}-\d{2}-\d{2})(?!\d)"),
     ("filename_yyyy-mm-dd_hh-mm-ss_space", r"(?<!\d)(\d{4}-\d{2}-\d{2}) (\d{2}-\d{2}-\d{2})(?!\d)"),
+    ("filename_yyyymmddhhmmss", r"(?<!\d)(\d{8})(\d{6})(?!\d)"),
+    ("filename_yyyy-mm-ddT_hh-mm-ss", r"(?<!\d)(\d{4}-\d{2}-\d{2})T(\d{2}-\d{2}-\d{2})(?!\d)"),
     ("filename_yyyymmdd", r"(?<!\d)(\d{8})(?!\d)"),
     ("filename_yyyy-mm-dd", r"(?<!\d)(\d{4}-\d{2}-\d{2})(?!\d)"),
 ]

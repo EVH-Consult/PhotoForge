@@ -71,6 +71,7 @@ pip install -e .
 ```bash
 photoforge <input_path> [--output <output_path>] [--json] [--apply] [--context]
            [--timestamp-policy <policy.json>] [--hash-workers <1..32>]
+           [--naming-config <rules.json>]
 ```
 
 ### Arguments
@@ -183,7 +184,7 @@ media files or sidecars.
 
 Read-only metadata context also includes camera make/model, keywords, GPS,
 sidecar provenance, candidate comparisons and immediate-folder batch
-classification. These diagnostics do not alter canonical naming or planning.
+classification. Diagnostics themselves do not change planning; an explicit naming configuration may use camera fields.
 
 ---
 
@@ -275,7 +276,7 @@ Properties:
 
 - computed from `FileRecord` set
 - independent from duplicate grouping
-- does not affect planning
+- affects planning only through explicit naming-config event opt-in
 - produces `ContextualGrouping`
 
 Output is included only when:
@@ -377,3 +378,14 @@ default remains serial. Keep the input tree stable until scanning completes.
 Every run reads fresh media/sidecar metadata and full hashes; there is no
 persistent stat-based cache. See SPEC.md section 20 and run
 `python scripts/benchmark_scanning.py` for reproducible synthetic comparisons.
+
+
+### Custom naming and organization
+
+Use `--naming-config naming-rules.example.json --output <destination>` for an
+explicit version-1 configuration. Templates support timestamp components,
+asset hashes and camera fields; missing camera metadata becomes `unknown`.
+`{event}` is available only with `use_context_groups: true`; `--context` alone
+never changes targets. Defaults remain unchanged. See SPEC.md section 21 for
+precise grammar, sanitization, collision and paired Live Photo rules. Review
+the default dry-run report before requesting filesystem changes.

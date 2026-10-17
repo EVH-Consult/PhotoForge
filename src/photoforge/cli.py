@@ -4,6 +4,7 @@ import argparse
 from pathlib import Path
 
 from .model import CorruptFile
+from .naming import load_naming_rules
 from .operations import apply_actions
 from .pipeline import run_pipeline
 from .reporter import render_console_report, render_json_report
@@ -47,6 +48,8 @@ def build_parser() -> argparse.ArgumentParser:
         metavar="policy.json",
         help="Apply explicit deterministic timestamp correction and inference rules",
     )
+    parser.add_argument("--naming-config", metavar="rules.json",
+                        help="Explicit version-1 filename and folder templates")
     parser.add_argument("--hash-workers", type=int, choices=range(1, 33), default=1,
                         metavar="1..32", help="Bounded parallel full-content hashing (default: 1)")
     return parser
@@ -83,6 +86,10 @@ def main(argv: list[str] | None = None) -> int:
         validate_output_path(args.output) if args.output is not None else None
     )
 
+    naming_rules = load_naming_rules(Path(args.naming_config).expanduser()) if args.naming_config else None
+    if naming_rules is not None and args.output is None and naming_rules.folder != "{year}/{month}/{day}":
+        raise ValueError("custom folder rules require --output")
+
     timestamp_policy = (
         load_timestamp_policy(Path(args.timestamp_policy).expanduser().resolve())
         if args.timestamp_policy is not None
@@ -101,6 +108,7 @@ def main(argv: list[str] | None = None) -> int:
         output_path=output_path,
         corrupt_files=corrupt_files,
         scan_result=scan_result,
+        naming_rules=naming_rules,
     )
 
     if args.json:

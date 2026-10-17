@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "filename": "{year}-{month}-{day}_{hour}{minute}{second}_{short_hash}",
+  "folder": "{camera_model}/{year}/{month}/{day}",
+  "use_context_groups": false
+}
