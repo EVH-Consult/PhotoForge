@@ -20,22 +20,25 @@ def run_pipeline(
     scan_result: ScanResult | None = None,
     **planner_kwargs: object,
 ) -> tuple[PlanResult, ContextualGrouping]:
-    """Run the composed pipeline without changing existing planner behavior.
+    """Compose one scan, one grouping result and one planning pass.
 
-    This orchestration function is the sole integration point for contextual
+    This orchestration function is the pipeline integration point for contextual
     grouping. It composes scanning, planning, and contextual grouping while
     keeping each responsibility in its existing module.
 
     Rules enforced by this function:
     - scanning is delegated to scanner.scan_directory(...)
-    - planning is delegated to the existing planner entry point unchanged
+    - planning is delegated to the existing planner entry point
+    - explicit event naming reuses this same grouping through contextual_grouping
     - contextual grouping is computed exactly once from the complete valid
       ``tuple[FileRecord, ...]`` returned by the scanner
     - the resulting ``ContextualGrouping`` is returned separately and is not
       embedded into existing pipeline models
 
     ``planner_args`` and ``planner_kwargs`` are forwarded directly to the
-    planner entry point so the existing planning interface can remain unchanged.
+    planner entry point. For explicit use_context_groups naming only, the
+    computed grouping is also passed as contextual_grouping; injected planners
+    supporting that opt-in must accept the same keyword.
     """
 
     planner = plan_files if plan_files is not None else _load_plan_files()
@@ -49,6 +52,10 @@ def run_pipeline(
     records = effective_scan_result.records
 
     grouping = grouping_builder(records)
+    if getattr(planner_kwargs.get("naming_rules"), "use_context_groups", False):
+        if "contextual_grouping" in planner_kwargs:
+            raise ValueError("run_pipeline owns the contextual grouping for its snapshot")
+        planner_kwargs["contextual_grouping"] = grouping
     plan_result = planner(records, *planner_args, **planner_kwargs)
     if effective_scan_result.batch_contexts:
         plan_result = replace(
