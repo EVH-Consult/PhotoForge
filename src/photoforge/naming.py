@@ -64,6 +64,15 @@ def portable_metadata(value: str | None) -> str:
     return result
 
 
+def validate_component(component: str) -> None:
+    """Validate a complete portable path component, including its extension."""
+    # Windows ignores spaces before the first dot when recognizing devices.
+    device_stem = component.split(".", 1)[0].rstrip(" ").upper()
+    if (not component or component in {".", ".."} or component[-1] in ". "
+            or len(component) > 120 or device_stem in RESERVED):
+        raise ValueError("naming template produces an unsafe or overlong component")
+
+
 def render_template(template: str, record, asset_hash: str, event: str | None) -> str:
     stamp = record.timestamp
     values = {"year": f"{stamp.year:04d}", "month": f"{stamp.month:02d}",
@@ -74,7 +83,5 @@ def render_template(template: str, record, asset_hash: str, event: str | None) -
               "camera_model": portable_metadata(record.metadata.camera_model if record.metadata else None)}
     rendered = template.format_map(values)
     for component in rendered.split("/"):
-        if (not component or component in {".", ".."} or component[-1] in ". "
-                or len(component) > 120 or component.split(".")[0].upper() in RESERVED):
-            raise ValueError("naming template produces an unsafe or overlong component")
+        validate_component(component)
     return rendered

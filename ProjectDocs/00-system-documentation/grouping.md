@@ -18,7 +18,8 @@ This transformation is:
 - independent of duplicate grouping and planner decisions
 
 Contextual grouping is an additional structural output of the pipeline.
-It does not modify planner behavior.
+Its construction does not depend on planning. Explicit event naming may consume
+its result under the opt-in contract below; default planning remains unchanged.
 
 ---
 
@@ -49,7 +50,7 @@ The output must satisfy all structural invariants defined by `model.py` and docu
 - inspect corrupt files
 - perform duplicate grouping
 - perform canonical selection
-- influence action planning
+- perform action planning (the planner may consume group IDs only through explicit event naming)
 - generate rename or move actions
 - modify reporting behavior unless explicitly requested by CLI flags
 - access external systems or environment state
@@ -60,7 +61,8 @@ The output must satisfy all structural invariants defined by `model.py` and docu
 
 Contextual grouping is a separate structural layer in the PhotoForge pipeline.
 
-It is computed from the same valid `FileRecord` set used by the planner, but it is not part of duplicate grouping and does not affect planner results.
+It is computed from the same valid `FileRecord` set used by the planner, but it is not part of duplicate grouping. Default planner results are independent;
+explicit event naming may use group IDs for names and targets.
 
 Current pipeline role:
 
@@ -70,7 +72,7 @@ Current pipeline role:
 - reporter may include contextual grouping output when requested
 - CLI exposes this optional output through `--context`
 
-This means contextual grouping is integrated into the active pipeline, but remains behaviorally independent from planning.
+This means contextual grouping is integrated into the active pipeline, with group construction independent from planning and a deliberate naming consumer.
 
 ---
 
@@ -102,7 +104,7 @@ Instead, each grouped file is referenced through `record_ref`.
 
 Definition:
 
-- `record_ref = str(file_record.path)`
+- `record_ref = file_record.path.relative_to(common_record_root).as_posix()`
 
 Properties:
 
@@ -250,7 +252,7 @@ Contextual grouping:
 - produces a separate structural output
 - does not alter duplicate groups
 - does not alter canonical selection
-- does not alter action classification
+- does not classify actions; explicit event targets are classified by the planner
 
 The two grouping layers must remain independent.
 
@@ -258,19 +260,18 @@ The two grouping layers must remain independent.
 
 ## Relationship to Planner
 
-Contextual grouping does not influence the planner.
+Default planning and canonical-file selection remain independent of contextual
+grouping. The explicit `NamingRules.use_context_groups` opt-in permits the
+planner to use the canonical primary record's group ID in naming templates.
+This may change filenames, targets and the resulting collision/action statuses
+in `PlanResult`, while retaining exact duplicate equality, canonical selection,
+non-overwrite rules and complete Live Photo asset handling.
 
-Specifically, contextual grouping must not:
-
-- change canonical-file selection
-- change canonical filename generation
-- change target path resolution
-- change collision detection
-- change action status
-- change `PlanResult`
-
-The planner can be fully understood without contextual grouping.
-Contextual grouping is additive output only.
+The pipeline computes grouping exactly once and supplies that same result to
+the event-enabled planner; reporting receives it separately. Direct planner
+callers may supply a complete valid grouping for the same snapshot or compute
+it once locally by omitting that optional input. No implicit group consumer is
+introduced by `--context`. SPEC.md section 21 defines the exact behavior.
 
 ---
 
@@ -311,8 +312,9 @@ This flag controls report inclusion, not grouping semantics.
 At runtime, the implemented system follows this high-level grouping flow:
 
     scan_directory(...) -> ScanResult
-    plan_files(scan_result.records, ..., corrupt_files=...) -> PlanResult
-    compute_contextual_grouping(scan_result.records) -> ContextualGrouping
+    build_contextual_grouping(scan_result.records) -> ContextualGrouping
+    plan_files(scan_result.records, ..., contextual_grouping=grouping) -> PlanResult
+    # contextual_grouping is forwarded only for explicit event naming
     reporter(plan_result, contextual_grouping, include_context=...)
     
 Contextual grouping is computed from the valid `FileRecord` set only.
@@ -381,7 +383,7 @@ It must:
 
 - consume only valid `FileRecord`
 - produce a structurally valid `ContextualGrouping`
-- remain independent from duplicate grouping and planner behavior
+- keep group construction independent of duplicate grouping and planner decisions
 - be reproducible for identical input
-- be exposed only as optional reporting output
-- never alter action planning or execution
+- be exposed as optional reporting output and as an explicitly opted-in naming input
+- never perform action planning or execution itself; default planning is unchanged

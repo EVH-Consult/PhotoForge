@@ -586,7 +586,10 @@ Camera metadata is NFKC-normalized; non-ASCII/nonportable runs become `_`,
 leading/trailing dots/underscores are stripped, values are limited to 80
 characters and empty/missing values become `unknown`. Reserved Windows device
 names gain `_`. Every rendered path component must be nonempty, at most 120
-characters, not traversal or a reserved name, and have no trailing dot/space.
+characters (including each appended media extension for filenames), not traversal
+or a reserved Windows device stem, and have no trailing dot/space. Device-stem
+recognition ignores spaces before the first dot, so `CON .txt`, `NUL .x` and
+`COM1 .data` are rejected for filenames and folders.
 Unsafe literals fail rather than being silently interpreted as paths.
 
 `{event}` requires explicit boolean `use_context_groups: true`; it is the full
@@ -606,3 +609,14 @@ Filename timestamp extraction additionally accepts `YYYYMMDDHHMMSS` and
 `YYYY-MM-DDTHH-MM-SS`; these datetime patterns precede date-only matches at
 the same position, retain left-to-right precedence and claim no timezone.
 Existing source precedence and timestamp policy still apply.
+
+The pipeline computes contextual grouping once for the complete scan snapshot.
+When event naming is explicitly enabled, it passes that exact grouping into the
+planner using `contextual_grouping`; it remains a separate reporting result.
+Default and non-event injected planners receive their existing arguments.
+A direct `plan_files` caller can supply a structurally valid grouping covering
+exactly the same complete record snapshot, or omit it to compute grouping once
+locally. The pipeline owns this input and rejects a caller override during event
+naming. Grouping never changes duplicate equality or canonical representative
+selection; explicit event naming may change targets and their resulting
+collision/action classifications under the same existing safety rules.

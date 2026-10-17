@@ -6,9 +6,11 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
 
-from .naming import NamingRules, render_template
+from .naming import NamingRules, render_template, validate_component
 
 from .model import (
+    ContextualGrouping,
+    validate_contextual_grouping,
     CorruptFile,
     FileRecord,
     PlannedAction,
@@ -140,17 +142,26 @@ def plan_files(
     corrupt_files: Iterable[CorruptFile] = (),
     *,
     naming_rules: NamingRules | None = None,
+    contextual_grouping: ContextualGrouping | None = None,
 ) -> PlanResult:
     rules = naming_rules or NamingRules()
     if output_path is None and rules.folder != NamingRules().folder:
         raise ValueError("custom folder rules require an output directory")
     sorted_records = _sorted_records(records)
     event_ids = {}
-    if rules.use_context_groups and sorted_records:
+    if rules.use_context_groups:
         import os
         from .grouping import build_contextual_grouping
-        root = Path(os.path.commonpath([str(r.path.parent) for r in sorted_records]))
-        for group in build_contextual_grouping(tuple(sorted_records)).groups:
+        root = (Path(os.path.commonpath([str(r.path.parent) for r in sorted_records]))
+                if sorted_records else Path("."))
+        grouping = (contextual_grouping if contextual_grouping is not None
+                    else build_contextual_grouping(tuple(sorted_records)))
+        validate_contextual_grouping(grouping)
+        expected_refs = {record.path.relative_to(root).as_posix() for record in sorted_records}
+        actual_refs = {ref for group in grouping.groups for ref in group.member_refs}
+        if actual_refs != expected_refs:
+            raise ValueError("contextual grouping must cover the same complete record snapshot")
+        for group in grouping.groups:
             for ref in group.member_refs:
                 event_ids[root / ref] = group.group_id
 
@@ -179,6 +190,9 @@ def plan_files(
             canonical_filenames[None] = (
                 f"{canonical_basename}{canonical_asset.records[0].canonical_extension}"
             )
+
+        for filename in canonical_filenames.values():
+            validate_component(filename)
 
         targets = {
             record.path: (output_path / folder / canonical_filenames[record.live_photo_role]
