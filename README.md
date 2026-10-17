@@ -70,7 +70,9 @@ pip install -e .
 
 ```bash
 photoforge <input_path> [--output <output_path>] [--json] [--apply] [--context]
-           [--timestamp-policy <policy.json>]
+           [--timestamp-policy <policy.json>] [--hash-workers <1..32>]
+           [--naming-config <rules.json>] [--verbosity quiet|normal|verbose]
+           [--progress] [--diff [--limit N]] [--confirm]
 ```
 
 ### Arguments
@@ -183,7 +185,7 @@ media files or sidecars.
 
 Read-only metadata context also includes camera make/model, keywords, GPS,
 sidecar provenance, candidate comparisons and immediate-folder batch
-classification. These diagnostics do not alter canonical naming or planning.
+classification. Diagnostics themselves do not change planning; an explicit naming configuration may use camera fields.
 
 ---
 
@@ -275,7 +277,7 @@ Properties:
 
 - computed from `FileRecord` set
 - independent from duplicate grouping
-- does not affect planning
+- affects planning only through explicit naming-config event opt-in
 - produces `ContextualGrouping`
 
 Output is included only when:
@@ -345,7 +347,7 @@ This applies to:
 - no file deletion
 - no overwriting existing files
 - no metadata rewriting
-- no concurrency
+- serial by default; explicit bounded parallel hashing is available
 - no external state
 
 ---
