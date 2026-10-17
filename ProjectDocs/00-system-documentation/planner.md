@@ -22,7 +22,8 @@ The planner does **not**:
 - extract EXIF metadata
 - compute hashes
 - classify corrupt files
-- perform contextual grouping
+- recompute contextual grouping supplied by the pipeline; direct event-enabled
+  callers may compute one grouping when none is supplied
 - modify files
 
 ---
@@ -40,6 +41,8 @@ Function:
         records: Iterable[FileRecord],
         output_path: Path | None = None,
         corrupt_files: Iterable[CorruptFile] = (),
+        *, naming_rules: NamingRules | None = None,
+        contextual_grouping: ContextualGrouping | None = None,
     ) -> PlanResult
 
 ### Requirements
@@ -335,3 +338,19 @@ It defines:
 - how files are grouped and named
 
 It does not execute those actions and does not modify input data.
+
+
+## Explicit naming integration
+
+`plan_files(..., naming_rules=None, contextual_grouping=None)` preserves the
+canonical default layout. Explicit NamingRules govern the filename/folder
+consumer described by SPEC.md section 21, including camera and event fields.
+Event naming uses the supplied complete scan grouping; direct calls without
+one compute grouping once locally. It never changes duplicate equality or
+canonical ranking. The canonical still supplies naming context for a Live Photo.
+
+Validate each final filename after appending its normalized extension and each
+rendered folder component before returning a plan. The 120-character bound
+therefore includes extensions. Windows reserved stems ignore pre-dot spaces;
+unsafe targets fail before application. Collisions remain explicit and never
+trigger automatic disambiguation or overwrite.
