@@ -28,6 +28,13 @@ This version includes:
 
 ---
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, validation,
+synthetic-fixture safety and the contribution/review process.
+
+---
+
 ## Specification
 
 - `SPEC.md` defines the current behavior contract
