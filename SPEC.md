@@ -352,12 +352,12 @@ Contextual grouping:
 
 - is computed from the complete set of valid FileRecord objects
 - is independent from duplicate grouping and canonical selection
-- does not influence planner behavior
+- does not influence planner behavior except explicit naming-config group opt-in (section 21)
 
 Planner:
 
 - operates only on FileRecord and CorruptFile inputs
-- is not affected by contextual grouping
+- is not affected by contextual grouping except that explicit opt-in
 
 Grouping and planning are parallel outputs of the pipeline.
 
@@ -448,7 +448,7 @@ Contextual grouping:
 - operates on `FileRecord` set
 - produces `ContextualGrouping`
 - independent from duplicate grouping
-- does not affect planning
+- does not affect planning except explicit naming-config group opt-in (section 21)
 
 Grouping rule:
 
@@ -562,3 +562,46 @@ Parallel hashing is opt-in because small files and storage contention can make
 it slower. `scripts/benchmark_scanning.py` measures representative synthetic
 small-file and large-file sets, peak Python allocations and serial/parallel
 ScanResult/plan/report equality. Timings are diagnostic, not CI thresholds.
+
+
+## 21. Explicit naming and organization rules
+
+`--naming-config rules.json` selects UTF-8 JSON with integer `version: 1` and
+only optional `filename`, `folder`, `use_context_groups` keys. Unknown keys,
+wrong types, versions and unsafe templates fail before application. There is no
+auto-discovered config or environment override: library defaults < explicitly
+supplied configuration fields. Omitted fields use the existing canonical
+filename and `YYYY/MM/DD` folder layout. CLI and library share NamingRules.
+
+Templates contain literal portable ASCII letters, numbers, `.`, `_`, `-`, and
+spaces, plus exact `{year}`, `{month}`, `{day}`, `{hour}`, `{minute}`, `{second}`,
+`{hash}`, `{short_hash}`, `{camera_make}`, `{camera_model}`, `{event}` fields.
+Numeric fields are zero-padded; hashes refer to the complete canonical asset.
+No expressions, attribute access, conversion or formatting specifiers exist.
+`filename` is a basename without the appended normalized extension. Only
+`folder` permits `/` separators and custom folders require `--output`.
+
+Camera metadata is NFKC-normalized; non-ASCII/nonportable runs become `_`,
+leading/trailing dots/underscores are stripped, values are limited to 80
+characters and empty/missing values become `unknown`. Reserved Windows device
+names gain `_`. Every rendered path component must be nonempty, at most 120
+characters, not traversal or a reserved name, and have no trailing dot/space.
+Unsafe literals fail rather than being silently interpreted as paths.
+
+`{event}` requires explicit boolean `use_context_groups: true`; it is the full
+existing deterministic 300-second structural group ID of the canonical primary
+record. This is the sole deliberate opt-in exception to grouping/planning
+separation. `--context` remains presentation-only. No semantic event inference
+or GPS naming is introduced. Review/acceptance of this specification change
+is required before merge and public use.
+
+A Live Photo uses the still's metadata and template output for both components,
+with distinct normalized extensions and shared basename/folder. Canonical
+ranking and exact equality are unchanged. In-plan/existing-target collisions
+remain explicit and non-overwriting; either pair component collision blocks
+both. Sanitization collisions are not automatically disambiguated.
+
+Filename timestamp extraction additionally accepts `YYYYMMDDHHMMSS` and
+`YYYY-MM-DDTHH-MM-SS`; these datetime patterns precede date-only matches at
+the same position, retain left-to-right precedence and claim no timezone.
+Existing source precedence and timestamp policy still apply.

@@ -6,6 +6,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
 
+from .naming import NamingRules, render_template
+
 from .model import (
     CorruptFile,
     FileRecord,
@@ -136,8 +138,22 @@ def plan_files(
     records: Iterable[FileRecord],
     output_path: Path | None = None,
     corrupt_files: Iterable[CorruptFile] = (),
+    *,
+    naming_rules: NamingRules | None = None,
 ) -> PlanResult:
+    rules = naming_rules or NamingRules()
+    if output_path is None and rules.folder != NamingRules().folder:
+        raise ValueError("custom folder rules require an output directory")
     sorted_records = _sorted_records(records)
+    event_ids = {}
+    if rules.use_context_groups and sorted_records:
+        import os
+        from .grouping import build_contextual_grouping
+        root = Path(os.path.commonpath([str(r.path.parent) for r in sorted_records]))
+        for group in build_contextual_grouping(tuple(sorted_records)).groups:
+            for ref in group.member_refs:
+                event_ids[root / ref] = group.group_id
+
     grouped_assets = _group_assets(_build_assets(sorted_records))
 
     planned_records: list[PlannedRecord] = []
@@ -146,7 +162,11 @@ def plan_files(
 
     for asset_hash, group in grouped_assets:
         canonical_asset = _select_canonical(group)
-        canonical_basename = _build_canonical_basename(canonical_asset)
+        primary = canonical_asset.primary
+        event = event_ids.get(primary.path)
+        canonical_basename = render_template(rules.filename, primary, asset_hash, event)
+        folder = render_template(rules.folder, primary, asset_hash, event)
+
         timestamp_year = canonical_asset.primary.timestamp.strftime("%Y")
         timestamp_month = canonical_asset.primary.timestamp.strftime("%m")
         timestamp_day = canonical_asset.primary.timestamp.strftime("%d")
@@ -161,14 +181,15 @@ def plan_files(
             )
 
         targets = {
-            record.path: _resolve_target_path(
+            record.path: (output_path / folder / canonical_filenames[record.live_photo_role]
+                          if output_path is not None else _resolve_target_path(
                 source_path=record.path,
                 canonical_filename=canonical_filenames[record.live_photo_role],
                 timestamp_year=timestamp_year,
                 timestamp_month=timestamp_month,
                 timestamp_day=timestamp_day,
                 output_path=output_path,
-            )
+            ))
             for record in canonical_asset.records
         }
         has_collision = any(
