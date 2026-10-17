@@ -141,7 +141,10 @@ def scan_directory(
     input_path: Path,
     *,
     timestamp_policy: TimestampPolicy | None = None,
+    hash_workers: int = 1,
 ) -> ScanResult:
+    if type(hash_workers) is not int or not 1 <= hash_workers <= 32:
+        raise ValueError("hash_workers must be an integer between 1 and 32")
     root_path = _validate_input_directory(input_path)
     discovered_paths = discover_files(root_path)
     policy = timestamp_policy or TimestampPolicy()
@@ -233,29 +236,6 @@ def scan_directory(
             )
             continue
 
-        try:
-            sha256 = compute_sha256(path)
-        except OSError as exc:
-            _record_corrupt_file(
-                skipped=skipped,
-                issues=issues,
-                path=path,
-                reason="corrupt_file_unreadable",
-                code="corrupt_file_unreadable",
-                message=str(exc),
-            )
-            continue
-        except Exception as exc:
-            _record_corrupt_file(
-                skipped=skipped,
-                issues=issues,
-                path=path,
-                reason="corrupt_hash_failed",
-                code="corrupt_hash_failed",
-                message=str(exc),
-            )
-            continue
-
         gps_latitude = exif_context.gps_latitude
         gps_longitude = exif_context.gps_longitude
         if gps_latitude is None:
@@ -279,9 +259,26 @@ def scan_directory(
                 gps_latitude=gps_latitude,
                 gps_longitude=gps_longitude,
                 xmp_sidecar=xmp_metadata.path,
-                sha256=sha256,
+                sha256="",
             )
         )
+
+    # Hash only metadata-valid candidates. Results are consumed in discovery
+    # order; the bounded executor cannot make output depend on completion order.
+    from .hashing import ordered_hashes
+    hashed_media: list[_PreparedMedia] = []
+    for prepared, outcome in zip(
+        prepared_media,
+        ordered_hashes((item.path for item in prepared_media), hash_workers,
+                       hash_function=compute_sha256),
+    ):
+        if isinstance(outcome, Exception):
+            reason = ("corrupt_file_unreadable" if isinstance(outcome, OSError)
+                      else "corrupt_hash_failed")
+            _record_corrupt_file(skipped, issues, prepared.path, reason, reason, str(outcome))
+        else:
+            hashed_media.append(replace(prepared, sha256=outcome))
+    prepared_media = hashed_media
 
     trusted_device_offsets = _trusted_device_offsets(prepared_media)
     inconsistent_paths: set[Path] = set()

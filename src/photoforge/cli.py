@@ -47,6 +47,8 @@ def build_parser() -> argparse.ArgumentParser:
         metavar="policy.json",
         help="Apply explicit deterministic timestamp correction and inference rules",
     )
+    parser.add_argument("--hash-workers", type=int, choices=range(1, 33), default=1,
+                        metavar="1..32", help="Bounded parallel full-content hashing (default: 1)")
     return parser
 
 
@@ -86,7 +88,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.timestamp_policy is not None
         else None
     )
-    scan_result = scan_directory(input_path, timestamp_policy=timestamp_policy)
+    scan_result = scan_directory(input_path, timestamp_policy=timestamp_policy, hash_workers=args.hash_workers)
 
     corrupt_files = [
         CorruptFile(path=s.path, error_type=s.reason)

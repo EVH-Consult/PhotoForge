@@ -32,7 +32,7 @@ All behavior is deterministic.
 
 ```bash
 photoforge <input_path> [--output <output_path>] [--json] [--apply] [--context]
-           [--timestamp-policy <policy.json>]
+           [--timestamp-policy <policy.json>] [--hash-workers <1..32>]
 ```
 
 ### Flags
@@ -534,8 +534,31 @@ No randomness allowed.
 - no perceptual hashing
 - no file deletion
 - no overwrite
-- no concurrency
+- concurrency is limited to explicit bounded full-content hashing (section 20)
 - no external state
 - no implicit or explicit metadata rewriting
 - no automatic GPS-based naming/grouping
 - no hidden or prompt-only timestamp corrections
+
+
+## 20. Performance and snapshot contract
+
+`--hash-workers N` accepts integers 1..32, default 1. Only full-content SHA-256
+hashing of metadata-valid candidates is parallelized. At most 2*N jobs are
+queued; metadata, timestamp inference, pair annotation and planning remain
+ordered. Hash failures retain their existing corrupt classifications. Results
+are consumed in discovery order regardless of worker completion order.
+
+A scan is a logical snapshot of an input tree that the caller must keep stable
+until scanning completes; it is not an operating-system atomic snapshot.
+Concurrent external mutation is unsupported. A completed ScanResult may be
+reused for that same logical snapshot (including the CLI's single pipeline
+invocation). After any media, sidecar, timestamp-policy or filesystem change,
+rescan. No persistent path/size/mtime cache is trusted or created: even equal
+sizes and restored mtimes require fresh full-content hashes. Size partitions
+cannot prove content equality and never omit hashing of singleton sizes.
+
+Parallel hashing is opt-in because small files and storage contention can make
+it slower. `scripts/benchmark_scanning.py` measures representative synthetic
+small-file and large-file sets, peak Python allocations and serial/parallel
+ScanResult/plan/report equality. Timings are diagnostic, not CI thresholds.

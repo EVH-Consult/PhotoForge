@@ -70,7 +70,7 @@ pip install -e .
 
 ```bash
 photoforge <input_path> [--output <output_path>] [--json] [--apply] [--context]
-           [--timestamp-policy <policy.json>]
+           [--timestamp-policy <policy.json>] [--hash-workers <1..32>]
 ```
 
 ### Arguments
@@ -345,7 +345,7 @@ This applies to:
 - no file deletion
 - no overwriting existing files
 - no metadata rewriting
-- no concurrency
+- serial by default; explicit bounded parallel hashing is available
 - no external state
 
 ---
@@ -368,3 +368,12 @@ Before applying:
 - review planned actions
 - test on a small dataset
 - ensure backups exist
+
+
+### Large libraries
+
+Use `--hash-workers 4` to opt into bounded parallel full-content hashing; the
+default remains serial. Keep the input tree stable until scanning completes.
+Every run reads fresh media/sidecar metadata and full hashes; there is no
+persistent stat-based cache. See SPEC.md section 20 and run
+`python scripts/benchmark_scanning.py` for reproducible synthetic comparisons.
