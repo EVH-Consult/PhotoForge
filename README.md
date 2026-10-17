@@ -70,7 +70,7 @@ pip install -e .
 
 ```bash
 photoforge <input_path> [--output <output_path>] [--json] [--apply] [--context]
-           [--timestamp-policy <policy.json>]
+           [--timestamp-policy <policy.json>] [--hash-workers <1..32>]
 ```
 
 ### Arguments
@@ -345,7 +345,7 @@ This applies to:
 - no file deletion
 - no overwriting existing files
 - no metadata rewriting
-- no concurrency
+- serial by default; explicit bounded parallel hashing is available
 - no external state
 
 ---

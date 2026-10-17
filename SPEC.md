@@ -32,7 +32,7 @@ All behavior is deterministic.
 
 ```bash
 photoforge <input_path> [--output <output_path>] [--json] [--apply] [--context]
-           [--timestamp-policy <policy.json>]
+           [--timestamp-policy <policy.json>] [--hash-workers <1..32>]
 ```
 
 ### Flags
