@@ -32,7 +32,8 @@ All behavior is deterministic.
 
 ```bash
 photoforge <input_path> [--output <output_path>] [--json] [--apply] [--context]
-           [--timestamp-policy <policy.json>]
+           [--timestamp-policy <policy.json>] [--hash-workers <1..32>]
+           [--naming-config <rules.json>]
 ```
 
 ### Flags
@@ -356,7 +357,7 @@ Contextual grouping:
 
 Planner:
 
-- operates only on FileRecord and CorruptFile inputs
+- operates on FileRecord/CorruptFile inputs plus explicit NamingRules (section 21)
 - is not affected by contextual grouping except that explicit opt-in
 
 Grouping and planning are parallel outputs of the pipeline.
