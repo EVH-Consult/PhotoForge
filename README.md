@@ -368,3 +368,12 @@ Before applying:
 - review planned actions
 - test on a small dataset
 - ensure backups exist
+
+
+### Large libraries
+
+Use `--hash-workers 4` to opt into bounded parallel full-content hashing; the
+default remains serial. Keep the input tree stable until scanning completes.
+Every run reads fresh media/sidecar metadata and full hashes; there is no
+persistent stat-based cache. See SPEC.md section 20 and run
+`python scripts/benchmark_scanning.py` for reproducible synthetic comparisons.
